@@ -27,3 +27,20 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// box shadow
+// @mixin boxShadow($w, $h, $b, $r, $color) {
+// 	-webkit-box-shadow: $w $h $b $r $color;
+// 	box-shadow: $w $h $b $r $color;
+// }
+@mixin box-shadow($top, $left, $blur, $r, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $r $color;
+    -moz-box-shadow:inset $top $left $blur $r $color;
+    box-shadow:inset $top $left $blur $r $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $r $color;
+    -moz-box-shadow: $top $left $blur $r $color;
+    box-shadow: $top $left $blur $r $color;
+  }
+}

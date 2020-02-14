@@ -14,6 +14,15 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="footer-info">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">block</div>
+					<div class="col-md-4">block</div>
+					<div class="col-md-4">block</div>
+				</div>
+			</div>
+		</div>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'chystota' ) ); ?>">
 				<?php

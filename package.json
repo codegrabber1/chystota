@@ -23,6 +23,15 @@
   },
   "homepage": "https://github.com/codegrabber1/chystota#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect-php7": "^1.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-remember": "^1.0.1",
+    "gulp-sass": "^4.0.2",
+    "multipipe": "^3.0.1"
   }
 }

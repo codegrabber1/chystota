@@ -3,7 +3,24 @@
 	margin: 0 (-$size__site-sidebar) 0 0;
 	width: $size__site-main;
 }
+.site-header {
+    margin: 0 0 20px 0;
+    padding: 0;
+    background: #fff;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
 
+}
+
+.site-header li {
+    display: inline-block;
+    border: 1px soli red;
+}
+.site-header li:first-child {
+    margin-right: 20px;
+}
+.header-logo {
+    margin: 0 auto;
+}
 .site-main {
 	margin: 0 $size__site-sidebar 0 0;
 }
@@ -17,6 +34,7 @@
 .site-footer {
 	clear: both;
 	width: $size__site-main;
+    background-color: $color__background-blocks;
 }
 
 @import "no-sidebar";
