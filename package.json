@@ -1,0 +1,28 @@
+{
+  "name": "chystota",
+  "version": "1.0.0",
+  "description": "Cleaning company. Clean all your possessions and furniture",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codegrabber1/chystota.git"
+  },
+  "keywords": [
+    "Furniture",
+    "cleaning",
+    "clean",
+    "sofa"
+  ],
+  "author": "O.Poruchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codegrabber1/chystota/issues"
+  },
+  "homepage": "https://github.com/codegrabber1/chystota#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
