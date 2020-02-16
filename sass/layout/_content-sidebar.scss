@@ -4,23 +4,29 @@
 	width: $size__site-main;
 }
 .site-header {
-    margin: 0 0 20px 0;
+    margin: 0;
     padding: 0;
     background: #fff;
     @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
-
 }
 
 .site-header li {
     display: inline-block;
     border: 1px soli red;
+    margin-right: 10px;
+}
+.site-header li a {
+    color: $color__menu-link;
+    text-decoration: none;
+}
+.site-header li a:hover,
+.site-header li a.active {
+    color: $color__active-menulink;
 }
 .site-header li:first-child {
     margin-right: 20px;
 }
-.header-logo {
-    margin: 0 auto;
-}
+
 .site-main {
 	margin: 0 $size__site-sidebar 0 0;
 }
@@ -35,6 +41,49 @@
 	clear: both;
 	width: $size__site-main;
     background-color: $color__background-blocks;
+    color: $color__text-footer;
+    padding: 50px  0;
 }
+.f_widget {
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 119%;
+}
+.f_widget .f-title {
+    color: $color__text-footer-title;
+}
+.f_widget .f-content {
+    margin: 8px 0;
+}
+.f_widget .f-content li {
+    line-height: 30px;
+
+}
+.f_widget .f-content .f-social > li {
+    display: inline-block;
+    padding: 5px 10px;
+}
+.f_widget .f-content .f-social > li a .fa {
+    @include font-size(1.6);
+}
+.f-social {
+    width: 60%;
+    float: right;
+}
+.f_widget .f-content a {
+    color: $color__text-footer;
+    text-decoration: none;
+    display: block;
+}
+.f_widget .f-title::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 80%;
+    margin-top: 4px;
+    background-color: $color__text-footer-title;
+}
+
 
 @import "no-sidebar";

@@ -38,4 +38,12 @@ jQuery(document).ready(function($){
         $(".main-mnu").slideToggle();
         return false;
     }); // end sidebar menu.
+
+    let classArr = ["sofa, carpet, mattress"];
+
+    for(let $i = 0; $i < classArr.length; $i++){
+        $('.block-item').find("*").addClass($var);
+    }
+    //$('.block-item').addClass( "sofa, carpet, mattress" );
+
 });// end ready

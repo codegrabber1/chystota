@@ -24,9 +24,9 @@
 <div id="page" class="site">
 
 	<header id="masthead" class="site-header">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-4 col-sm-3 order-sm-1 col-md-6 order-md-2">
+				<div class="col-2 order-sm-1 col-md-2 col-lg-6 order-md-2">
 					<nav id="site-navigation" class="main-navigation">
 						<div class="mobile-mnu d-lg-none clearfix">
 							<h1 class="site-title">
@@ -47,7 +47,7 @@
 						?>
 					</nav><!-- #site-navigation -->
 				</div>
-				<div class="col-8 col-sm-4 order-sm-2 col-md-3 order-md-1">
+				<div class="col-10 order-sm-2 col-md-4 col-lg-2 order-md-1">
 					<div class="site-branding">
 						<div class="header-logo">
                             <p>
@@ -58,9 +58,14 @@
                         </div>
 					</div><!-- .site-branding -->
 				</div>
-				<div class="col-12 col-sm-5 order-sm-3 col-md-3 order-md-3">
+				<div class="col-12 order-sm-3 col-md-6 col-lg-4 order-md-3">
 					<ul class="header-info">
-						<li>+380(68) 685 95 19</li>
+						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
+						<li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
+						<?php endif; ?>
+						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
+						<li style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
+						<?php endif;?>
 						<li><a href="#" class="active">Львів</a></li>
 						<li><a href="#" class="">Киів</a></li>
 					</ul>

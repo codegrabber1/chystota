@@ -18,11 +18,17 @@ if ( ! function_exists( 'chystota_setup' ) ) :
     function chystota_setup() {
 
         /**
-         * Load up our required theme files and widgets.
+         * Load up our required theme files.
          *
          */
         require( get_template_directory() . "/framework/options/site_options.php" );
         require( get_template_directory() . "/framework/options/option_functions.php" );
+
+        /**
+         * Load up rewuired widgets.
+         *
+         */
+         require( get_template_directory() . "/framework/widgets/feature_widget.php" );
 
         /*
          * Make theme available for translation.
@@ -121,6 +127,17 @@ function chystota_widgets_init() {
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
     ) );
+
+     /**
+     * Creates a sidebar
+     * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+     */
+    $args = array(
+        'name' => esc_html__( 'Feature', 'chystota' ),
+        'id'    => 'feature',
+        'description' => esc_html__( 'Add this widgets here to show your features', 'chystota' )
+    );
+    register_sidebar( $args );
 }
 add_action( 'widgets_init', 'chystota_widgets_init' );
 

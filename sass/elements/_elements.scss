@@ -10,6 +10,7 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	min-width: 320px;
 }
 
 hr {
@@ -28,6 +29,15 @@ img {
 
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+section {
+
 }
 
 @import "tables";
