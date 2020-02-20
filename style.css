@@ -498,6 +498,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
+  width: 100%;
   color: #666;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -520,6 +521,13 @@ textarea {
   textarea:focus {
     color: #111; }
 
+input[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  color: #fff;
+  background-color: #000; }
+
 select {
   border: 1px solid #ccc; }
 
@@ -533,9 +541,10 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #21A068; }
+  color: #21A068;
+  text-decoration: none; }
   a:visited {
-    color: purple; }
+    color: #21A068; }
   a:hover, a:focus, a:active {
     color: #111; }
   a:focus {
@@ -972,7 +981,8 @@ a {
 .mattress {
   background-color: #86ADC2; }
 
-.sofa {
+.sofa,
+.order-block {
   background-color: #21A068; }
 
 .carpet {
@@ -1026,6 +1036,83 @@ a {
 
 .carpet p.link-more > a {
   color: #222222; }
+
+.reviews,
+.order-form,
+.s_blocks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center; }
+
+.reviews,
+.order-form {
+  flex-direction: row; }
+
+.reviews {
+  justify-content: space-around; }
+
+.order-form {
+  justify-content: space-between; }
+
+.s_blocks {
+  flex-direction: column; }
+
+.reviews,
+.s_blocks {
+  padding: 80px 0; }
+
+.order-block {
+  color: #fff;
+  height: 545px;
+  position: relative; }
+
+.order_content {
+  width: 70%;
+  margin: 0 auto;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0; }
+
+.order_content input[type="submit"] {
+  margin: 15px 0;
+  border-radius: 3px;
+  border: 0;
+  padding: 15px; }
+
+.order_content input[type="tel"] {
+  padding: 10px;
+  border-radius: 3px; }
+
+.order-block,
+.adver-pict {
+  flex: 1 50%;
+  align-self: stretch;
+  box-sizing: border-box; }
+
+.block {
+  margin: 20px 0;
+  text-align: center; }
+
+.block h2 {
+  margin: 0;
+  padding: 0; }
+
+.block .socials {
+  background-color: #21A068;
+  padding: 5px 10px;
+  color: #fff;
+  margin: 0 5px;
+  border-radius: 10px;
+  width: 130px;
+  display: inline-block;
+  text-align: left; }
+
+.socials .svg-inline--fa {
+  margin-right: 8px;
+  font-size: 20.8px;
+  font-size: 1.3rem; }
 
 /*--------------------------------------------------------------
 ## Comments

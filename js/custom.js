@@ -39,11 +39,17 @@ jQuery(document).ready(function($){
         return false;
     }); // end sidebar menu.
 
-    let classArr = ["sofa, carpet, mattress"];
 
-    for(let $i = 0; $i < classArr.length; $i++){
-        $('.block-item').find("*").addClass($var);
-    }
+    // Adding different classes to the features blocks.
+    $('.block-item:nth-child(1)').each(function(){
+            $(this).addClass("sofa");
+        });
+    $('.block-item:nth-child(2)').each(function(){
+            $(this).addClass("carpet");
+        });
+    $('.block-item:nth-child(3)').each(function(){
+            $(this).addClass("mattress");
+        });
     //$('.block-item').addClass( "sofa, carpet, mattress" );
 
 });// end ready

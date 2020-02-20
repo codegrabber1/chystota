@@ -42,7 +42,8 @@
 .mattress {
     background-color: $color__background-mattress;
 }
-.sofa {
+.sofa,
+.order-block {
     background-color: $color__background-sofa;
 }
 .carpet {
@@ -57,11 +58,13 @@
    height: 100%;
    padding-left: 24px;
    padding-top: 50px;
+   //border: 1px solid red;
 }
 .block-content h1 {
     margin: 0;
     padding: 0;
     line-height: 43px;
+
 }
 .block-content p {
     margin: 10px 0;
@@ -97,4 +100,81 @@
 }
 .carpet p.link-more > a {
     color: $color__inverted-link;
+}
+.reviews,
+.order-form,
+.s_blocks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: center;
+}
+.reviews,
+.order-form {
+    flex-direction: row;
+}
+.reviews {
+    justify-content: space-around;
+}
+.order-form {
+    justify-content: space-between;
+
+}
+.s_blocks {
+    flex-direction: column;
+}
+.reviews,
+.s_blocks {
+    padding: 80px 0;
+}
+.order-block {
+    color: $color__text-footer;
+    height: 545px;
+    position: relative;
+}
+.order_content {
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+}
+.order_content input[type="submit"] {
+    margin: 15px 0;
+    border-radius: 3px;
+    border: 0;
+    padding: 15px;
+}
+.order_content input[type="tel"] {
+    padding: 10px;
+    border-radius: 3px;
+}
+.order-block,
+.adver-pict {
+    flex: 1 50%;
+    align-self: stretch;
+    box-sizing: border-box;
+}
+.block {
+    margin: 20px 0;
+    text-align: center;
+}
+.block h2{
+    margin: 0;
+    padding: 0;
+}
+.block .socials{
+    background-color: $color__link;
+    padding: 5px 10px;
+    color: $color__text-footer;
+    margin: 0 5px;
+    border-radius: 10px;
+    width: 130px;
+    display: inline-block;
+    text-align: left;
+}
+.socials .svg-inline--fa {
+    margin-right: 8px;
+    @include font-size(1.3);
 }

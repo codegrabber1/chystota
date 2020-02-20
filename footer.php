@@ -47,13 +47,13 @@
 								<ul class="f-social clearfix">
 									<?php if( mcw_get_option( 'mcw_fb_url' ) ):?>
 									<li><a href="<?php echo mcw_get_option( 'mcw_fb_url' )?>">
-										<i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+										<i class="fab fa-facebook"></i></a></li>
 									<?php endif;?>
 									<?php if( mcw_get_option( 'mcw_inst_url' ) ):?>
-									<li><a href="<?php echo mcw_get_option( 'mcw_inst_url' )?>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a href="<?php echo mcw_get_option( 'mcw_inst_url' )?>"><i class="fab fa-instagram"></i></a></li>
 									<?php endif;?>
 									<?php if( mcw_get_option( 'mcw_youtube_url' ) ):?>
-									<li><a href="<?php echo mcw_get_option( 'mcw_youtube_url' )?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+									<li><a href="<?php echo mcw_get_option( 'mcw_youtube_url' )?>"><i class="fab fa-youtube"></i></a></li>
 									<?php endif;?>
 									<li><a href="#">linl 4</a></li>
 								</ul>
