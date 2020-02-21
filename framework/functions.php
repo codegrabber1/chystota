@@ -153,6 +153,8 @@ function chystota_scripts() {
 
     wp_enqueue_style( 'chystota-mmenucss', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.0.3/jquery.mmenu.all.css' );
 
+    wp_enqueue_style( 'chystota-owlcss', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' );
+
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
@@ -163,6 +165,8 @@ function chystota_scripts() {
 
     wp_enqueue_script( 'chystota-mmenujs', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.0.3/jquery.mmenu.all.js', array(), '20151215', true );
 
+    wp_enqueue_script( 'chystota-owljs', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
+
     wp_enqueue_script( 'chystota-myjs', get_template_directory_uri() . '/js/custom.js', array(), '', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -170,3 +174,24 @@ function chystota_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
+
+function mcw_get_first_cat(){
+    $category = get_the_category();
+
+    if ($category){
+
+        $output = "";
+        if (isset($category[0]->term_id)){
+
+            $cat1_id = $category[0]->term_id;
+            $wt_category_meta = get_option( "wt_category_meta_color_$cat1_id" );
+            $output .= '<span class="entry-cat-bg main-color-bg cat'.$cat1_id.'-bg">';
+            $output .= '<i class="fa fa-folder"></i>';
+            $output .= '<a href="' . get_category_link( $category[0]->term_id ) . '">' . $category[0]->name.'</a>';
+            $output .= '</span>';
+        }
+
+        echo $output;
+
+    }
+}

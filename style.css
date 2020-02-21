@@ -1115,6 +1115,77 @@ a {
   font-size: 1.3rem; }
 
 /*--------------------------------------------------------------
+## Discount page
+--------------------------------------------------------------*/
+.discount-main {
+  background-color: #F8F8F8;
+  padding: 50px 0; }
+
+.discount {
+  text-align: center;
+  margin: 0 30px; }
+
+.discount h3 {
+  font-weight: bold; }
+
+.discount img {
+  width: 80px !important;
+  margin: 0 auto; }
+
+/*--------------------------------------------------------------
+## Frequently asked page
+--------------------------------------------------------------*/
+.discount-header {
+  margin: 40px; }
+
+.discount-header,
+.discount-head {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28.8px;
+  font-size: 1.8rem; }
+
+.accordion-container {
+  position: relative;
+  height: auto;
+  margin: 30px auto; }
+
+.set {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #f5f5f5; }
+
+.set > a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #21A068;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+
+.set > a .svg-inline--fa {
+  float: right;
+  margin-top: 2px; }
+
+.set > a.active {
+  background-color: #fff;
+  color: #21A068; }
+
+.content {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  display: none; }
+
+.content p {
+  padding: 10px 15px;
+  margin: 0;
+  color: #333; }
+
+/*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 .comment-content a {

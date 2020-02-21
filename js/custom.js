@@ -50,6 +50,67 @@ jQuery(document).ready(function($){
     $('.block-item:nth-child(3)').each(function(){
             $(this).addClass("mattress");
         });
-    //$('.block-item').addClass( "sofa, carpet, mattress" );
 
+    // Accordion for the faq page.
+    $(".set > a").on("click", function() {
+        if ($(this).hasClass("active")) {
+          $(this).removeClass("active");
+          $(this)
+            .siblings(".content")
+            .slideUp(200);
+          $(".set > a .svg-inline--fa")
+            .removeClass("fa-angle-up")
+            .addClass("fa-angle-down");
+        } else {
+          $(".set > a .svg-inline--fa")
+            .removeClass("fa-angle-up")
+            .addClass("fa-angle-down");
+          $(this)
+            .find(".svg-inline--fa")
+            .removeClass("fa-angle-down")
+            .addClass("fa-angle-up");
+          $(".set > a").removeClass("active");
+          $(this).addClass("active");
+          $(".content").slideUp(200);
+          $(this)
+            .siblings(".content")
+            .slideDown(200);
+        }
+    });
+
+  // Carousel on the discount page.
+   $('#discount-block').owlCarousel({
+    loop:false,
+    items: 3,
+    stagePadding: 20,
+    //margin: 10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items: 1.25,
+            nav: false,
+            center: true,
+            stagePadding: 20,
+        },
+        600:{
+            items: 1.25,
+            nav: false,
+            center: true,
+            stagePadding: 20,
+
+        },
+        992:{
+            items: 2.20,
+            nav: false,
+            stagePadding: 20,
+            loop:false
+        },
+        1000:{
+            items: 2.20,
+            nav: false,
+            stagePadding: 20,
+            loop:false
+        }
+    }
+    })
 });// end ready

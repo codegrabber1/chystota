@@ -187,25 +187,46 @@ function mcw_theme_options_page(){
                             <h2><?php _e( 'Set categories', 'chystota' );?></h2>
                             <div class="fields_wrap">
                                 <div class="field">
-                                    <h3><?php _e( 'Choose category for photo gallery', 'chystota' );?></h3>
-                                    <label for="mcw_options[photo_category]"><?php _e( 'Photo Category', 'chystota' )?></label>
+                                    <h3><?php _e( 'Choose a category for the FAQ page', 'chystota' );?></h3>
+                                    <label for="mcw_options[faq_category]"><?php _e( 'Photo Category', 'chystota' )?></label>
 
-                                    <select name="mcw_options[photo_category]" id="mcw_options[photo_category]" class="styled">
+                                    <select name="mcw_options[faq_category]" id="mcw_options[faq_category]" class="styled">
                                         <?php
                                             $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ));
                                         ?>
-                                        <option <?php selected( 0 == $options['photo_category'] )?> value="0">
+                                        <option <?php selected( 0 == $options['faq_category'] )?> value="0">
                                             <?php _e( 'All categories', 'chystota' );?>
                                         </option>
                                         <?php
                                             if( $categories ):
                                              foreach( $categories as $cat ) : ?>
-                                                 <option <?php selected( $cat->term_id == $options['photo_category'] )?>
+                                                 <option <?php selected( $cat->term_id == $options['faq_category'] )?>
                                                          value="<?php echo $cat->term_id;?>"><?php echo $cat->cat_name?>
                                                  </option>
                                         <?php endforeach; endif;?>
                                     </select>
-                                    <span class="desc long"><?php _e( "Choose a category for a photo gallery.", 'chystota' ); ?></span>
+                                    <span class="desc long"><?php _e( "Choose a category for the FAQ page.", 'chystota' ); ?></span>
+                                </div>
+                                <div class="field">
+                                    <h3><?php _e( 'Choose a category for the discount page', 'chystota' );?></h3>
+                                    <label for="mcw_options[discount_category]"><?php _e( 'Discount Category', 'chystota' )?></label>
+
+                                    <select name="mcw_options[discount_category]" id="mcw_options[discount_category]" class="styled">
+                                        <?php
+                                            $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ));
+                                        ?>
+                                        <option <?php selected( 0 == $options['discount_category'] )?> value="0">
+                                            <?php _e( 'All categories', 'chystota' );?>
+                                        </option>
+                                        <?php
+                                            if( $categories ):
+                                             foreach( $categories as $cat ) : ?>
+                                                 <option <?php selected( $cat->term_id == $options['discount_category'] )?>
+                                                         value="<?php echo $cat->term_id;?>"><?php echo $cat->cat_name?>
+                                                 </option>
+                                        <?php endforeach; endif;?>
+                                    </select>
+                                    <span class="desc long"><?php _e( "Choose a category for the discount page.", 'chystota' ); ?></span>
                                 </div>
 
                                 <div class="field">
@@ -295,7 +316,8 @@ function mcw_default_options(){
          'mcw_youtube_url'      => '',
          'mcw_phone'            => '',
          'mcw_phone_kyiv'       => '',
-         'photo_category'       => 0,
+         'discount_category'    => 0,
+         'faq_category'         => 0,
          'video_category'       => 0,
          'contact_email'        => '',
          'mcw_homepage_title'   => get_bloginfo( 'name' ),
@@ -332,14 +354,24 @@ function mcw_validate_options( $input ){
 
 
 	    /**
-	     *  Photo category.
+         *  FAQ category.
+         */
+        $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );
+        $cat_ids = array();
+        foreach( $categories as $category )
+            $cat_ids[] = $category->term_id;
+        if( !in_array( $input['faq_category'], $cat_ids ) && ( $input['faq_category'] ) !=0 )
+            $input['faq_category'] = $options['faq_category'];
+
+        /**
+	     *  Discount category.
 	     */
         $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );
         $cat_ids = array();
         foreach( $categories as $category )
             $cat_ids[] = $category->term_id;
-        if( !in_array( $input['photo_category'], $cat_ids ) && ( $input['photo_category'] ) !=0 )
-	        $input['photo_category'] = $options['photo_category'];
+        if( !in_array( $input['discount_category'], $cat_ids ) && ( $input['discount_category'] ) !=0 )
+	        $input['discount_category'] = $options['discount_category'];
 
 	    /**
 	     *  Video category.
