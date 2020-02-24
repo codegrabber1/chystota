@@ -48,7 +48,7 @@ get_header();
                                 <div class="blog-item">
                                     <div class="item">
                                     <a href="<?php the_permalink()?>"><?php the_title();?></a>
-                                    <?php the_excerpt( '');?>
+                                    <?php the_excerpt( );?>
                                     </div>
                                 </div>
                              </div>

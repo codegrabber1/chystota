@@ -68,7 +68,7 @@ function chystota_feature_widgets() {
         ?>
         <div class="blocks clearfix">
             <?php while( $query->have_posts() ): $query->the_post(); ?>
-            <div class="block-item ">
+            <div class="block-item " >
                 <div class="block-content clearfix">
                     <h1><?php echo the_title();?></h1>
                     <p><?php the_content();?></p>
@@ -82,8 +82,6 @@ function chystota_feature_widgets() {
         <?php
         endif;wp_reset_query();
     }
-
-
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
 

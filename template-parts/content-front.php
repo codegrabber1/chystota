@@ -8,13 +8,25 @@
  */
 
 ?>
-<div class="blocks clearfix">
-    <div class="block-item ">
+<div class="blocks <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
+    <div class="item ">
         <div class="block-content clearfix">
-            <h1>Sofa cleaning</h1>
+            <h1><?php the_title();?></h1>
             <p>Descring the service in two rows Descring the service in two rowsDescring the service</p>
-            <span class='block-price'>від 150 грн.</span>
+            <div class="block-img">
+                <?php the_post_thumbnail( )?>
+            </div>
+
             <p class='link-more'><a href="#">Детальніше</a></p>
         </div>
     </div>
 </div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                prices!
+            </div>
+        </div>
+    </div>
+</section>
