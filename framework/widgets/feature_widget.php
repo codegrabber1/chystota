@@ -46,17 +46,20 @@ function chystota_feature_widgets() {
     function widget( $args, $instance ){
         extract( $args );
 
-        $categories      = $instance['category'];
-        $entries_display = $instance['entries_display'];
+        $categories_display      = $instance['category'];
+        $entries_display         = $instance['entries_display'];
 
         if( empty( $entries_display ) ) {
             $entries_display = '3';
         }
         $args = array(
-            'cat'                 => $categories,
+            'cat'                 => $categories_display,
             'post_type'           => 'post',
             'ignore_sticky_posts' => 1,
             'order'               => 'ASC',
+            'include'             => $categories_display,
+            'number'              => $entries_display,
+            'taxonomy'            => 'category',
             'post__not_in'        => [1],
             'posts_per_page'      => $entries_display
         );
@@ -64,7 +67,7 @@ function chystota_feature_widgets() {
         if( $query -> have_posts() ):
         ?>
         <div class="blocks clearfix">
-            <?php while( $query->have_posts() ): $query->the_post();?>
+            <?php while( $query->have_posts() ): $query->the_post(); ?>
             <div class="block-item ">
                 <div class="block-content clearfix">
                     <h1><?php echo the_title();?></h1>
@@ -100,22 +103,27 @@ function chystota_feature_widgets() {
 
         <p>
             <label for="<?php echo $this->get_field_id( 'entries_display' ); ?>">
-                <?php _e('How many features to display?', 'chystota'); ?></label>
-            <input type="text" id="<?php echo $this->get_field_id('entries_display'); ?>" name="<?php echo $this->get_field_name('entries_display'); ?>" value="<?php echo $instance['entries_display']; ?>" style="width:100%;" /></p>
+                <?php _e( 'How many features to display?', 'chystota' ); ?></label>
+            <input type="text"
+            id="<?php echo $this->get_field_id('entries_display'); ?>"
+            name="<?php echo $this->get_field_name('entries_display'); ?>"
+            value="<?php echo $instance['entries_display']; ?>" style="width:100%;" /></p>
 
         <p>
         <label for="<?php echo $this->get_field_id( 'category' ); ?>">
-            <?php _e( 'Filter by Category:', 'chystota' ); ?></label>
+            <?php _e( 'Filter by Category:', 'chystota' ); ?>
+
+            </label>
         <select
             name="<?php echo $this->get_field_name( 'category' )?>"
             id="<?php echo $this->get_field_id( 'category' )?>"
             class="widefat categories" style="width:100%;">
-          <?php $categories = get_categories( 'hide_empty=0&depth=1&type=post' )?>
-          <?php foreach( $categories as $cat ):?>
+          <?php $categories_display = get_categories( 'hide_empty=0&depth=1&type=post' )?>
+          <?php foreach( $categories_display as $cat ):?>
               <option value="<?php echo $cat->term_id; ?>"
                 <?php if( $cat->term_id == $instance['category'] ) echo 'selected="selected"'?>>
-                <?php echo $cat->cat_name; ?>
-              </option>
+            <?php echo $cat->cat_name; ?>
+          </option>
           <?php endforeach; ?>
         </select>
         <?php

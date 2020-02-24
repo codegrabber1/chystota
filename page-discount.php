@@ -14,7 +14,7 @@
 get_header();
 ?>
 <div id="primary" class="content-area">
-    <main id="main" class="site-main discount-main">
+    <main id="main" class="discount-main">
         <div class="">
             <div class="">
                 <div class="">
@@ -26,7 +26,7 @@ get_header();
                         $args = array(
                             'cat' => $dId,
                             'post_status'           => 'published',
-                            'ignore_stycky_posts'   => 1,
+                            'ignore_sticky_posts'   => 1,
                             'post__not_in' => get_option('sticky_posts'),
                          );
                         $wp_query = new WP_Query( $args );

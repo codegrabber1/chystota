@@ -852,7 +852,8 @@ a {
   margin: 0 -25% 0 0;
   width: 100%; }
 
-.site-header {
+.site-header,
+.blog-content {
   margin: 0;
   padding: 0;
   background: #fff;
@@ -1184,6 +1185,20 @@ a {
   padding: 10px 15px;
   margin: 0;
   color: #333; }
+
+/*--------------------------------------------------------------
+## Blog page
+--------------------------------------------------------------*/
+.blog-content {
+  display: flex;
+  flex-direction: row; }
+
+.item {
+  margin: 10px 40px; }
+
+.item a {
+  margin: 20px 0 auto;
+  display: block; }
 
 /*--------------------------------------------------------------
 ## Comments

@@ -1,0 +1,11 @@
+.blog-content{
+    display: flex;
+    flex-direction: row;
+}
+.item{
+    margin: 10px 40px;
+}
+.item a {
+    margin: 20px 0 auto;
+    display: block;
+}

@@ -3,7 +3,8 @@
 	margin: 0 (-$size__site-sidebar) 0 0;
 	width: $size__site-main;
 }
-.site-header {
+.site-header,
+.blog-content {
     margin: 0;
     padding: 0;
     background: #fff;

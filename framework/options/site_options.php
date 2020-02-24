@@ -230,24 +230,24 @@ function mcw_theme_options_page(){
                                 </div>
 
                                 <div class="field">
-                                    <h3><?php _e( 'Choose category for video gallery', 'chystota' );?></h3>
-                                    <label for="mcw_options[video_category]"><?php _e( 'Video Category', 'chystota' );?></label>
-                                    <select name="mcw_options[video_category]" id="mcw_options[video_category]" class="styled">
+                                    <h3><?php _e( 'Choose a category for your blog', 'chystota' );?></h3>
+                                    <label for="mcw_options[blog_category]"><?php _e( 'Blog', 'chystota' );?></label>
+                                    <select name="mcw_options[blog_category]" id="mcw_options[blog_category]" class="styled">
 		                                <?php
 		                                    $categories = get_categories( array ( 'hide_empty' => 1 ));
 		                                ?>
-                                        <option <?php selected( 0 == $options['video_category'] )?> value="0">
+                                        <option <?php selected( 0 == $options['blog_category'] )?> value="0">
 			                                <?php _e( 'All categories', 'chystota' );?>
                                         </option>
 		                                <?php
 		                                if( $categories ):
 			                                foreach( $categories as $cat ) : ?>
-                                                <option <?php selected( $cat->term_id == $options['video_category'] )?>
+                                                <option <?php selected( $cat->term_id == $options['blog_category'] )?>
                                                         value="<?php echo $cat->term_id;?>"><?php echo $cat->cat_name?>
                                                 </option>
 			                                <?php endforeach; endif;?>
                                     </select>
-                                    <span class="desc "><?php _e( "Choose a category for a video gallery.", 'chystota' ); ?></span>
+                                    <span class="desc "><?php _e( "Choose a category for your blog.", 'chystota' ); ?></span>
                                 </div>
 
                             </div>
@@ -318,7 +318,7 @@ function mcw_default_options(){
          'mcw_phone_kyiv'       => '',
          'discount_category'    => 0,
          'faq_category'         => 0,
-         'video_category'       => 0,
+         'blog_category'        => 0,
          'contact_email'        => '',
          'mcw_homepage_title'   => get_bloginfo( 'name' ),
          'mcw_meta_description' => '',
@@ -380,8 +380,8 @@ function mcw_validate_options( $input ){
 	    $cat_ids = array();
 	    foreach( $categories as $category )
 		    $cat_ids[] = $category->term_id;
-	    if( !in_array( $input['video_category'], $cat_ids ) && ( $input['video_category'] ) !=0 )
-		    $input['video_category'] = $options['video_category'];
+	    if( !in_array( $input['blog_category'], $cat_ids ) && ( $input['blog_category'] ) !=0 )
+		    $input['blog_category'] = $options['blog_category'];
 
         return $input;
     elseif( $reset ) :

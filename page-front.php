@@ -16,11 +16,9 @@ get_header();
 <!-- FEATURES -->
 <section class="featured_block">
 <?php
-	if( is_home() && is_front_page() ){
+	if( is_front_page() ){
         if ( ! dynamic_sidebar( 'feature' ) ):?>
-
          <?php endif;
-		//get_template_part( 'template-parts/content', 'front' );
 	}
 ?>
 </section><!-- !FEATURES -->

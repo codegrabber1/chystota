@@ -82,33 +82,38 @@ jQuery(document).ready(function($){
    $('#discount-block').owlCarousel({
     loop:false,
     items: 3,
-    stagePadding: 20,
-    //margin: 10,
+    //stagePadding: 20,
+    margin: 10,
     responsiveClass:true,
     responsive:{
         0:{
-            items: 1.25,
+            items: 1.50,
             nav: false,
             center: true,
             stagePadding: 20,
         },
-        600:{
-            items: 1.25,
+        648:{
+            items: 1.50,
             nav: false,
-            center: true,
+            center: false,
             stagePadding: 20,
-
         },
-        992:{
-            items: 2.20,
+        768:{
+            items: 3,
+            nav: false,
+            center: false,
+            stagePadding: 20,
+        },
+        900:{
+            items: 3,
             nav: false,
             stagePadding: 20,
             loop:false
         },
         1000:{
-            items: 2.20,
+            items: 3,
             nav: false,
-            stagePadding: 20,
+            //stagePadding: 20,
             loop:false
         }
     }

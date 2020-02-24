@@ -6,7 +6,6 @@
  *
  * @package Chystota
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -20,12 +19,6 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
-				<?php
-				chystota_posted_on();
-				chystota_posted_by();
-				?>
-			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
@@ -44,11 +37,6 @@
 				)
 			),
 			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'chystota' ),
-			'after'  => '</div>',
 		) );
 		?>
 	</div><!-- .entry-content -->
