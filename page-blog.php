@@ -38,7 +38,7 @@ get_header();
              ?>
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-8">
                     <?php
                         while( $query -> have_posts() ) : $query->the_post(); ?>
                             <div class="blog-content clearfix">
@@ -55,12 +55,18 @@ get_header();
                         <?php endwhile; endif;wp_reset_postdata();// End of the loop.
                       ?>
                       <?php endif;wp_reset_query();?>
+
                     </div>
+                    <div class="col-md-4">
+                        <?php get_sidebar();?>
+                    </div>
+	                <?php chystota_pagination();?>
                 </div>
             </div>
         </main><!-- #main -->
     </div><!-- #primary -->
 
 <?php
+
     get_footer();
 ?>

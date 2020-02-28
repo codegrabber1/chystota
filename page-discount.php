@@ -40,6 +40,9 @@ get_header();
                             // End of the loop.
                         ?>
                     </div>
+	                <?php
+	                    get_template_part( 'template-parts/content', 'subfooter' );
+	                ?>
                 </div>
             </div>
         </div>

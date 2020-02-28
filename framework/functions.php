@@ -29,6 +29,10 @@ if ( ! function_exists( 'chystota_setup' ) ) :
          *
          */
          require( get_template_directory() . "/framework/widgets/feature_widget.php" );
+         require( get_template_directory() . "/framework/widgets/callback_widget.php" );
+         require( get_template_directory() . "/framework/widgets/widget_responses_count.php" );
+         require( get_template_directory() . "/framework/widgets/widget_facebook.php" );
+         
 
         /*
          * Make theme available for translation.
@@ -129,15 +133,43 @@ function chystota_widgets_init() {
     ) );
 
      /**
-     * Creates a sidebar
+     * Creates a place for Feature widget.
      * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
      */
     $args = array(
         'name' => esc_html__( 'Feature', 'chystota' ),
         'id'    => 'feature',
-        'description' => esc_html__( 'Add this widgets here to show your features', 'chystota' )
+        'description' => esc_html__( 'Add a widget here to show your features', 'chystota' )
     );
     register_sidebar( $args );
+
+    /**
+     * Creates a place for Subscribe form.
+     * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+     */
+    $args = array(
+        'name' => esc_html__( 'Blocks on front page', 'chystota' ),
+        'id'    => 'frontpage',
+        'description' => esc_html__( 'Add a widget here to show subscribe form', 'chystota' )
+    );
+    register_sidebar( $args );
+
+    /**
+     * Creates a place for Responces count.
+     * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+     */
+    $args = array(
+        'name' => esc_html__( 'Footer 1', 'chystota' ),
+        'id'    => 'footer-1',
+        'description' => esc_html__( 'Add widgets here to place them on the left side of the footer', 'chystota' )
+    );
+    register_sidebar( $args );
+	$args = array(
+		'name' => esc_html__( 'Footer 2', 'chystota' ),
+		'id'    => 'footer-2',
+		'description' => esc_html__( 'Add widgets here to place them in the middle of the footer', 'chystota' )
+	);
+	register_sidebar( $args );
 }
 add_action( 'widgets_init', 'chystota_widgets_init' );
 
@@ -175,32 +207,78 @@ function chystota_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
 
-function mcw_get_first_cat(){
-    $category = get_the_category();
+/**
+ * Pagination for archive, taxonomy, category, tag and search results pages
+ *
+ * @global $wp_query http://codex.wordpress.org/Class_Reference/WP_Query
+ * @return Prints the HTML for the pagination if a template is $paged
+ */
+if ( ! function_exists( 'chystota_pagination' ) ) :
+	function chystota_pagination() {
+		global $wp_query;
 
-    if ($category){
+		$big = 999999999; // This needs to be an unlikely integer
 
-        $output = "";
-        if (isset($category[0]->term_id)){
+		// For more options and info view the docs for paginate_links()
+		// http://codex.wordpress.org/Function_Reference/paginate_links
+		$paginate_links = paginate_links( array(
+			'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
+			'current' => max( 1, get_query_var('paged') ),
+			'total' => $wp_query->max_num_pages,
+			'type'  => 'list',
+			'mid_size' => 5
+		) );
 
-            $cat1_id = $category[0]->term_id;
-            $wt_category_meta = get_option( "wt_category_meta_color_$cat1_id" );
-            $output .= '<span class="entry-cat-bg main-color-bg cat'.$cat1_id.'-bg">';
-            $output .= '<i class="fa fa-folder"></i>';
-            $output .= '<a href="' . get_category_link( $category[0]->term_id ) . '">' . $category[0]->name.'</a>';
-            $output .= '</span>';
+		// Display the pagination if more than one page is found
+		if ( $paginate_links ) {
+			echo '<div class="chystota_pagination">';
+			echo $paginate_links;
+			echo '</div><!--// end .pagination -->';
+		}
+	}
+endif; // ends check for wt_pagination()
+/**
+ * Facebook and Open Graph nameservers
+ */
+
+function doctype_opengraph($output) {
+    return $output . '
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'doctype_opengraph');
+
+/**
+ * Facebook Open Graph
+ */
+
+function fb_opengraph() {
+
+    if(is_single()) {
+        global $post;
+        if( get_the_post_thumbnail( $post->ID, 'thumbnail' ) ){
+            $thumbnail_id = get_post_thumbnail_id($post->ID);
+            $thumbnail_object = get_post($thumbnail_id);
+            $image = $thumbnail_object->guid;
+
+        } else{
+            $image = "//localhost/chystota.wp/wp-content/uploads/2020/02/logo.png";
         }
 
-        echo $output;
+        ?>
 
+    <meta property="og:url" content="<?php the_permalink() ?>"/>
+    <meta property="og:title" content="<?php the_title(); ?>"/>
+        <meta property="og:description" content="<?php echo $excerpt; ?>"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="<?php the_permalink(); ?>"/>
+        <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>"/>
+        <meta property="og:image" content="<?php echo $image; ?>"/>
+    <meta property="fb:app_id" content="179481638828016" />
+
+        <?php
+    } else {
+        return;
     }
 }
-add_action('publish_page', 'add_custom_field_automatically');
-add_action('publish_post', 'add_custom_field_automatically');
-
-function add_custom_field_automatically($post_ID) {
-    global $wpdb;
-    if(!wp_is_post_revision($post_ID)) {
-        add_post_meta($post_ID, 'css-style', 'custom value', true);
-    }
-}
+add_action('wp_head', 'fb_opengraph', 5);

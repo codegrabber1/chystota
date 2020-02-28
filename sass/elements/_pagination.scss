@@ -1,0 +1,41 @@
+//# Pagination
+
+chystota_pagination {
+  width: 100%;
+  margin: 15px 0; }
+
+chystota_pagination ul {
+  display: table;
+  margin: 0 auto; }
+
+chystota_pagination li {
+  float: left;
+  margin: 0 5px; }
+
+chystota_pagination li a.page-numbers {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 0;
+  border-radius: 0;
+  border: solid 1px #c0c0c0;
+  font-size: .875em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #717171; }
+
+chystota_pagination li a.page-numbers:hover {
+  color: $color__text-footer;
+  background: $color__active-menulink; }
+
+chystota_pagination li span.page-numbers.current {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 0;
+  border-radius: 0;
+  border: solid 1px #c0c0c0;
+  font-size: .875em;
+  font-weight: bold;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  color: $color__text-footer; }

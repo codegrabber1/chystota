@@ -21,7 +21,7 @@ get_header();
 			the_post();
 			get_template_part( 'template-parts/content', get_post_type() );
 			//the_post_navigation();
-		endwhile; // End of the loop.??>
+		endwhile; ?><!-- // End of the loop.-->
 	</main><!-- #main -->
 </div><!-- #primary -->
 	<?php

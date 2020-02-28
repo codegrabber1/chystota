@@ -18,13 +18,14 @@ textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 7px;
 
 	&:focus {
 		color: $color__text-input-focus;
 	}
 }
-input[type="submit"] {
+input[type="submit"],
+.order-btn {
     width: 100%;
     padding: 12px 0;
     text-align: center;

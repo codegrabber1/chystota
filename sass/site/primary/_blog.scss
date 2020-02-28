@@ -1,11 +1,21 @@
 .blog-content{
-    display: flex;
-    flex-direction: row;
+    margin: 20px 0;
+    overflow: hidden;
+}
+.blog-content:first-child {
+    margin-top: 0;
 }
 .item{
-    margin: 10px 40px;
+    margin: 0 20px;
 }
 .item a {
     margin: 20px 0 auto;
     display: block;
+}
+.blog-img img {
+  height: 100%;
+  float: left;
+  width: 35%;
+  margin-right: 20px;
+  
 }
