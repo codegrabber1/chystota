@@ -12,19 +12,31 @@
     <div class="item-service">
         <div class="block-content single-content clearfix">
             <h1><?php the_title();?></h1>
-            <p>Descring the service in two rows Descring the service in two rowsDescring the service</p>
-            <p class='order-btn'>Детальніше</p>
+            <?php the_content();?>
+            
         </div>
         <div class="block-img clearfix">
-            <?php the_post_thumbnail( )?>
+            <?php the_post_thumbnail( ) ; ?>
         </div>
     </div>
 </div>
-<section>
+<section class="price-block">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                prices!
+        <div class="prices">
+            <div class="price-item">
+                <h3>title</h3>
+                <p>parametry</p>
+                <span>rozmiry</span>
+            </div>
+            <div class="price-item">
+                <h3>title</h3>
+                <p>parametry</p>
+                <span>rozmiry</span>
+            </div>
+            <div class="price-item">
+                <h3>title</h3>
+                <p>parametry</p>
+                <span>rozmiry</span>
             </div>
         </div>
     </div>

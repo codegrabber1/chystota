@@ -904,7 +904,6 @@ a {
 
 .site-header li {
   display: inline-block;
-  border: 1px soli red;
   margin-right: 10px; }
 
 .site-header li a {
@@ -919,7 +918,7 @@ a {
   margin-right: 20px; }
 
 .site-main {
-  margin: 0 25% 0 0; }
+  margin: 5% 0 0 0; }
 
 .site-content .widget-area {
   float: right;
@@ -1103,6 +1102,38 @@ a {
   align-items: stretch;
   align-content: center; }
 
+.price-block {
+  background-color: #F8F8F8;
+  padding: 40px 0; }
+
+.prices {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.17);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px 0; }
+
+.price-item {
+  width: 23.33%; }
+
+.prices p {
+  margin: 2px 0; }
+
+.prices p::after {
+  display: block;
+  content: "";
+  border-top: .1rem solid black;
+  margin: 0;
+  transform: translateY(-1rem); }
+
+.prices span {
+  color: #21A068;
+  display: block; }
+
 .reviews,
 .order-form {
   flex-direction: row; }
@@ -1277,6 +1308,9 @@ a {
   float: left;
   width: 35%;
   margin-right: 20px; }
+
+.blogpost-img img {
+  margin: 0 auto; }
 
 /*--------------------------------------------------------------
 ## Comments

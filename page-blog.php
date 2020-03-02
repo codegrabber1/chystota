@@ -19,11 +19,11 @@ get_header();
                 <?php echo the_date();?>
                 <?php the_title(); ?>
             </header>
-            <center>
+            <div>
                 <?php while( have_posts() ) : the_post()?>
                 <?php the_content();?>
                 <?php endwhile;?>
-            </center>
+            </div>
             <?php
             if( mcw_get_option( 'blog_category' ) ):
                 $id = mcw_get_option( 'blog_category' );
@@ -39,23 +39,22 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                    <?php
-                        while( $query -> have_posts() ) : $query->the_post(); ?>
-                            <div class="blog-content clearfix">
-                                <div class="blog-img">
-                                    <?php the_post_thumbnail();?>
-                                </div>
-                                <div class="blog-item">
-                                    <div class="item">
-                                    <a href="<?php the_permalink()?>"><?php the_title();?></a>
-                                    <?php the_excerpt( );?>
+                        <?php
+                            while( $query -> have_posts() ) : $query->the_post(); ?>
+                                <div class="blog-content clearfix">
+                                    <div class="blog-img">
+                                        <?php the_post_thumbnail();?>
                                     </div>
-                                </div>
-                             </div>
-                        <?php endwhile; endif;wp_reset_postdata();// End of the loop.
-                      ?>
-                      <?php endif;wp_reset_query();?>
-
+                                    <div class="blog-item">
+                                        <div class="item">
+                                        <a href="<?php the_permalink()?>"><?php the_title();?></a>
+                                        <?php the_excerpt( );?>
+                                        </div>
+                                    </div>
+                                 </div>
+                            <?php endwhile; endif;wp_reset_postdata();// End of the loop.
+                          ?>
+                          <?php endif;wp_reset_query();?>
                     </div>
                     <div class="col-md-4">
                         <?php get_sidebar();?>
@@ -65,8 +64,6 @@ get_header();
             </div>
         </main><!-- #main -->
     </div><!-- #primary -->
-
 <?php
-
     get_footer();
 ?>

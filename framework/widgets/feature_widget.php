@@ -4,7 +4,7 @@
  * Plugin URI:
  * Description: This widget displays the information about your features.
  * Version: 1.0
- * Author: chystota
+ * Author: O.Poruchenko
  * Author URI: makecodework@gmail.com
  *
  */
@@ -46,35 +46,49 @@ function chystota_feature_widgets() {
     function widget( $args, $instance ){
         extract( $args );
 
-        $categories_display      = $instance['category'];
-        $entries_display         = $instance['entries_display'];
+	    $postCats           = $instance[ 'category' ];
+	    $categories_display = explode(",", $postCats);
+        $entries_display    = $instance['entries_display'];
 
         if( empty( $entries_display ) ) {
             $entries_display = '3';
         }
+
+
         $args = array(
             'cat'                 => $categories_display,
+            'category__in'        => $categories_display,
             'post_type'           => 'post',
             'ignore_sticky_posts' => 1,
-            'order'               => 'ASC',
+            'order'               => 'DESC',
             'include'             => $categories_display,
             'number'              => $entries_display,
             'taxonomy'            => 'category',
             'post__not_in'        => [1],
-            'posts_per_page'      => $entries_display
+            'posts_per_page'      => $entries_display,
+
         );
-        $query = new WP_Query( $args );
+
+	    $query = new WP_Query( $args );
+
         if( $query -> have_posts() ):
         ?>
         <div class="blocks clearfix">
-            <?php while( $query->have_posts() ): $query->the_post(); ?>
+            <?php
+                while( $query->have_posts() ): $query->the_post();
+                global $post; ?>
+
             <div class="block-item " >
                 <div class="block-content clearfix">
                     <h1><?php echo the_title();?></h1>
                     <p><?php the_content();?></p>
-                    <span class='block-price'><?php echo get_the_excerpt()?></span>
+                    <span class='block-price'><?php get_the_excerpt()?></span>
                     <?php the_post_thumbnail( )?>
-                    <p class='link-more'><a href="<?php the_permalink();?>">Детальніше</a></p>
+                    <?php $cats = wp_get_post_categories($post->ID); ;?>
+                    <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                    <p class='link-more'>
+                        <a href="<?php echo get_category_link($category->cat_ID);?>">Детальніше</a></p>
+                    <?php endforeach;?>
                 </div>
             </div>
         <?php endwhile;?>
@@ -82,11 +96,18 @@ function chystota_feature_widgets() {
         <?php
         endif;wp_reset_query();
     }
+
+	 /**
+	  * @param array $new_instance
+	  * @param array $old_instance
+	  *
+	  * @return array
+	  */
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
 
-        $instance['category']        = $new_insatnce['category'];
-        $instance['entries_display'] = $new_insatnce['entries_display'];
+	    $instance['category'] = !empty($new_instance['category']) ? implode(",",$new_instance['category']) : 0;
+        $instance['entries_display'] = $new_instance['entries_display'];
         return $instance;
     }
     /**
@@ -95,8 +116,9 @@ function chystota_feature_widgets() {
      * when creating your form elements. This handles the confusing stuff.
      */
     function form( $instance ){
-        $defaults = array( 'entries_display' => 3, 'category' => '' );
+        $defaults = array( 'entries_display' => 3, 'ids' => '' );
         $instance = wp_parse_args( (array) $instance, $defaults );
+        $instance['category'] = !empty($instance['category']) ? explode(",",$instance['category']) : array();
         ?>
 
         <p>
@@ -112,18 +134,24 @@ function chystota_feature_widgets() {
             <?php _e( 'Filter by Category:', 'chystota' ); ?>
 
             </label>
-        <select
-            name="<?php echo $this->get_field_name( 'category' )?>"
-            id="<?php echo $this->get_field_id( 'category' )?>"
-            class="widefat categories" style="width:100%;">
-          <?php $categories_display = get_categories( 'hide_empty=0&depth=1&type=post' )?>
-          <?php foreach( $categories_display as $cat ):?>
-              <option value="<?php echo $cat->term_id; ?>"
-                <?php if( $cat->term_id == $instance['category'] ) echo 'selected="selected"'?>>
-            <?php echo $cat->cat_name; ?>
-          </option>
-          <?php endforeach; ?>
-        </select>
-        <?php
+	    <?php $args = array(
+		    'post_type' => 'post',
+		    'taxonomy' => 'category',
+	    );
+	    $terms = get_categories( $args );
+	    foreach( $terms as $id => $name ) {
+	    $checked = "";
+	    echo $name->term_id;
+	    if(in_array($name->term_id, $instance['category'])){
+		    $checked = "checked='checked'";
+	    }
+	    ?>
+        <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('category'); ?>"
+               name="<?php echo $this->get_field_name('category[]'); ?>"
+               value="<?php echo $name->term_id; ?>"  <?php echo $checked; ?>/>
+
+            <label for="<?php echo $this->get_field_id('category'); ?>"><?php echo $name->name; ?></label><br />
+        <?php }
     }
  }
+

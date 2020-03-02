@@ -96,6 +96,7 @@ function mcw_theme_options_page(){
                    <ul>
                        <li class="general first"><a href="#general"><i class="icon-cogs"></i><?php echo _e('General', 'chystota'); ?></a></li>
                        <li class="category"><a href="#category"><?php echo _e( 'Categories', 'chystota' );?></a></li>
+                       <li class="vartist"><a href="#vartist"><?php echo _e( 'Prices', 'chystota' );?></a></li>
                        <li class="seo"><a href="#seo"><?php echo _e( 'SEO', 'chystota' );?></a></li>
                        <li class="reset"><a href="#reset"><i class="icon-refresh"></i><?php echo _e( 'Reset', 'chystota' );?></a></li>
                    </ul>
@@ -252,6 +253,9 @@ function mcw_theme_options_page(){
 
                             </div>
                         </div>  <!-- #category -->
+                        <div id="vartist" class="tab_block"">
+                        vartist
+                        </div>
                         <div id="seo" class="tab_block">
                             <div class="field infobox">
                                 <p><strong><?php _e('Analytics for the site', 'chystota'); ?></strong></p>

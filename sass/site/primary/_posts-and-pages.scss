@@ -125,6 +125,37 @@
     align-items: stretch;
     align-content: center;
 }
+.price-block {
+  background-color: $color__background-discount;
+  padding: 40px 0;
+}
+.prices {
+  background-color: #fff;
+  @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px 0;
+}
+.price-item {
+  width: 23.33%;
+}
+.prices p {
+  margin: 2px 0;
+
+}
+.prices p::after {
+  display: block;
+  content: "";
+  border-top: .1rem solid black;
+  margin: 0 ;
+  transform: translateY(-1rem);
+}
+.prices span {
+  color: $color__link;
+  display: block;
+}
 .reviews,
 .order-form {
     flex-direction: row;
