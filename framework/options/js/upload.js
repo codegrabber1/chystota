@@ -2,9 +2,9 @@
 	"use strict";
 		$( document ).ready( function () {
 	
-	var fp_uploader;
-	var attachment;
-	var form_field;
+	let fp_uploader;
+	let attachment;
+	let form_field;
 	
 	$('.field').on('click','.upload_image_button',function(e){
 		e.preventDefault();

@@ -786,8 +786,17 @@ a {
   -o-transform: rotate(-45deg) translate(6px, -7px);
   transform: rotate(-45deg) translate(6px, -7px); }
 
-.current-menu-item a {
+.current-menu-item a,
+.ui.dropdown .text,
+.ui.dropdown.selected,
+.ui.dropdown.default {
   color: #21A068 !important; }
+
+.ui.dropdown {
+  display: block !important; }
+
+.ui.top.left.pointing.dropdown > .menu {
+  margin: 2em 0 0 !important; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -932,39 +941,52 @@ a {
   color: #fff;
   padding: 50px  0; }
 
-.f_widget {
+.f_widget .widget {
+  list-style: none; }
+
+.f_widget,
+.f_widget .widgettitle {
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: normal;
+  font-size: 19.2px;
+  font-size: 1.2rem;
   line-height: 119%; }
 
-.f_widget .f-title {
+.f_widget .f-title,
+.f_widget .widgettitle {
   color: #C7E7D9; }
 
 .f_widget .f-content {
   margin: 8px 0; }
 
-.f_widget .f-content li {
+.f_widget .f-content li,
+.f_widget .menu-item {
   line-height: 30px; }
 
 .f_widget .f-content .f-social > li {
   display: inline-block;
   padding: 5px 10px; }
 
-.f_widget .f-content .f-social > li a .fa {
-  font-size: 25.6px;
-  font-size: 1.6rem; }
+.f_widget .f-content .f-social > li:first-child {
+  padding-left: 0; }
+
+.f_widget .f-content .f-social > li a .svg-inline--fa {
+  font-size: 28.8px;
+  font-size: 1.8rem; }
 
 .f-social {
   width: 60%;
   float: right; }
 
-.f_widget .f-content a {
-  color: #fff;
+.f_widget .f-content a,
+.f_widget .menu-item a,
+.f_widget .current-menu-item a {
+  color: #fff !important;
   text-decoration: none;
   display: block; }
 
-.f_widget .f-title::after {
+.f_widget .f-title::after,
+.f_widget .widgettitle::after {
   content: "";
   display: block;
   height: 1px;
@@ -1012,18 +1034,47 @@ a {
   height: 595px; }
 
 .blocks {
-  align-content: center; }
+  align-content: center;
+  position: relative; }
 
 .blocks,
-.item-service {
+.item-service,
+.phases-blocks {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch; }
 
+.blocks,
+.item-service,
+.phases-blocks {
+  flex-wrap: wrap; }
+
 .item-service {
-  width: 100%; }
+  width: 100%;
+  flex-wrap: nowrap; }
+
+.phases-blocks:last-child {
+  flex-direction: row-reverse; }
+
+.block-text,
+.block-video {
+  flex: 1 50%; }
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  align-self: center;
+  width: 80%;
+  margin: 100px auto;
+  line-height: 24px;
+  font-size: 16px;
+  font-size: 1rem; }
+
+.phases-blocks .block-video {
+  background-color: #21A068; }
 
 .block-item {
   flex: 1 30%;
@@ -1045,10 +1096,14 @@ a {
   color: #fff; }
 
 .block-content {
-  position: relative;
-  height: 100%;
   padding-left: 24px;
   padding-top: 50px; }
+
+.feat-img {
+  position: relative;
+  bottom: 0;
+  width: 80%;
+  float: right; }
 
 .block-content h1 {
   margin: 0;
@@ -1067,18 +1122,22 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5px 0;
   line-height: 24px;
   border-radius: 3px;
   width: 120px;
   background: rgba(0, 0, 0, 0.1); }
 
-.block-content p.link-more {
+.block-contet, .block-price p {
+  margin: 0;
+  padding: 5px; }
+
+.blocks p.link-more {
   opacity: 1; }
 
-.block-content p.link-more > a {
+.blocks p.link-more > a {
   display: block;
   position: absolute;
+  margin: 0 24px;
   bottom: 21px;
   font-size: 14.4px;
   font-size: 0.9rem;
@@ -1126,9 +1185,8 @@ a {
 .prices p::after {
   display: block;
   content: "";
-  border-top: .1rem solid black;
-  margin: 0;
-  transform: translateY(-1rem); }
+  border-top: 0.1rem solid #D9D9D9;
+  margin: 5px 0; }
 
 .prices span {
   color: #21A068;
@@ -1151,6 +1209,48 @@ a {
 .s_blocks {
   padding: 80px 0; }
 
+.reviews h2 {
+  margin-bottom: 20px; }
+
+.review-block {
+  width: 43%;
+  margin: 0 auto; }
+
+.review-block .icon {
+  font-size: 32px;
+  font-size: 2rem;
+  position: relative; }
+
+.review-block span {
+  font-size: 22.4px;
+  font-size: 1.4rem; }
+
+.review-block span.review_number {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.review_count {
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px; }
+
+.review_line progress {
+  width: 100%;
+  height: 3px;
+  background-color: #15AC50; }
+
+progress,
+progress[role][aria-valuenow] {
+  /* Polyfill */
+  background: #D9D9D9 !important;
+  /* !important is needed by the polyfill */ }
+
+/* Chrome */
+progress::-webkit-progress-bar {
+  background: #D9D9D9; }
+
 .order-block {
   color: #fff;
   height: 545px;
@@ -1160,9 +1260,8 @@ a {
   width: 70%;
   margin: 0 auto;
   position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0; }
+  top: 25%;
+  right: 20%; }
 
 .order-btn {
   position: absolute;
@@ -1218,6 +1317,9 @@ a {
 /*--------------------------------------------------------------
 ## Discount page
 --------------------------------------------------------------*/
+.discount-header {
+  margin: 40px 0; }
+
 .discount-main {
   background-color: #F8F8F8;
   padding: 50px 0; }
@@ -1236,9 +1338,6 @@ a {
 /*--------------------------------------------------------------
 ## Frequently asked page
 --------------------------------------------------------------*/
-.discount-header {
-  margin: 40px; }
-
 .discount-header,
 .discount-head {
   text-align: center;
@@ -1371,21 +1470,46 @@ object {
     width: 100%;
     margin: 0 auto; } }
 
+@media only screen and (max-width: 1024px) {
+  .site-header li {
+    margin: 0; }
+  .sf-menu a {
+    padding: .75em .7em; } }
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .sf-menu {
-    display: none !important; } }
+  .sf-menu a {
+    padding: .75em .4em; }
+  .order-block {
+    height: 400px; }
+  .order_content {
+    top: 18%; }
+  .single-content {
+    margin-left: 40px; }
+  .block-content {
+    padding: 0; } }
 
 @media only screen and (max-width: 768px) {
   .header-info {
     margin: 20px 0; }
+  .mobile-mnu {
+    margin: 20px 0 0 0; }
   .header-logo {
     float: right; }
+  .sf-menu {
+    display: none !important; }
   .main-navigation, .site-header ul {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
     height: auto; }
+  .item-service {
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0; }
+  .block-img img {
+    width: 90%;
+    float: right; }
   .f-social {
     width: 100%;
     float: none;
@@ -1393,17 +1517,65 @@ object {
   .blocks {
     flex-direction: column; }
   .block-content p.link-more > a {
-    right: 20px; } }
+    left: 20px; }
+  .block-item {
+    margin: 10px;
+    border-radius: 5px;
+    position: relative; }
+  .feat-img {
+    position: relative;
+    bottom: 70px; }
+  .feat-img img {
+    float: right;
+    width: 65%; }
+  .order-block, .adver-pict {
+    flex: 1 100%; }
+  .order_content {
+    right: 15%; }
+  .price-item {
+    width: 90%;
+    margin: 15px 0; } }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 648px) {
+  .feat-img {
+    bottom: 40px; }
+  .review-block {
+    width: 90%;
+    margin: 10px auto; }
+  .phases-blocks {
+    flex-direction: column-reverse; }
+  .phases-blocks:last-child {
+    flex-direction: column-reverse; }
+  .block-text, .block-video {
+    flex: 1 100%; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px) {
   .f_widget {
     margin-top: 10px; }
   .f_widget .f-title::after {
-    width: 100%; } }
+    width: 100%; }
+  .block .socials {
+    margin: 10px 5px; } }
 
 /* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .single-block {
+    height: 400px; } }
+
 /* Extra Small Devices, Phones */
+@media only screen and (max-width: 380px) {
+  .block-contet, .block-price {
+    margin-top: 20px; }
+  .feat-img {
+    bottom: 20px; }
+  .order_content {
+    right: 15px;
+    width: 90%; }
+  .single-block {
+    height: 350px; } }
+
 /* Custom, iPhone Retina */
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */

@@ -83,17 +83,14 @@
      * when creating your form elements. This handles the confusing stuff.
      */
     function form( $instance ){
-        $defaults = array();
+        $defaults = array( 'title' => '', 'description' => '', 'image' => '' );
         $instance = wp_parse_args( (array) $instance, $defaults );?>
 <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>">
                 <?php _e('Title:', 'chystota') ?>
 
             </label>
-            <input class="widefat"
-                id="<?php echo $this->get_field_id( 'title' ); ?>"
-                name="<?php echo $this->get_field_name( 'title' ); ?>"
-                value="<?php echo $instance['title']; ?>" />
+    <input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
         </p>
 
         <p>
@@ -107,22 +104,20 @@
             </textarea></p>
         </p>
 
-        <p>
+        <p class="field">
             <label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image URL:', 'chystota') ?></label>
-            <input class="widefat"
+
+            <input type="text" class="widefat upload_image"
                 id="<?php echo $this->get_field_id('image'); ?>"
                 name="<?php echo $this->get_field_name('image'); ?>"
                 value="<?php echo $instance['image']; ?>" />
 
-            <input type="submit" class="button"
+            <input type="submit" class="upload_image_button"
                 name="<?php echo $this->get_field_name( 'uploader_button' ); ?>"
                 id="<?php echo $this->get_field_id( 'uploader_button' ); ?>"
                 value="<?php _e( 'Select an Image', 'chystota' ); ?>"
-                onclick="imageWidget.uploader( '<?php echo $this->id; ?>', '<?php echo $id_prefix; ?>' ); return false;" />
-
+                 />
         </p>
-
-
         <?php
 
     }

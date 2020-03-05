@@ -43,7 +43,7 @@
 </section>
 <?php
 
-    if( is_category()) {
+    if( !is_category()) {
         echo 'hello';
     }
 ?>

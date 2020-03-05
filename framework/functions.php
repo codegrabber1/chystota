@@ -32,7 +32,8 @@ if ( ! function_exists( 'chystota_setup' ) ) :
          require( get_template_directory() . "/framework/widgets/callback_widget.php" );
          require( get_template_directory() . "/framework/widgets/widget_responses_count.php" );
          require( get_template_directory() . "/framework/widgets/widget_facebook.php" );
-         
+         require( get_template_directory() . "/framework/widgets/widget_services.php" );
+
 
         /*
          * Make theme available for translation.
@@ -63,6 +64,7 @@ if ( ! function_exists( 'chystota_setup' ) ) :
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
             'menu-1' => esc_html__( 'Primary', 'chystota' ),
+            'menu-2' => esc_html__( 'Footer', 'chystota' ),
         ) );
 
         /*
@@ -150,7 +152,7 @@ function chystota_widgets_init() {
     $args = array(
         'name' => esc_html__( 'Blocks on front page', 'chystota' ),
         'id'    => 'frontpage',
-        'description' => esc_html__( 'Add a widget here to show subscribe form', 'chystota' )
+        'description' => esc_html__( 'Add a widgets here', 'chystota' )
     );
     register_sidebar( $args );
 
@@ -159,14 +161,14 @@ function chystota_widgets_init() {
      * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
      */
     $args = array(
-        'name' => esc_html__( 'Footer 1', 'chystota' ),
-        'id'    => 'footer-1',
+        'name' => esc_html__( 'Footer Left', 'chystota' ),
+        'id'    => 'footer-left',
         'description' => esc_html__( 'Add widgets here to place them on the left side of the footer', 'chystota' )
     );
     register_sidebar( $args );
 	$args = array(
-		'name' => esc_html__( 'Footer 2', 'chystota' ),
-		'id'    => 'footer-2',
+		'name' => esc_html__( 'Footer Middle', 'chystota' ),
+		'id'    => 'footer-middle',
 		'description' => esc_html__( 'Add widgets here to place them in the middle of the footer', 'chystota' )
 	);
 	register_sidebar( $args );
@@ -179,6 +181,8 @@ add_action( 'widgets_init', 'chystota_widgets_init' );
 function chystota_scripts() {
     wp_enqueue_style( 'chystota-bootstrapcss', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css' );
 
+   wp_enqueue_style( 'chystota-semanticcss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' );
+
     wp_enqueue_style( 'chystota-fontawesomecss', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css' );
 
     wp_enqueue_style( 'chystota-superfishcss', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/css/superfish.min.css' );
@@ -190,6 +194,8 @@ function chystota_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
+    
+    wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '20151215', true );
 
     wp_enqueue_script( 'chystota-fawjs', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js', array(), '20151215', true );
 
@@ -204,8 +210,16 @@ function chystota_scripts() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
+
 }
 add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
+
+function admin_scripts() {
+	if( is_admin() ) {
+		wp_enqueue_script('mcw_upload', get_template_directory_uri() .'/framework/options/js/upload.js', array('jquery'));
+	}
+}
+add_action( 'admin_init', 'admin_scripts' );
 
 /**
  * Pagination for archive, taxonomy, category, tag and search results pages
@@ -282,3 +296,22 @@ function fb_opengraph() {
     }
 }
 add_action('wp_head', 'fb_opengraph', 5);
+
+function wpds_parent_category_template()
+{
+	if (!is_category())
+		return true;
+	$catObj = get_queried_object();
+	// Перезаписываем шаблон для определенной рубрики "design", чьей родительской рубрикой является "projects"
+	if (is_category($catObj->category_nicename) && cat_is_ancestor_of($catObj->parent, $catObj->term_id)) {
+
+		$top_term = get_top_term( $catObj->taxonomy );
+		$temp_cat_name = $top_term->slug; // название термина
+		$template = TEMPLATEPATH . "/category-{$temp_cat_name}.php";
+		// загружаем, если файл шаблона существует.
+		if (file_exists($template)) {
+			load_template($template);
+			exit;
+		}
+	}
+}

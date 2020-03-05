@@ -26,11 +26,11 @@
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2 order-sm-1 col-md-2 col-lg-7 order-sm-3">
+				<div class="col-2 order-1 col-sm-3 order-md-2 col-md-7 ">
 					<nav id="site-navigation" class="main-navigation">
-						<div class="mobile-mnu d-lg-none clearfix">
+						<div class="mobile-mnu d-md-none d-lg-none clearfix">
 							<h1 class="site-title">
-			                <a class="toggle-mnu d-lg-none" href="#">
+			                <a class="toggle-mnu  d-lg-none" href="#">
 			                    <span></span>
 			                </a>
 			                </h1>
@@ -47,7 +47,7 @@
 						?>
 					</nav><!-- #site-navigation -->
 				</div>
-				<div class="col-xs-10 order-sm-2 col-md-4 col-lg-2 order-sm-1">
+				<div class="col-10 order-2 col-sm-4 order-3 order-md-1 col-md-2 ">
 					<div class="site-branding">
 						<div class="header-logo">
                             <p>
@@ -58,16 +58,30 @@
                         </div>
 					</div><!-- .site-branding -->
 				</div>
-				<div class="col-xs-12 order-sm-3 col-md-6 col-lg-3 order-sm-2">
+				<div class="col-12 order-3 col-sm-5 order-2 order-md-3 col-md-3 ">
 					<ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-						<li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
+						    <li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
 						<?php endif; ?>
 						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
-						<li style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
+						    <li style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
 						<?php endif;?>
-						<li><a href="#" class="active">Львів</a></li>
-						<li><a href="#" class="">Киів</a></li>
+                        <li>
+                            <div class="ui dropdown">
+                                <input type="hidden" name="gender">
+                                <div class="ui top left pointing dropdown">
+                                <div class="default text">
+                                    <a href="#">Львів</a>
+
+                                </div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <a class="item " data-value="lviv">Львів</a>
+                                    <a class="item" data-value="kyiv">Киів</a>
+                                </div>
+                                </div>
+                            </div>
+                        </li>
 					</ul>
 				</div>
 			</div>

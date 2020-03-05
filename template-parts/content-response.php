@@ -8,4 +8,10 @@
  */
 
 ?>
-
+<!-- Testimonials -->
+<section >
+    <?php
+        if( !dynamic_sidebar( 'frontpage' ) ) : ?>
+        <?php endif;
+    ?>
+</section><!-- !Testimonials -->

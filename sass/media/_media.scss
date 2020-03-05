@@ -41,41 +41,118 @@ object {
     margin: 0 auto;
   }
 }
+@media only screen and (max-width: 1024px ){
+  .site-header li {
+    margin: 0;
+  }
+  .sf-menu a {
+    padding: .75em .7em
+  ;
+  }
+}
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .sf-menu{
-    display: none !important
+  .sf-menu a {
+    padding: .75em .4em;
   }
-
-
-
+  .order-block{
+    height: 400px;
+  }
+  .order_content {
+    top: 18%;
+  }
+  .single-content {
+    margin-left: 40px;
+  }
+  .block-content {
+    padding: 0;
+  }
 }
 @media only screen and (max-width: 768px){
     .header-info {
         margin: 20px 0;
 
     }
+  .mobile-mnu{
+    margin: 20px 0 0 0;
+  }
     .header-logo{
       float: right;
 
   }
-    .main-navigation, .site-header ul {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-around;
-      height: auto;
-    }
-    .f-social{
-      width: 100%;
-      float: none;
-      text-align: center;
-    }
-    .blocks {
-      flex-direction: column;
-    }
-    .block-content p.link-more > a {
-      right: 20px;
-    }
+  .sf-menu{
+    display: none !important
+  }
+  .main-navigation, .site-header ul {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: auto;
+  }
+  .item-service {
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+  }
+  .block-img img{
+    width: 90%;
+    float: right;
+  }
+  .f-social{
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+
+  .blocks {
+    flex-direction: column;
+  }
+  .block-content p.link-more > a {
+    left: 20px;
+  }
+  .block-item {
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+  .feat-img {
+    position: relative;
+    bottom: 70px;
+  }
+  .feat-img img{
+   float: right;
+   width: 65%;
+  }
+  .order-block, .adver-pict{
+    flex: 1 100%;
+  }
+  .order_content {
+    right: 15%;
+  }
+  .price-item {
+    width: 90%;
+    margin: 15px 0;
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 648px){
+  .feat-img {
+    bottom: 40px;
+  }
+  .review-block {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .phases-blocks {
+    flex-direction: column-reverse;
+  }
+  .phases-blocks:last-child {
+    flex-direction: column-reverse;
+  }
+  
+  .block-text, .block-video {
+    flex: 1 100%;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px){
@@ -86,15 +163,33 @@ object {
   .f_widget .f-title::after{
     width: 100%;
   }
+  .block .socials {
+    margin: 10px 5px;
+  }
+
 
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px){
-
+  .single-block {
+    height: 400px;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 380px){
-
+  .block-contet, .block-price {
+    margin-top: 20px;
+  }
+  .feat-img {
+    bottom: 20px;
+  }
+  .order_content {
+    right: 15px;
+    width: 90%;
+  }
+  .single-block {
+    height: 350px;
+  }
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px){

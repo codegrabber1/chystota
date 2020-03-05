@@ -118,4 +118,9 @@ jQuery(document).ready(function($){
         }
     }
     })
+
+  // Phone dropdown.
+    $('.ui.dropdown')
+        .dropdown()
+    ;
 });// end ready

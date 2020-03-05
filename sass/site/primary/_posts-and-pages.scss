@@ -32,24 +32,56 @@
     height: 595px;
 }
 .blocks {
-    align-content: center;
+   align-content: center;
+   position: relative;
+   
 }
 .blocks,
-.item-service {
+.item-service,
+.phases-blocks {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
 }
-.item-service {
-    width: 100%;
+.blocks,
+.item-service,
+.phases-blocks {
+  flex-wrap: wrap;
 }
+.item-service {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.phases-blocks:last-child {
+  flex-direction: row-reverse;
+}
+.block-text,
+.block-video{
+  flex: 1 50%;
+}
+.text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  align-self: center;
+  width: 80%;
+  margin: 100px auto;
+  line-height: 24px;
+  @include font-size(1)
+
+}
+.phases-blocks .block-video {
+  background-color: $color__link;
+}
+
 .block-item {
     flex: 1 30%;
     align-self: stretch;
     box-sizing: border-box;
 }
+
 .mattress {
     background-color: $color__background-mattress;
 }
@@ -65,11 +97,14 @@
     color: $color__text-footer;
 }
 .block-content {
-   position: relative;
-   height: 100%;
    padding-left: 24px;
    padding-top: 50px;
-   //border: 1px solid red;
+}
+.feat-img{
+  position: relative;
+  bottom: 0;
+  width: 80%;
+  float: right;
 }
 .block-content h1 {
     margin: 0;
@@ -89,19 +124,23 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 5px 0;
     line-height: 24px;
     border-radius: 3px;
     width: 120px;
     background: $color__background-opacity;
 
 }
-.block-content p.link-more {
+.block-contet, .block-price p {
+  margin: 0;
+  padding: 5px;
+}
+.blocks p.link-more {
     opacity: 1;
 }
-.block-content p.link-more > a {
+.blocks p.link-more > a {
     display: block;
     position: absolute;
+    margin: 0 24px;
     bottom: 21px;
     @include font-size(0.9);
     color: $color__text-footer;
@@ -148,9 +187,9 @@
 .prices p::after {
   display: block;
   content: "";
-  border-top: .1rem solid black;
-  margin: 0 ;
-  transform: translateY(-1rem);
+  border-top: .1rem solid $color__border-line;
+  margin: 5px 0;
+  
 }
 .prices span {
   color: $color__link;
@@ -162,6 +201,7 @@
 }
 .reviews {
     justify-content: space-around;
+
 }
 .order-form {
     justify-content: space-between;
@@ -174,6 +214,47 @@
 .s_blocks {
     padding: 80px 0;
 }
+.reviews h2 {
+  margin-bottom: 20px;
+}
+.review-block {
+  width: 43%;
+  margin: 0 auto;
+}
+.review-block .icon {
+  @include font-size(2);
+  position: relative;
+
+}
+.review-block span {
+  @include font-size(1.4);
+
+}
+.review-block span.review_number {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.review_count {
+  color: $color__text-grey;
+  @include font-size(1);
+  line-height: 24px;
+}
+.review_line progress {
+  width: 100%;
+  height: 3px;
+  background-color: $color__background-progress;
+}
+progress,                          /* Firefox  */
+progress[role][aria-valuenow] {    /* Polyfill */
+  background: #D9D9D9 !important; /* !important is needed by the polyfill */
+}
+
+/* Chrome */
+progress::-webkit-progress-bar {
+  background: #D9D9D9;
+}
+
 .order-block {
     color: $color__text-footer;
     height: 545px;
@@ -183,9 +264,8 @@
     width: 70%;
     margin: 0 auto;
     position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
+    top: 25%;
+    right: 20%;
 }
 .order-btn {
     position: absolute;

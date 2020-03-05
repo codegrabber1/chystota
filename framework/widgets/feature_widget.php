@@ -19,7 +19,7 @@ function chystota_feature_widgets() {
     register_widget( 'chystota_feature_widget' );
 }
 /**
- * Class chystota_about_widget.
+ * Class chystota_feature_widget.
  * This class handles everything that needs to be handled with the widget:
  * the settings, form, display, and update.
  */
@@ -60,7 +60,7 @@ function chystota_feature_widgets() {
             'category__in'        => $categories_display,
             'post_type'           => 'post',
             'ignore_sticky_posts' => 1,
-            'order'               => 'DESC',
+            'order'               => 'ASC',
             'include'             => $categories_display,
             'number'              => $entries_display,
             'taxonomy'            => 'category',
@@ -82,14 +82,16 @@ function chystota_feature_widgets() {
                 <div class="block-content clearfix">
                     <h1><?php echo the_title();?></h1>
                     <p><?php the_content();?></p>
-                    <span class='block-price'><?php get_the_excerpt()?></span>
-                    <?php the_post_thumbnail( )?>
-                    <?php $cats = wp_get_post_categories($post->ID); ;?>
-                    <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                    <span class='block-price'><?php the_excerpt()?></span>
+                </div>
+                <div class="feat-img clearfix">
+	                <?php the_post_thumbnail( )?>
+                </div>
+                <?php $cats = wp_get_post_categories($post->ID); ;?>
+	            <?php foreach( $cats as $cat ): $category = get_category($cat);?>
                     <p class='link-more'>
                         <a href="<?php echo get_category_link($category->cat_ID);?>">Детальніше</a></p>
-                    <?php endforeach;?>
-                </div>
+	            <?php endforeach;?>
             </div>
         <?php endwhile;?>
         </div>
@@ -106,7 +108,7 @@ function chystota_feature_widgets() {
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
 
-	    $instance['category'] = !empty($new_instance['category']) ? implode(",",$new_instance['category']) : 0;
+	    $instance['category'] = !empty($new_instance['category']) ? implode(", ",$new_instance['category']) : 0;
         $instance['entries_display'] = $new_instance['entries_display'];
         return $instance;
     }
@@ -133,7 +135,7 @@ function chystota_feature_widgets() {
         <label for="<?php echo $this->get_field_id( 'category' ); ?>">
             <?php _e( 'Filter by Category:', 'chystota' ); ?>
 
-            </label>
+        </label>      </p>
 	    <?php $args = array(
 		    'post_type' => 'post',
 		    'taxonomy' => 'category',
@@ -141,7 +143,6 @@ function chystota_feature_widgets() {
 	    $terms = get_categories( $args );
 	    foreach( $terms as $id => $name ) {
 	    $checked = "";
-	    echo $name->term_id;
 	    if(in_array($name->term_id, $instance['category'])){
 		    $checked = "checked='checked'";
 	    }

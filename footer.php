@@ -19,26 +19,17 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-4">
 						<div class="f_widget">
-							<div class="f-title"><?php _e( 'Services', 'chystota' )?></div>
-							<div class="f-content">
-								<ul>
-									<li><a href="#">Category 1</a></li>
-									<li><a href="#">Category 2</a></li>
-									<li><a href="#">Category 3</a></li>
-								</ul>
-							</div>
+                            <?php if ( !dynamic_sidebar( 'footer-left' ) ):?>
+                                      <h6>Put widget here</h6>
+                            <?php endif;?>
+
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
 						<div class="f_widget">
-							<div class="f-title"><?php _e( 'About Us', 'chystota' )?></div>
-							<div class="f-content">
-								<ul>
-									<li><a href="#">Category 1</a></li>
-									<li><a href="#">Category 2</a></li>
-									<li><a href="#">Category 3</a></li>
-								</ul>
-							</div>
+							<?php if ( !dynamic_sidebar( 'footer-middle' ) ):?>
+                                <h3>Put widget here</h3>
+							<?php endif;?>
 						</div>
 					</div>
 					<div class="col col-md-4">

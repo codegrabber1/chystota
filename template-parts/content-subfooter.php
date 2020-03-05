@@ -8,15 +8,7 @@
  */
 
 ?>
-<?php if( is_front_page()):?>
-<!-- Testimonials -->
-<section >
-	<?php
-        if( !dynamic_sidebar( 'frontpage' ) ) : ?>
-        <?php endif;
-	?>
-</section><!-- !Testimonials -->
-<?php endif;?>
+
 
 <!-- Contact block with phone number and socials -->
 <section class="s_blocks">

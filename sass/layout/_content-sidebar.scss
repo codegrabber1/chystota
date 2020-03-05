@@ -44,19 +44,25 @@
     color: $color__text-footer;
     padding: 50px  0;
 }
-.f_widget {
+.f_widget .widget {
+  list-style: none;
+}
+.f_widget,
+.f_widget .widgettitle{
    font-style: normal;
-   font-weight: 500;
-   font-size: 16px;
+   font-weight: normal;
+   @include font-size(1.2);
    line-height: 119%;
 }
-.f_widget .f-title {
+.f_widget .f-title,
+.f_widget .widgettitle{
     color: $color__text-footer-title;
 }
 .f_widget .f-content {
     margin: 8px 0;
 }
-.f_widget .f-content li {
+.f_widget .f-content li,
+.f_widget .menu-item {
     line-height: 30px;
 
 }
@@ -64,19 +70,25 @@
     display: inline-block;
     padding: 5px 10px;
 }
-.f_widget .f-content .f-social > li a .fa {
-    @include font-size(1.6);
+.f_widget .f-content .f-social > li:first-child {
+  padding-left: 0;
+}
+.f_widget .f-content .f-social > li a .svg-inline--fa {
+    @include font-size(1.8);
 }
 .f-social {
     width: 60%;
     float: right;
 }
-.f_widget .f-content a {
-    color: $color__text-footer;
+.f_widget .f-content a,
+.f_widget .menu-item a,
+.f_widget .current-menu-item a{
+    color: $color__text-footer !important;
     text-decoration: none;
     display: block;
 }
-.f_widget .f-title::after {
+.f_widget .f-title::after,
+.f_widget .widgettitle::after {
     content: "";
     display: block;
     height: 1px;
@@ -84,6 +96,4 @@
     margin-top: 4px;
     background-color: $color__text-footer-title;
 }
-
-
 @import "no-sidebar";

@@ -183,6 +183,16 @@
   -ms-transform: rotate(-45deg) translate(6px, -7px);
   -o-transform: rotate(-45deg) translate(6px, -7px);
   transform: rotate(-45deg) translate(6px, -7px); }
-.current-menu-item a {
+.current-menu-item a,
+.ui.dropdown .text,
+.ui.dropdown.selected,
+.ui.dropdown.default{
   color:  $color__active-menulink !important;
+}
+
+.ui.dropdown {
+  display: block !important;
+}
+.ui.top.left.pointing.dropdown>.menu {
+  margin: 2em 0 0 !important;
 }
