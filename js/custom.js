@@ -1,43 +1,9 @@
 jQuery(document).ready(function($){
-    // Sidebar menu and top menu.
-    $("#primary-menu").superfish();
-    $("#primary-menu").after("<div id='my-menu'>");
-    $("#primary-menu").clone().appendTo("#my-menu");
-    $("#my-menu").find("*").attr('style', '');
-    $("#my-menu").find("ul").removeClass("sf-menu");
-    $("#my-menu").mmenu({
-        extensions: [
-            "widescreen",
-            "pagedim-black",
-            "effect-menu-slide",
-            "effect-listitems-slide",
-            "fx-menu-zoom",
-            "fx-panels-zoom",
-            "theme-dark"],
-        navbar: {
-            title: "Chystota"
-        }
-    });
-    let api = $("#my-menu").data("mmenu");
-    api.bind("closed", function() {
-        $(".toggle-mnu").removeClass("on");
-    });
-
-    $(".mobile-mnu").click(function() {
-        let mmAPI = $("#my-menu").data("mmenu");
-        mmAPI.open();
-        let thiss = $(this).find(".toggle-mnu");
-        mmAPI.bind("open:finish", function(){
-            thiss.addClass("on");
-        });
-
-        mmAPI.bind("close:finish", function(){
-            thiss.removeClass("on");
-        });
-
-        $(".main-mnu").slideToggle();
-        return false;
-    }); // end sidebar menu.
+    // Top menu.
+    $('.mobile-mnu').click(function(){
+        $('.toggle-mnu, .main-navigation').toggleClass('on');
+        $('body').toggleClass('lock');
+    }); // end top menu.
 
 
     // Adding different classes to the features blocks.
@@ -78,8 +44,8 @@ jQuery(document).ready(function($){
         }
     });
 
-  // Carousel on the discount page.
-   $('#discount-block').owlCarousel({
+    // Carousel on the discount page.
+    $('#discount-block').owlCarousel({
     loop:false,
     items: 3,
     //stagePadding: 20,
@@ -117,9 +83,19 @@ jQuery(document).ready(function($){
             loop:false
         }
     }
-    })
+    });
 
-  // Phone dropdown.
+    // Responsive slider.
+    $('#resp-slider').owlCarousel({
+        loop:false,
+        items: 1,
+        margin: 0,
+        singleItem: true,
+        nav: true,
+        
+    });
+
+    // Phone dropdown.
     $('.ui.dropdown')
         .dropdown()
     ;

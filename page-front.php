@@ -22,6 +22,14 @@ get_header();
 	}
 ?>
 </section><!-- !FEATURES -->
+<?php
+if( is_category() ):
+	if( dynamic_sidebar( 'middlepage' )) : ?>
+
+	<?php
+	endif;
+endif;
+?>
 <!-- Testimonials -->
 <?php
     get_template_part( 'template-parts/content', 'response' );

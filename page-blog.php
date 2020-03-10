@@ -39,7 +39,9 @@ get_header();
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
+
                         <?php
+                            // @todo: finish customizing
                             while( $query -> have_posts() ) : $query->the_post(); ?>
                                 <div class="blog-content clearfix">
                                     <div class="blog-img">

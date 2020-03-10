@@ -16,38 +16,41 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-
-	<header id="masthead" class="site-header">
-		<div class="container">
+	<header id="masthead" class="header">
+        <div class="site-header">
+		    <div class="container">
 			<div class="row">
-				<div class="col-2 order-1 col-sm-3 order-md-2 col-md-7 ">
+				<div class="col-2 order-3 col-sm-3 order-sm-3 col-md-7 order-md-2 ">
+                    <div class="mobile-mnu d-md-none d-lg-none clearfix">
+                        <a class="toggle-mnu  d-lg-none" href="#">
+                            <span></span>
+                        </a>
+                    </div>
 					<nav id="site-navigation" class="main-navigation">
-						<div class="mobile-mnu d-md-none d-lg-none clearfix">
-							<h1 class="site-title">
-			                <a class="toggle-mnu  d-lg-none" href="#">
-			                    <span></span>
-			                </a>
-			                </h1>
-		            	</div>
+
 						<?php
 						wp_nav_menu( array(
 							'theme_location'	=> 'menu-1',
 							'menu_id'			=> 'primary-menu',
-							'menu_class'		=> 'sf-menu',
+							'menu_class'		=> 'header__list',
 							'container'			=> 'ul',
 							// 'fallback_cb'    	=> '__return_empty_string',
 		                    'depth'          	=> 0
 						) );
 						?>
+                        <div class="soc-icons">
+                            hello
+                        </div>
 					</nav><!-- #site-navigation -->
 				</div>
-				<div class="col-10 order-2 col-sm-4 order-3 order-md-1 col-md-2 ">
+				<div class="col-4 order-1 col-sm-4 order-sm-1 col-md-2 order-md-1">
 					<div class="site-branding">
 						<div class="header-logo">
                             <p>
@@ -58,7 +61,7 @@
                         </div>
 					</div><!-- .site-branding -->
 				</div>
-				<div class="col-12 order-3 col-sm-5 order-2 order-md-3 col-md-3 ">
+				<div class="col-6 order-2 col-sm-5 order-sm-2 col-md-3 order-md-3">
 					<ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
 						    <li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
@@ -86,9 +89,7 @@
 				</div>
 			</div>
 		</div>
-
-
-
+        </div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

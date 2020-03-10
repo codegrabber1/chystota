@@ -157,16 +157,38 @@ function chystota_widgets_init() {
     register_sidebar( $args );
 
     /**
-     * Creates a place for Responces count.
+     * Creates a place for Reviews count.
      * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
      */
+     $args = array (
+	     'name' => esc_html__( 'Blocks on the middle of the category page', 'chystota' ),
+	     'id'    => 'middlepage',
+	     'description' => esc_html__( 'Add a widgets here', 'chystota' )
+     );
+     register_sidebar( $args );
+
+	/**
+	 * Creates a place for Reviews count.
+	 * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+	 */
+	$args = array (
+		'name' => esc_html__( 'Blocks above the footer of the category page', 'chystota' ),
+		'id'    => 'abovethefooter',
+		'description' => esc_html__( 'Add a widgets here', 'chystota' )
+	);
+	register_sidebar( $args );
+
+	/**
+	 *   Creates a place for widgets in the footer.
+	 */
     $args = array(
         'name' => esc_html__( 'Footer Left', 'chystota' ),
         'id'    => 'footer-left',
         'description' => esc_html__( 'Add widgets here to place them on the left side of the footer', 'chystota' )
     );
     register_sidebar( $args );
-	$args = array(
+
+    $args = array(
 		'name' => esc_html__( 'Footer Middle', 'chystota' ),
 		'id'    => 'footer-middle',
 		'description' => esc_html__( 'Add widgets here to place them in the middle of the footer', 'chystota' )
@@ -175,6 +197,7 @@ function chystota_widgets_init() {
 }
 add_action( 'widgets_init', 'chystota_widgets_init' );
 
+remove_filter( 'the_excerpt', 'wpautop' );
 /**
  * Enqueue scripts and styles.
  */

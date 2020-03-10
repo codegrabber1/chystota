@@ -149,9 +149,23 @@
 
 }
 .single-content {
-    border: 1px solid red;
     width: 40%;
     margin-left: 60px;
+    position: relative;
+}
+a.order-button{
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  margin: 0 auto;
+  color: #fff;
+  display: block;
+  text-align: center;
+  background: #000;
+  padding: 10px;
+}
+.block-img {
+  max-height: 300px;
 }
 .carpet p.link-more > a {
     color: $color__inverted-link;
@@ -167,6 +181,12 @@
 .price-block {
   background-color: $color__background-discount;
   padding: 40px 0;
+}
+.price-block-title {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 .prices {
   background-color: #fff;
@@ -197,22 +217,23 @@
 }
 .reviews,
 .order-form {
-    flex-direction: row;
+  flex-direction: row;
 }
 .reviews {
-    justify-content: space-around;
-
+  justify-content: space-around;
+  background-color: $color__background-discount;
 }
 .order-form {
-    justify-content: space-between;
-
+  justify-content: space-between;
 }
 .s_blocks {
-    flex-direction: column;
+  flex-direction: column;
 }
 .reviews,
-.s_blocks {
-    padding: 80px 0;
+.s_blocks,
+.price-block
+{
+  padding: 80px 0;
 }
 .reviews h2 {
   margin-bottom: 20px;
@@ -244,6 +265,59 @@
   width: 100%;
   height: 3px;
   background-color: $color__background-progress;
+}
+.response,
+.response-item{
+  width: 100%;
+}
+.s-response {
+  padding: 60px 0 30px 0;
+}
+.s-response h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.response {
+  width: 80%;
+  margin: 0 auto;
+}
+.response img {
+  height: 80vh;
+  object-fit: cover;
+}
+.response-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin: 30px 0 0;
+}
+
+.r-item h1 {
+  width: 100%;
+}
+.r-item {
+  flex: 1 50%;
+}
+.r-item a {
+  float: right;
+}
+#resp-slider {
+  position: relative;
+}
+
+.owl-prev span,
+.owl-next span{
+  @include font-size(5);
+  color: $color__link;
+  position: absolute;
+  top: 35%;
+}
+.owl-prev span{
+  left: 5%;
+}
+.owl-next span{
+  right: 5%;
 }
 progress,                          /* Firefox  */
 progress[role][aria-valuenow] {    /* Polyfill */
