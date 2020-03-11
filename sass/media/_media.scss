@@ -32,30 +32,18 @@ object {
   }
 }
 @media only screen and (max-width: 1165px ){
-  .site-header {
-    display: block;
-  }
-  .header-logo {
-    margin: 0 auto !important;
-  }
-  .main-navigation {
-    width: 100%;
-    margin: 0 auto;
-  }
+
 }
 @media only screen and (max-width: 1024px ){
-  .site-header li {
-    margin: 0;
-  }
-  .sf-menu a {
-    padding: .75em .7em
-  ;
+  .header-info li {
+    margin-left: 8px;
   }
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .sf-menu a {
-    padding: .75em .4em;
+  .show_phone,
+  .header__list{
+    @include font-size(.9);
   }
   .order-block{
     height: 400px;
@@ -80,24 +68,34 @@ object {
   body.lock {
     overflow: hidden;
   }
+  .featured_block {
+    margin: 70px 0 0;
+  }
+  .site-header {
+    height: auto;
+  }
   .main-navigation {
     padding: 120px 10px 20px 10px;
     position: fixed;
     z-index: 1;
     top: -100%;
     overflow: auto;
-    transition: all 0.3ms ease 0s;
+    transition: all .3ms ease .2s;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 70%;
+    justify-content: flex-start;
     background-color: $color__background-body;
   }
   .main-navigation.on{
     top: 0;
 
+
   }
   .header-info {
-    margin: 20px 0;
+    margin: 0;
+    @include font-size(1.2);
+    justify-content: center;
 
   }
   .header__list {
@@ -107,11 +105,21 @@ object {
     margin: 0 0 20px 0;
   }
   .mobile-mnu{
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
     position: relative;
     z-index: 3;
+    float: right;
   }
-
+  .toggle-mnu {
+    display: block;
+    width: 40px;
+    //height: 23px;
+    //float: left;
+    
+  }
+  .show_phone {
+    @include font-size(1.5)
+  }
   .item-service {
     justify-content: flex-end;
     position: absolute;
@@ -179,8 +187,16 @@ object {
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px){
-
-  .f_widget {
+  .header-logo img{
+    max-width: 110px !important;
+  }
+  .header-info {
+    margin: 5px 0;
+    @include font-size(.8);
+    justify-content: center;
+    align-items: center;
+  }
+    .f_widget {
     margin-top: 10px;
   }
   .f_widget .f-title::after{
@@ -194,6 +210,9 @@ object {
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px){
+  .show_phone {
+    @include font-size(1.1)
+  }
   .single-block {
     height: 400px;
   }
@@ -209,6 +228,12 @@ object {
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 380px){
+  .header-logo img{
+    max-width: 95px !important;
+  }
+  .col-3 {
+    padding: 0 !important;
+  }
   .block-contet, .block-price {
     margin-top: 20px;
   }
@@ -221,6 +246,11 @@ object {
   }
   .single-block {
     height: 350px;
+  }
+}
+@media only screen and (max-width: 348px){
+  .show_phone {
+    @include font-size(.9)
   }
 }
 /* Custom, iPhone Retina */

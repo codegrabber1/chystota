@@ -622,12 +622,22 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  height: 50px; }
+  justify-content: space-between;
+  height: 60px; }
+
+.main-navigation,
+.header-info {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  height: 100%; }
 
 .main-navigation {
-  position: relative;
-  z-index: 3; }
+  justify-content: center; }
+
+.header-info {
+  justify-content: flex-end; }
 
 .current_page_item > a,
 .current-menu-item > a,
@@ -649,9 +659,8 @@ a {
 .header__list li a.active {
   color: #21A068; }
 
-.header-info {
-  position: relative;
-  z-index: 2; }
+.header-info li {
+  margin-left: 10px; }
 
 .mobile-mnu {
   cursor: pointer; }
@@ -679,7 +688,7 @@ a {
 
 .toggle-mnu span, .toggle-mnu span:after, .toggle-mnu span:before {
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: #111;
   transition: all 0.3s;
   backface-visibility: hidden;
@@ -930,7 +939,8 @@ a {
   margin: 0 0 1.5em; }
 
 .featured_block {
-  width: 100%; }
+  width: 100%;
+  margin: 50px 0 0; }
 
 .blocks {
   height: 100%; }
@@ -1444,25 +1454,16 @@ object {
   .response img {
     height: auto; } }
 
-@media only screen and (max-width: 1165px) {
-  .site-header {
-    display: block; }
-  .header-logo {
-    margin: 0 auto !important; }
-  .main-navigation {
-    width: 100%;
-    margin: 0 auto; } }
-
 @media only screen and (max-width: 1024px) {
-  .site-header li {
-    margin: 0; }
-  .sf-menu a {
-    padding: .75em .7em; } }
+  .header-info li {
+    margin-left: 8px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .sf-menu a {
-    padding: .75em .4em; }
+  .show_phone,
+  .header__list {
+    font-size: 14.4px;
+    font-size: 0.9rem; }
   .order-block {
     height: 400px; }
   .order_content {
@@ -1479,29 +1480,44 @@ object {
 @media only screen and (max-width: 767px) {
   body.lock {
     overflow: hidden; }
+  .featured_block {
+    margin: 70px 0 0; }
+  .site-header {
+    height: auto; }
   .main-navigation {
     padding: 120px 10px 20px 10px;
     position: fixed;
     z-index: 1;
     top: -100%;
     overflow: auto;
-    transition: all 0.3ms ease 0s;
+    transition: all .3ms ease .2s;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 70%;
+    justify-content: flex-start;
     background-color: #fff; }
   .main-navigation.on {
     top: 0; }
   .header-info {
-    margin: 20px 0; }
+    margin: 0;
+    font-size: 19.2px;
+    font-size: 1.2rem;
+    justify-content: center; }
   .header__list {
     display: block; }
   .header__list li {
     margin: 0 0 20px 0; }
   .mobile-mnu {
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
     position: relative;
-    z-index: 3; }
+    z-index: 3;
+    float: right; }
+  .toggle-mnu {
+    display: block;
+    width: 40px; }
+  .show_phone {
+    font-size: 24px;
+    font-size: 1.5rem; }
   .item-service {
     justify-content: flex-end;
     position: absolute;
@@ -1551,6 +1567,14 @@ object {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px) {
+  .header-logo img {
+    max-width: 110px !important; }
+  .header-info {
+    margin: 5px 0;
+    font-size: 12.8px;
+    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center; }
   .f_widget {
     margin-top: 10px; }
   .f_widget .f-title::after {
@@ -1560,6 +1584,9 @@ object {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
+  .show_phone {
+    font-size: 17.6px;
+    font-size: 1.1rem; }
   .single-block {
     height: 400px; }
   .owl-prev span, .owl-next span {
@@ -1571,6 +1598,10 @@ object {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 380px) {
+  .header-logo img {
+    max-width: 95px !important; }
+  .col-3 {
+    padding: 0 !important; }
   .block-contet, .block-price {
     margin-top: 20px; }
   .feat-img {
@@ -1580,6 +1611,11 @@ object {
     width: 90%; }
   .single-block {
     height: 350px; } }
+
+@media only screen and (max-width: 348px) {
+  .show_phone {
+    font-size: 14.4px;
+    font-size: 0.9rem; } }
 
 /* Custom, iPhone Retina */
 /*==========  Mobile First Method  ==========*/

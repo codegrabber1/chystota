@@ -27,9 +27,9 @@
         <div class="site-header">
 		    <div class="container">
 			<div class="row">
-				<div class="col-2 order-3 col-sm-3 order-sm-3 col-md-7 order-md-2 ">
+				<div class="col-2 order-3 col-sm-3 order-sm-3 col-md-7 order-md-2">
                     <div class="mobile-mnu d-md-none d-lg-none clearfix">
-                        <a class="toggle-mnu  d-lg-none" href="#">
+                        <a class="toggle-mnu d-lg-none" href="#">
                             <span></span>
                         </a>
                     </div>
@@ -41,16 +41,15 @@
 							'menu_id'			=> 'primary-menu',
 							'menu_class'		=> 'header__list',
 							'container'			=> 'ul',
-							// 'fallback_cb'    	=> '__return_empty_string',
-		                    'depth'          	=> 0
+							'depth'          	=> 0
 						) );
 						?>
-                        <div class="soc-icons">
+                        <div class="soc-icons d-md-none d-lg-none">
                             hello
                         </div>
 					</nav><!-- #site-navigation -->
 				</div>
-				<div class="col-4 order-1 col-sm-4 order-sm-1 col-md-2 order-md-1">
+				<div class="col-3 order-1 col-sm-3 order-sm-1 col-md-2 order-md-1">
 					<div class="site-branding">
 						<div class="header-logo">
                             <p>
@@ -61,7 +60,7 @@
                         </div>
 					</div><!-- .site-branding -->
 				</div>
-				<div class="col-6 order-2 col-sm-5 order-sm-2 col-md-3 order-md-3">
+				<div class="col-7 order-2 col-sm-6 order-sm-2 col-md-3 order-md-3">
 					<ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
 						    <li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
@@ -69,7 +68,7 @@
 						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
 						    <li style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
 						<?php endif;?>
-                        <li>
+                        <li class="d-none d-sm-none d-md-block d-lg-block">
                             <div class="ui dropdown">
                                 <input type="hidden" name="gender">
                                 <div class="ui top left pointing dropdown">
