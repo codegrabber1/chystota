@@ -15,12 +15,15 @@ get_header();
 	$id = mcw_get_option( 'blog_category' );
 	$slug = get_the_category_by_ID( $id );
 		if( has_category( $slug ) ) : ?>
-	<main id="main" class="site-main">
+	<main id="main" class="site-main ">
         <div class="container">
-            <header class="entry-header">
+            <div class="post-date">
+                <?php echo get_the_date( 'j F Y' )?>
+            </div>
+            <header class="fullpage-blog-header">
 		        <?php
 		        if ( is_singular() ) :
-			        the_title( '<h1 class="entry-title">!!!', '</h1>' );
+			        the_title( '<h1 class="entry-title">', '</h1>' );
 		        else :
 			        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		        endif;
@@ -38,21 +41,29 @@ get_header();
 
 	                endwhile; ?><!-- // End of the loop.-->
                 </div>
-<!--                <div class="col-md-4">-->
-<!--                    --><?php //get_sidebar();?>
-<!--                </div>-->
-                <?php //the_post_navigation();?>
+
+
             </div>
         </div>
 	</main><!-- #main -->
+    <!--  Related post. -->
+    <div class="discount-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <?php get_template_part( 'template-parts/related-posts' )?>
+                    </div>
+                </div>
+            </div>
+    </div> <!--  !Related post. -->
+
 </div><!-- #primary -->
 	<?php
-	else: ?>
+	    else:
 
-        <?php
-		while ( have_posts() ) :  the_post();
-		    get_template_part( 'template-parts/content', 'front' );
-		endwhile;
+		while ( have_posts() ) :  the_post(); ?>
+		 <?php   get_template_part( 'template-parts/content', 'front' ); ?>
+		<?php endwhile;
 	endif; ?>
 <?php
 get_footer();

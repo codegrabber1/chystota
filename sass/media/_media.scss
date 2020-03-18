@@ -21,8 +21,8 @@ object {
 /*==========  Desktop First Method  ==========*/
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1920px) {
-  .container {
-    max-width: 95% !important;
+  .container-fluid {
+    max-width: 90% !important;
   }
 }
 /* Large Devices, Wide Screens */
@@ -45,6 +45,15 @@ object {
   .header__list{
     @include font-size(.9);
   }
+  .block-item {
+    padding: 50px 0;
+  }
+  .block-content {
+    padding: 0 20px;
+  }
+  .block-content h1 {
+    line-height: 37px;
+  }
   .order-block{
     height: 400px;
   }
@@ -54,9 +63,6 @@ object {
   .single-content {
     margin-left: 40px;
   }
-  .block-content {
-    padding: 0;
-  }
   .r-item {
     flex: 1 100%;
   }
@@ -64,33 +70,37 @@ object {
     top: 30%;
   }
 }
-@media only screen and (max-width: 767px){
-  body.lock {
+@media only screen and (max-width: 768px){
+  body .lock {
     overflow: hidden;
   }
+  .container {
+    max-width: 100% !important;
+  }
   .featured_block {
-    margin: 70px 0 0;
+    margin: 85px 0 10px;
   }
   .site-header {
     height: auto;
   }
   .main-navigation {
-    padding: 120px 10px 20px 10px;
+    padding: 80px 0 30px 0;
     position: fixed;
     z-index: 1;
     top: -100%;
     overflow: auto;
-    transition: all .3ms ease .2s;
+    transition: all .6s cubic-bezier(0, 1, 0.5, 1);
     left: 0;
     width: 100%;
-    height: 70%;
+    height: auto;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     background-color: $color__background-body;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
   }
   .main-navigation.on{
     top: 0;
-
-
   }
   .header-info {
     margin: 0;
@@ -100,9 +110,19 @@ object {
   }
   .header__list {
     display: block;
+    width: 100%;
   }
   .header__list li {
     margin: 0 0 20px 0;
+  }
+  .header__list li a {
+    @include font-size(1);
+    margin: 0 0 0 30px;
+  }
+  .header__list li:nth-child(3),
+  .header__list li:nth-child(6){
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
   }
   .mobile-mnu{
     margin: 10px 0 0 0;
@@ -113,9 +133,17 @@ object {
   .toggle-mnu {
     display: block;
     width: 40px;
-    //height: 23px;
-    //float: left;
-    
+  }
+  .soc-icons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .menu-social > li a {
+    color: $color__menu-link;
+    @include font-size(1.5)
+
   }
   .show_phone {
     @include font-size(1.5)
@@ -134,17 +162,39 @@ object {
     float: none;
     text-align: center;
   }
-
+  .price-block {
+    padding: 60px 0;
+  }
+  .price-block-title {
+    display: none !important;
+  }
+  .prices-title{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+  }
   .blocks {
     flex-direction: column;
   }
   .block-content p.link-more > a {
     left: 20px;
   }
-  .block-item {
-    margin: 10px;
+  .block-content {
+    padding: 0 15px;
+  }
+  .blocks {
+    margin: 80px 10px 0;
+    border-radius: 5px;
+  }
+  .block-item
+  {
+    margin: 5px 0;
     border-radius: 5px;
     position: relative;
+  }
+  .block-img{
+    max-height: unset !important;
   }
   .feat-img {
     position: relative;
@@ -153,6 +203,27 @@ object {
   .feat-img img{
    float: right;
    width: 65%;
+  }
+  .s_blocks {
+    padding: 40px 0;
+  }
+  .single-content {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+  a.order-button{
+    position: relative;
+    margin: 40px 0 0;
+    width: 100%;
+    background-color: $color__active-button;
+  }
+  .r-item a .svg-inline--fa {
+    @include font-size(1.7);
+    margin: 20px 0;
+  }
+
+  .r-item a .fa-share{
+    @include font-size(1.4)
   }
   .order-block, .adver-pict{
     flex: 1 100%;
@@ -164,9 +235,49 @@ object {
     width: 90%;
     margin: 15px 0;
   }
+  .price-content p {
+    float: left;
+  }
+  .price-excerpt {
+    text-align: right;
+  }
+  .discount
+  {
+    background: #fff;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
+  }
+  .response{
+    width: 95%;
+    border-radius: 3px;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
+  }
+  .response-items{
+    margin: 15px;
+  }
+  .order-block {
+    background-color: #fff;
+    color: #000;
+  }
+  .order-form {
+    flex-direction: column-reverse;
+    margin: 0 15px;
+
+  }
+  .order_content {
+    position: unset;
+    padding: 15px 0 0;
+    width: 100%;
+  }
+  .order_content input[type="submit"],
+  .order-btn {
+    background-color: $color__background-blocks;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 648px){
+  .featured_block {
+    margin: 70px 0 10px;
+  }
   .feat-img {
     bottom: 40px;
   }
@@ -174,15 +285,32 @@ object {
     width: 90%;
     margin: 10px auto;
   }
+  .single-block{
+    height: 485px;
+  }
+  .owl-prev span, .owl-next span {
+    top: 20%;
+  }
   .phases-blocks {
     flex-direction: column-reverse;
+    margin: 15px;
+    border-radius: 3px;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
   }
+  .s-response {
+    padding: 30px 0 0 0;
+  }
+
   .phases-blocks:last-child {
     flex-direction: column-reverse;
   }
   
   .block-text, .block-video {
     flex: 1 100%;
+  }
+  .discount-header,
+  .discount-head{
+    margin-top: 40px;
   }
 }
 /* Extra Small Devices, Phones */
@@ -196,7 +324,11 @@ object {
     justify-content: center;
     align-items: center;
   }
-    .f_widget {
+  .blog-img img {
+    float: none;
+    width: 100%;
+  }
+  .f_widget {
     margin-top: 10px;
   }
   .f_widget .f-title::after{
@@ -206,6 +338,13 @@ object {
     margin: 10px 5px;
   }
 
+  .f_widget .f-title::after,
+  .f_widget .widgettitle::after {
+    width: 100%;
+  }
+  .discount{
+    margin: 5px 7px;
+  }
 
 }
 /* Extra Small Devices, Phones */
@@ -213,8 +352,14 @@ object {
   .show_phone {
     @include font-size(1.1)
   }
+  .main-navigation{
+    padding-top: 80px;
+  }
   .single-block {
     height: 400px;
+  }
+  .r-item h1 {
+    @include font-size(1.3)
   }
   .owl-prev span, .owl-next span {
     top: 15%
@@ -225,6 +370,10 @@ object {
   .owl-prev span {
     left: 4%;
   }
+  .prices-title h3 {
+    @include font-size(1.1)
+  }
+
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 380px){
@@ -237,20 +386,35 @@ object {
   .block-contet, .block-price {
     margin-top: 20px;
   }
+  .block-content h1 {
+    line-height: 30px;
+  }
   .feat-img {
     bottom: 20px;
   }
   .order_content {
     right: 15px;
-    width: 90%;
+    width: 100%;
   }
   .single-block {
     height: 350px;
+  }
+  .owl-prev span, .owl-next span {
+    top: 10%;
   }
 }
 @media only screen and (max-width: 348px){
   .show_phone {
     @include font-size(.9)
+  }
+  .discount{
+    margin: 0 2px;
+  }
+  .prices-title {
+    align-items: baseline;
+  }
+  .prices-title img {
+    width: 50px;
   }
 }
 /* Custom, iPhone Retina */

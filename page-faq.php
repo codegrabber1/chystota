@@ -15,7 +15,7 @@ get_header();
 ?>
 
 <div id="primary" class="content-area">
-    <main id="main" class="">
+    <main id="main" class="discount-faq">
         <div class="container">
             <div class="row">
                 <div class="col">

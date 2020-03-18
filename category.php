@@ -11,32 +11,41 @@ get_header();
             <?php while( have_posts()): the_post();
                     the_content();
                 endwhile;?>
-            <a class="order-button" href="#"><?php echo __( 'Order clining', 'chystota' );?></a>
+            <a class="order-button" href="#"><?php echo __( 'Order cleaning', 'chystota' );?></a>
         </div>
         <div class="block-img clearfix">
             <?php the_post_thumbnail( ) ; ?>
         </div>
     </div>
 </div>
+<div class="block-content d-block d-sm-block d-md-none single-content clearfix">
+    <h1><?php the_title();?></h1>
+    <?php while( have_posts()): the_post();
+        the_content();
+    endwhile;?>
+    <a class="order-button" href="#"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+</div>
 <!-- Prices-->
-<?php
-    //if( single_cat_title() == 'carpet') : ?>
 <section class="price-block">
     <?php
         $title = get_field( 'zagolovok' );
         $icon = get_field( 'icon' );
 
     ?>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col price-block-title">
+            <div class="col price-block-title ">
                 <h2><?php echo $title?></h2>
                 <img src="<?php echo $icon?>" alt="<?php echo $title?>">
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="prices">
+            <div class="prices-title ">
+                <h3><?php echo $title?></h3>
+                <img src="<?php echo $icon?>" alt="<?php echo $title?>">
+            </div>
             <?php
             $fields = get_field( 'price_category' );
             $cat = get_category($fields);
@@ -58,18 +67,17 @@ get_header();
                     ?>
                 <div class="price-item">
                     <h3><?php the_title()?></h3>
-                    <?php the_content()?>
-                    <span><?php the_excerpt();?></span>
+                    <div class="price-content">
+                        <?php the_content()?>
+                        <span class="price-excerpt d-block d-sm-block d-md-none d-lg-none"><?php the_excerpt();?></span>
+                    </div>
+                    <span class="d-none d-sm-none d-md-block d-lg-block"><?php the_excerpt();?></span>
                 </div>
 	        <?php endwhile; endif; wp_reset_query();?>
             
         </div>
     </div>
-</section>
-	    <?php 
-    //endif;
-?>
-<!-- !Prices-->
+</section><!-- !Prices-->
  <section class="phases">
      <?php
         $phases = get_field( 'choose_a_category' );
@@ -120,6 +128,7 @@ get_header();
     ?>
 
     <h2> <?php echo $title?> </h2>
+    <!-- Section slider. -->
     <div id="resp-slider" class="owl-carousel">
         <?php
 
@@ -142,18 +151,20 @@ get_header();
                 ?>
                 <div class="response">
                     <?php the_post_thumbnail( )?>
-
                     <div class="response-items">
                         <div class="r-item">
-                            <h1><?php echo the_title();?></h1>
+                            <div class="author-pic">
+                                <img src="" alt="avatar">
+                                <h1><?php echo the_title();?></h1>
+                            </div>
                             <?php the_content();?>
                         </div>
                         <div class="r-item">
                             <a class="fb" href="https://facebook.com/share.php?u=<?php echo get_site_url(); ?>" target="_blank">
+                                <i class="fas fa-share"></i>
                                 <i class="fab fa-facebook-square"></i>
                             </a>
                         </div>
-
                     </div>
                 </div>
 
@@ -163,7 +174,6 @@ get_header();
 <?php
 if( is_category() ):
 	if( dynamic_sidebar( 'abovethefooter' )) : ?>
-
 	<?php
 	endif;
 endif;

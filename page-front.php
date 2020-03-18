@@ -23,12 +23,11 @@ get_header();
 ?>
 </section><!-- !FEATURES -->
 <?php
-if( is_category() ):
-	if( dynamic_sidebar( 'middlepage' )) : ?>
-
-	<?php
-	endif;
-endif;
+    if( is_category() ):
+        if( dynamic_sidebar( 'abovethefooter' )) : ?>
+     <?php
+        endif;
+    endif;
 ?>
 <!-- Testimonials -->
 <?php

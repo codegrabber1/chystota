@@ -12,7 +12,8 @@
     <div class="blogpost-img">
         <?php chystota_post_thumbnail(); ?>
     </div>
-	<div class="entry-content">
+	<div class="fullpage-blog-content">
+
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -28,8 +29,4 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php chystota_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

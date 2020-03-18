@@ -1,18 +1,16 @@
-//# Pagination
-
-chystota_pagination {
+.chystota_pagination {
   width: 100%;
   margin: 15px 0; }
 
-chystota_pagination ul {
+.chystota_pagination ul {
   display: table;
   margin: 0 auto; }
 
-chystota_pagination li {
+.chystota_pagination li {
   float: left;
   margin: 0 5px; }
 
-chystota_pagination li a.page-numbers {
+.chystota_pagination li a.page-numbers {
   display: inline-block;
   padding: 4px 12px;
   margin-right: 0;
@@ -23,11 +21,11 @@ chystota_pagination li a.page-numbers {
   text-decoration: none;
   color: #717171; }
 
-chystota_pagination li a.page-numbers:hover {
+.chystota_pagination li a.page-numbers:hover {
   color: $color__text-footer;
   background: $color__active-menulink; }
 
-chystota_pagination li span.page-numbers.current {
+.chystota_pagination li span.page-numbers.current {
   display: inline-block;
   padding: 4px 12px;
   margin-right: 0;

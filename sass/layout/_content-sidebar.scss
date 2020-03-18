@@ -7,10 +7,12 @@
     position: relative;
     z-index: 3;
 }
+.header {
+    padding: 10px;
+}
 .header,
 .blog-content {
     margin: 0;
-    padding: 10px;
     background: #fff;
     @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
 }
@@ -54,7 +56,8 @@
     line-height: 30px;
 
 }
-.f_widget .f-content .f-social > li {
+.f_widget .f-content .f-social > li,
+.menu-social > li{
     display: inline-block;
     padding: 5px 10px;
 }

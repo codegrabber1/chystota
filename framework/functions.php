@@ -206,6 +206,8 @@ function chystota_scripts() {
 
    wp_enqueue_style( 'chystota-semanticcss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' );
 
+   wp_enqueue_style( 'chystota-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' );
+
     wp_enqueue_style( 'chystota-fontawesomecss', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css' );
 
     wp_enqueue_style( 'chystota-superfishcss', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/css/superfish.min.css' );
@@ -250,7 +252,7 @@ add_action( 'admin_init', 'admin_scripts' );
  * @global $wp_query http://codex.wordpress.org/Class_Reference/WP_Query
  * @return Prints the HTML for the pagination if a template is $paged
  */
-if ( ! function_exists( 'chystota_pagination' ) ) :
+if ( !function_exists( 'chystota_pagination' ) ) :
 	function chystota_pagination() {
 		global $wp_query;
 

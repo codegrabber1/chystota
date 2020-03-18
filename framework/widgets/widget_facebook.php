@@ -103,7 +103,7 @@ class chystota_facebook_widget extends WP_Widget {
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
 	function form( $instance ) {
-		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '390px', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
+		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '100%', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
 		$instance = wp_parse_args((array) $instance, $defaults); ?>
 
 		<p>
@@ -118,7 +118,7 @@ class chystota_facebook_widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width:', 'chystota') ?></label>
-			<input class="widefat" style="width: 40px;" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" value="<?php echo $instance['width']; ?>" />
+			<input class="widefat" style="width: 70px;" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" value="<?php echo $instance['width']; ?>" />
 		</p>
 
 

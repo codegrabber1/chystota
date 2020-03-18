@@ -127,8 +127,9 @@
     text-align: center;
     line-height: 24px;
     border-radius: 3px;
-    width: 120px;
+    width: 110px;
     background: $color__background-opacity;
+    padding: 8px;
 
 }
 .block-contet, .block-price p {
@@ -183,11 +184,16 @@ a.order-button{
   background-color: $color__background-discount;
   padding: 40px 0;
 }
-.price-block-title {
+.price-block-title
+{
   margin-bottom: 30px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+}
+.prices-title {
+  width: 90%;
+  display: none;
 }
 .prices {
   background-color: #fff;
@@ -201,16 +207,16 @@ a.order-button{
 .price-item {
   width: 23.33%;
 }
-.prices p {
-  margin: 2px 0;
-
-}
-.prices p::after {
+.price-content::after {
   display: block;
   content: "";
   border-top: .1rem solid $color__border-line;
   margin: 5px 0;
-  
+
+}
+.prices p {
+  margin: 2px 0;
+
 }
 .prices span {
   color: $color__link;
@@ -246,6 +252,7 @@ a.order-button{
 .review-block .icon {
   @include font-size(2);
   position: relative;
+  bottom: -10px;
 
 }
 .review-block span {
@@ -272,7 +279,7 @@ a.order-button{
   width: 100%;
 }
 .s-response {
-  padding: 60px 0 30px 0;
+  padding: 60px 0 0 0;
 }
 .s-response h2 {
   text-align: center;
@@ -293,15 +300,35 @@ a.order-button{
   align-content: space-between;
   margin: 30px 0 0;
 }
-
+.author-pic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+.author-pic img {
+  border: 1px solid red;
+  width: 70px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 .r-item h1 {
   width: 100%;
+  margin: 0;
 }
 .r-item {
   flex: 1 50%;
 }
 .r-item a {
   float: right;
+}
+.r-item a .svg-inline--fa {
+  @include font-size(2)
+}
+
+.r-item a .fa-share{
+  @include font-size(1.7)
 }
 #resp-slider {
   position: relative;

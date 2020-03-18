@@ -87,12 +87,43 @@ jQuery(document).ready(function($){
 
     // Responsive slider.
     $('#resp-slider').owlCarousel({
-        loop:false,
+        loop: true,
         items: 1,
         margin: 0,
         singleItem: true,
         nav: true,
-        
+        responsive : {
+            0: {
+                items: 1,
+                nav: false,
+                center: true,
+                stagePadding: 20,
+            },
+            648: {
+                items: 1.50,
+                nav: false,
+                center: false,
+                stagePadding: 20
+            },
+            768: {
+                items: 1,
+                nav: false,
+                center: false,
+                stagePadding: 20,
+            },
+            900: {
+                items: 1,
+                nav: false,
+                stagePadding: 20,
+                loop: false
+            },
+            1000: {
+                items: 1,
+                nav: true,
+                //stagePadding: 20,
+                loop: false
+            }
+        }
     });
 
     // Phone dropdown.

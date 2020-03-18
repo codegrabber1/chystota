@@ -44,6 +44,9 @@ section {
 .fb {
 	color: $color__social_facebook !important;
 }
+.discount img.emoji {
+	width: 20px !important;
+}
 
 @import "tables";
 @import "pagination";
