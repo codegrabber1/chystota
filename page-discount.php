@@ -38,7 +38,7 @@ get_header();
                 ?>
             </div>
              <section class="order-section">
-                 <?php if( dynamic_sidebar( 'abovethefooter' )) : ?>
+                 <?php if( dynamic_sidebar( 'descount-widget' )) : ?>
                  <?php endif; ?>
              </section>
         </div>

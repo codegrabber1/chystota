@@ -150,7 +150,7 @@ function chystota_widgets_init() {
      * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
      */
     $args = array(
-        'name' => esc_html__( 'Blocks on front page', 'chystota' ),
+        'name' => esc_html__( 'Block for widgets on the front page', 'chystota' ),
         'id'    => 'frontpage',
         'description' => esc_html__( 'Add a widgets here', 'chystota' )
     );
@@ -161,7 +161,7 @@ function chystota_widgets_init() {
      * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
      */
      $args = array (
-	     'name' => esc_html__( 'Blocks on the middle of the category page', 'chystota' ),
+	     'name' => esc_html__( 'Block for widgets in the middle of the category page', 'chystota' ),
 	     'id'    => 'middlepage',
 	     'description' => esc_html__( 'Add a widgets here', 'chystota' )
      );
@@ -172,10 +172,17 @@ function chystota_widgets_init() {
 	 * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
 	 */
 	$args = array (
-		'name' => esc_html__( 'Blocks above the footer of the category page', 'chystota' ),
+		'name' => esc_html__( 'Block for widgets above the footer for categories.', 'chystota' ),
 		'id'    => 'abovethefooter',
 		'description' => esc_html__( 'Add a widgets here', 'chystota' )
 	);
+	register_sidebar( $args );
+
+	$args = array(
+	    'name' => esc_html__( 'Block for widgets on the discount page.' ),
+        'id'    => 'descount-widget',
+        'description' => esc_html__( 'Add widgets here.' )
+    );
 	register_sidebar( $args );
 
 	/**
@@ -241,7 +248,12 @@ add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
 
 function admin_scripts() {
 	if( is_admin() ) {
+
+		//wp_enqueue_style( 'mcw-colorcss', get_template_directory_uri() . '/framework/options/css/color-picker.css' );
 		wp_enqueue_script('mcw_upload', get_template_directory_uri() .'/framework/options/js/upload.js', array('jquery'));
+//		wp_enqueue_script('mcw_colorpicker', get_template_directory_uri() . '/framework/options/js/colorpicker.js', array( 'jquery' ), '', true);
+//		wp_enqueue_script('mcw_select_js', get_template_directory_uri() . '/framework/options/js/jquery.customSelect.min.js', array( 'jquery' ), '', true);
+		
 	}
 }
 add_action( 'admin_init', 'admin_scripts' );
@@ -340,3 +352,4 @@ function wpds_parent_category_template()
 		}
 	}
 }
+

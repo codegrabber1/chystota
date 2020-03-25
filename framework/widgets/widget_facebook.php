@@ -39,13 +39,13 @@ class chystota_facebook_widget extends WP_Widget {
 		extract( $args );
 		$page_url   = $instance['page_url'];
 		$width      = $instance['width'];
-		$height      = $instance['height'];
+		$height     = '400';
 		$tabs 		= $instance['tabs'];
 		$title 		= apply_filters( 'widget_title', $instance['title'] );
 		$show_faces = isset( $instance['show_faces'] ) ? 'true' : 'false';
 		$hide_cover = isset( $instance['hide_cover'] ) ? 'true' : 'false';
 		$show_header = isset( $instance['show_header'] ) ? 'true' : 'false';
-		//$height = '200';
+
 
 		if( $show_faces == 'true') 	{
 			$height = '230';
@@ -103,7 +103,7 @@ class chystota_facebook_widget extends WP_Widget {
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
 	function form( $instance ) {
-		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '100%', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
+		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '390', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
 		$instance = wp_parse_args((array) $instance, $defaults); ?>
 
 		<p>

@@ -1,6 +1,7 @@
 (function($) {
-    "use strict";
     $( document ).ready( function () {
+        // Change the background color in the block where phone's input is.
+
         //$('select.styled').customSelect();
 
         $(".tab_block").hide();
@@ -11,7 +12,7 @@
             $(".tabs ul li").removeClass("active");
             $(this).addClass("active");
             $(".tab_block").hide();
-            var activeTab = $(this).find("a").attr("href");
+            let activeTab = $(this).find("a").attr("href");
             $(activeTab).fadeIn(200);
             return false;
         });
@@ -31,6 +32,13 @@
                 $('#mcw_links_color').val('#'+hex);
             }
         });
+
+        // $('#widget-chystota_callback_widget-4-mcw_order_color_selector').ColorPicker({
+        //     onChange: function (hsb,hex,rgb){
+        //         $('#widget-chystota_callback_widget-4-mcw_order_color_selector div').css('backgroundColor', '#' + hex);
+        //         $('#widget-chystota_callback_widget-4-chystota_order_color').val('#'+hex);
+        //     }
+        // });
 
         setTimeout(function () {
             $(".fade").fadeOut("slow", function () {

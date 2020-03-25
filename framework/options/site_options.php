@@ -96,7 +96,6 @@ function mcw_theme_options_page(){
                    <ul>
                        <li class="general first"><a href="#general"><i class="icon-cogs"></i><?php echo _e('General', 'chystota'); ?></a></li>
                        <li class="category"><a href="#category"><?php echo _e( 'Categories', 'chystota' );?></a></li>
-                       <li class="vartist"><a href="#vartist"><?php echo _e( 'Prices', 'chystota' );?></a></li>
                        <li class="seo"><a href="#seo"><?php echo _e( 'SEO', 'chystota' );?></a></li>
                        <li class="reset"><a href="#reset"><i class="icon-refresh"></i><?php echo _e( 'Reset', 'chystota' );?></a></li>
                    </ul>
@@ -161,10 +160,21 @@ function mcw_theme_options_page(){
                                     <input type="text" id="mcw_options[mcw_inst_url]" name="mcw_options[mcw_inst_url]" value="<?php echo esc_attr( $options['mcw_inst_url'] );?>" />
                                     <span class="description long"><?php _e( "Enter full instagram-URL starting with <strong> https:// </strong>, or leave blank.", 'chystota' );?></span>
                                 </div>
+
                                 <div class="field">
                                     <label for="mcw_options[mcw_youtube_url]"><?php _e( 'Youtube URL', 'chystota' );?></label>
                                     <input id="mcw_options[mcw_youtube_url]" name="mcw_options[mcw_youtube_url]" type="text" value="<?php echo esc_attr($options['mcw_youtube_url']); ?>" />
                                     <span class="description long"><?php _e( "Enter full youtube-URL starting with <strong> https:// </strong>, or leave blank.", 'chystota' ); ?></span>
+                                </div>
+                                <div class="field">
+                                    <label for="mcw_options[mcw_viber]"><?php _e( 'Viber', 'chystota' );?></label>
+                                    <input id="mcw_options[mcw_viber]" name="mcw_options[mcw_viber]" type="text" value="<?php echo esc_attr ( $options['mcw_viber']);?>">
+                                    <span class="description long"><?php _e( "Enter your viber number, or leave blank.", 'chystota' ); ?></span>
+                                </div>
+                                <div class="field">
+                                    <label for="mcw_options[mcw_whatsapp]"><?php _e( 'WhatsApp', 'chystota' );?></label>
+                                    <input id="mcw_options[mcw_whatsapp]" name="mcw_options[mcw_whatsapp]" type="text" value="<?php echo esc_attr ( $options['mcw_whatsapp']);?>">
+                                    <span class="description long"><?php _e( "Enter your whatsapp number, or leave blank.", 'chystota' ); ?></span>
                                 </div>
                                 <div class="field">
                                     <label for="mcw_options[mcw_phone]"><?php _e( 'Phone', 'chystota' );?></label>
@@ -253,9 +263,6 @@ function mcw_theme_options_page(){
 
                             </div>
                         </div>  <!-- #category -->
-                        <div id="vartist" class="tab_block"">
-                        vartist
-                        </div>
                         <div id="seo" class="tab_block">
                             <div class="field infobox">
                                 <p><strong><?php _e('Analytics for the site', 'chystota'); ?></strong></p>
@@ -263,12 +270,12 @@ function mcw_theme_options_page(){
                             </div>
                             <h3><?php _e('Meta info', 'chystota'); ?></h3>
                             <div class="field">
-                                <label for="mcw_options[mcw_homepage_title]"><?php _e('The name of the home page', 'chystota'); ?></label>
+                                <label for="mcw_options[mcw_homepage_title]"><?php _e('SEO name of the site', 'chystota'); ?></label>
                                 <input id="mcw_options[mcw_homepage_title]" name="mcw_options[mcw_homepage_title]" type="text" value="<?php echo esc_attr($options['mcw_homepage_title']); ?>" />
                                 <span class="description"><?php _e( 'Enter the name of the home page.', 'chystota' ); ?></span>
                             </div>
                             <div class="field">
-                                <label for="mcw_options[mcw_meta_description]"><?php _e('Description', 'chystota'); ?></label>
+                                <label for="mcw_options[mcw_meta_description]"><?php _e('SEO Description', 'chystota'); ?></label>
                                 <textarea id="mcw_options[mcw_meta_description]" class="textarea" name="mcw_options[mcw_meta_description]"><?php echo esc_attr($options['mcw_meta_description']); ?></textarea>
                                 <span class="description"><?php _e( 'Add a description.', 'chystota' ); ?></span>
                             </div>
@@ -318,6 +325,8 @@ function mcw_default_options(){
          'mcw_fb_url'           => '',
          'mcw_inst_url'         => '',
          'mcw_youtube_url'      => '',
+         'mcw_viber'            => '',
+         'mcw_whatsapp'         => '',
          'mcw_phone'            => '',
          'mcw_phone_kyiv'       => '',
          'discount_category'    => 0,
@@ -351,6 +360,8 @@ function mcw_validate_options( $input ){
         $input['mcw_youtube_url']       = esc_url_raw( $input['mcw_youtube_url'] );
         $input['mcw_phone']             = wp_filter_nohtml_kses( $input['mcw_phone'] );
         $input['mcw_phone_kyiv']        = wp_filter_nohtml_kses( $input['mcw_phone_kyiv'] );
+        $input['mcw_viber']             = wp_filter_nohtml_kses( $input['mcw_viber'] );
+        $input['mcw_whatsapp']          = wp_filter_nohtml_kses( $input['mcw_whatsapp'] );
         $input['contact_email']         = wp_filter_nohtml_kses( $input['contact_email' ] );
 	    $input['mcw_homepage_title']    = wp_filter_post_kses( $input['mcw_homepage_title'] );
 	    $input['mcw_meta_keywords']     = wp_filter_post_kses( $input['mcw_meta_keywords'] );

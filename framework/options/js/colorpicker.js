@@ -7,8 +7,8 @@
  *
  */
 (function ($) {
-	var ColorPicker = function () {
-		var
+	let ColorPicker = function () {
+		let
 			ids = {},
 			inAction,
 			charMin = 65,

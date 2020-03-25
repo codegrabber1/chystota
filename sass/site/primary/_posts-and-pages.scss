@@ -41,6 +41,8 @@
 .item-service,
 .phases-blocks {
     display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
@@ -63,6 +65,8 @@
 }
 .text-block {
   display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
@@ -86,8 +90,9 @@
 .mattress {
     background-color: $color__background-mattress;
 }
-.sofa,
-.order-block {
+
+//.order-block{}
+.sofa {
     background-color: $color__background-sofa;
 }
 .carpet {
@@ -122,6 +127,8 @@
 .block-contet, .block-price {
     margin-top: 50px;
     display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -176,6 +183,8 @@ a.order-button{
 .order-form,
 .s_blocks {
     display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     flex-wrap: wrap;
     align-items: stretch;
     align-content: center;
@@ -199,6 +208,8 @@ a.order-button{
   background-color: #fff;
   @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
   display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;

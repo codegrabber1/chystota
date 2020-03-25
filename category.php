@@ -23,7 +23,7 @@ get_header();
     <?php while( have_posts()): the_post();
         the_content();
     endwhile;?>
-    <a class="order-button" href="#"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+    <a class="order-button" href="#order-color"><?php echo __( 'Order cleaning', 'chystota' );?></a>
 </div>
 <!-- Prices-->
 <section class="price-block">

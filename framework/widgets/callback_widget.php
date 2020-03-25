@@ -37,6 +37,7 @@
         ];
         parent::__construct( 'chystota_callback_widget', __( 'Chystota: The form for callback ', 'chystota' ) ,$widget_ops );
 
+
     }
     /**
      * Display the widget on the screen.
@@ -45,12 +46,15 @@
      */
     function widget( $args, $instance ){
         extract( $args );
-        $title = apply_filters('widget_title', $instance['title']);
-        $description = $instance['description'];
-        $image = $instance['image'];
+        $title                  = apply_filters('widget_title', $instance['title']);
+        $description            = $instance['description'];
+        $image                  = $instance['image'];
+        $chystota_order_color   = wp_filter_nohtml_kses( $instance['chystota_order_color'] );
+        $chystota_tex_color     = wp_filter_nohtml_kses( $instance['chystota_text_color'] );
+
         ?>
         <div class="order-form">
-            <div class="order-block ">
+            <div id="order-color" class="order-block " style="color: <?php echo $chystota_tex_color?> ; background-color: <?php echo $chystota_order_color;?>">
                 <div class="order_content clearfix">
                     <h2><?php echo $title?></h2>
                     <p>
@@ -70,10 +74,12 @@
     }
 
     function update( $new_instance, $old_instance ){
-        $instance = $old_instance;
-        $instance['title'] = $new_instance['title'];
-        $instance['description'] = $new_instance['description'];
-        $instance['image'] = $new_instance['image'];
+        $instance                           = $old_instance;
+        $instance['title']                  = $new_instance['title'];
+        $instance['description']            = $new_instance['description'];
+        $instance['image']                  = $new_instance['image'];
+        $instance['chystota_order_color']   = wp_filter_nohtml_kses( $new_instance['chystota_order_color'] );
+        $instance['chystota_text_color']    = wp_filter_nohtml_kses( $new_instance['chystota_text_color'] );
         return $instance;
 
     }
@@ -83,25 +89,54 @@
      * when creating your form elements. This handles the confusing stuff.
      */
     function form( $instance ){
-        $defaults = array( 'title' => '', 'description' => '', 'image' => '' );
+        $defaults = array( 'title' => '', 'description' => '', 'image' => '', 'chystota_order_color' => '', 'chystota_text_color' => ''  );
         $instance = wp_parse_args( (array) $instance, $defaults );?>
 <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>">
                 <?php _e('Title:', 'chystota') ?>
 
             </label>
-    <input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+    <input type="text" id="<?php echo $this->get_field_id('title'); ?>"
+           name="<?php echo $this->get_field_name('title'); ?>" 
+           value="<?php echo $instance['title']; ?>" 
+           style="width:100%;" />
         </p>
 
         <p>
             <label for="<?php echo $this->get_field_id('link'); ?>">
                 <?php _e(' Description:', 'chystota') ?>
             </label>
-            <textarea rows="8" class="widefat"
-                id="<?php echo $this->get_field_id( 'description' ); ?>"
-                name="<?php echo $this->get_field_name( 'description' ); ?>">
-                <?php echo format_to_edit( $instance['description'] ); ?>
-            </textarea></p>
+        <textarea rows="8" class="widefat"
+            id="<?php echo $this->get_field_id( 'description' ); ?>"
+            name="<?php echo $this->get_field_name( 'description' ); ?>">
+            <?php echo format_to_edit( $instance['description'] ); ?>
+        </textarea>
+        </p>
+
+        <p >
+            <label for="<?php echo $this->get_field_id('chystota_text_color')?>"><?php _e( 'Set the text color', 'chystota' );?></label>
+
+            <input 
+                   class="widefat" style="width: 100%;"
+                   id="<?php echo $this->get_field_id('chystota_text_color')?>" type="text"
+                   name="<?php echo $this->get_field_name('chystota_text_color')?>"
+                   value="<?php echo $instance['chystota_text_color'];?>">
+            <p class="description chkdesc">
+                <?php _e( 'Choose a color for the text on the block where the form is.', 'chystota' ); ?>
+            </p>
+        </p>
+        
+        <p class='field'>
+            <label for="<?php echo $this->get_field_id('chystota_order_color')?>"><?php _e( 'Set the background color', 'chystota' );?></label>
+            
+            <input 
+                   class="widefat" style="width: 100%;"
+                   id="<?php echo $this->get_field_id('chystota_order_color')?>" type="text"
+                   name="<?php echo $this->get_field_name('chystota_order_color')?>"
+                   value="<?php echo $instance['chystota_order_color'];?>">
+            <p class="description chkdesc">
+                <?php _e( 'Choose a color for the block where the form is.', 'chystota' ); ?>
+            </p>
         </p>
 
         <p class="field">

@@ -19,9 +19,17 @@
 			<?php endif; ?>or find Us in socails</span>
 	</div>
 	<div class="block clearfix">
-		<a href="#" class="socials"><i class="fab fa-viber"></i> Viber</a>
-		<a href="#" class="socials"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-		<a href="#" class="socials"><i class="fab fa-facebook"></i>Facebook</a>
-		<a href="#" class="socials"><i class="fab fa-instagram"></i> Instagram</a>
+        <?php if( mcw_get_option('mcw_viber' ) ): ?>
+		    <a href="viber://chat?number=<?php echo mcw_get_option('mcw_viber' )?>" class="socials" target="_blank"><i class="fab fa-viber"></i> Viber</a>
+        <?php endif;?>
+        <?php if( mcw_get_option( 'mcw_whatsapp' ) ):?>
+		    <a href="whatsapp://send?phone=<?php echo mcw_get_option('mcw_whatsapp' )?>" class="socials" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <?php endif;?>
+        <?php if( mcw_get_option( 'mcw_fb_url' ) ):?>
+		    <a href="<?php echo mcw_get_option( 'mcw_fb_url' );?>" class="socials" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+        <?php endif;?>
+        <?php if( mcw_get_option( 'mcw_inst_url' ) ):?>
+		    <a href="<?php echo mcw_get_option( 'mcw_inst_url' );?>" class="socials" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <?php endif;?>
 	</div>
 </section><!-- !Contact block with phone number and socials -->
