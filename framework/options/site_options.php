@@ -34,7 +34,7 @@ function mcw_register_admin_scripts() {
  * ==================
 */
 function mcw_init_options(){
-	$options = get_options( 'mcw_options' );
+	$options = get_option( 'mcw_options' );
 	if ( false === $options ) {
 		$options = mcw_default_options();
 	}

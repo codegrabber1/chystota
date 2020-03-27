@@ -33,16 +33,30 @@ class chystota_response_count_widget extends WP_Widget {
 		$chystota_google_api_key = $instance['chystota_google_api_key'];
 		$chystota_google_place_id = $instance['chystota_google_place_id'];
 
-        if( $chystota_google_api_key  ) {
-            echo 'chystota_google_api_key';
+        if( isset( $chystota_google_api_key ) && isset( $chystota_google_place_id )  ) {
+            // Getting url for the rating of business.
+            $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$chystota_google_place_id&fields=name,rating,user_ratings_total&key=$chystota_google_api_key";
+            //AIzaSyA6NOFu29w0EfI6X9li6bxsmjXW-HhIDy4'"
+	        //ChIJN1t_tDeuEmsRUsoyG83frY4
+
+            // cUrl init.
+            $ch = curl_init();
+            curl_setopt( $ch, CURLOPT_URL, $url);
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+            $result = curl_exec( $ch );
+            $res = json_decode( $result, true );
+            $rating = $res['result']['rating'];
+            $totals = $res['result']['user_ratings_total'];
+
+        } else {
+            echo "Assign Google API and Place ID";
         }
-		if( $chystota_google_place_id  ) {
-			echo 'chystota_google_place_id';
-		}
 
 
 		if( $chystota_facebook_id ){
-			$apiUrl = 'https://graph.facebook.com/'.$chystota_facebook_id.'?fields=fan_count.summary(true)&access_token='.$appsecret;
+//			$apiUrl = 'https://graph.facebook.com/'.$chystota_facebook_id.'/me/accounts?fields=name&access_token='.$appsecret;
+			$apiUrl ="https://www.facebook.com/v6.0/dialog/oauth?
+			client_id=498188843586746&redirect_uri=http://localhost:3000/chystota.wp/wp-admin/widgets.php";
 			//open connection
 			$ch = curl_init();
 			$timeout=5;
@@ -57,6 +71,7 @@ class chystota_response_count_widget extends WP_Widget {
 			//close connection
 			curl_close($ch);
 			$data = json_decode($result,true);
+			var_dump($data);
         }
 
 		?>
@@ -97,20 +112,21 @@ class chystota_response_count_widget extends WP_Widget {
                         </g>
 </svg>
                 <span>Google</span>
-                <span class="review_number">4.8</span>
+                <span class="review_number"><?php echo $rating ?> з 5</span>
             </div>
             <div class="review_line">
-                <progress max="5" value="4">
-                    <strong>Progress: 90% done.</strong>
+                <progress max="5" value="<?php echo $rating?>">
+                    
                 </progress>
             </div>
 
             <div class="review_count">
-			    <?php echo __( 'Based on reviews', 'chystota' )  ;?>
+			    <?php echo __( "Based on $totals  reviews", "chystota" )  ;?>
             </div>
 
 		</div>
         <?php if( $chystota_facebook_id ) :?>
+       
             <div class="review-block">
                 <div class="icon">
                     <a class="fb" href="https://facebook.com/share.php?u=<?php echo get_site_url(); ?>" target="_blank">
@@ -121,7 +137,7 @@ class chystota_response_count_widget extends WP_Widget {
                 </div>
                 <div class="review_line">
                     <progress max="5" value="5">
-                        <strong>Progress: 90% done.</strong>
+                        
                     </progress>
                 </div>
 
@@ -153,6 +169,8 @@ class chystota_response_count_widget extends WP_Widget {
                 'chystota_google_api_key' => '',
                 'chystota_google_place_id' => '' );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+        
+
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
 				<?php _e('Title:', 'chystota'); ?></label>
@@ -169,9 +187,78 @@ class chystota_response_count_widget extends WP_Widget {
             <input id="<?php echo $this->get_field_id( 'chystota_google_place_id' ); ?>" name="<?php echo $this->get_field_name( 'chystota_google_place_id' ); ?>" value="<?php echo $instance['chystota_google_place_id']; ?>" class="widefat" />
         </p>
         <p>
-            
+        
+
+
         </p>
+        <p>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+        
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v6.0&appId=498188843586746&autoLogAppEvents=1">
+
+        </script>
+        <script>
+
+            function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+                console.log('statusChangeCallback');
+                console.log(response);                   // The current login status of the person.
+                if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                    testAPI();
+                    let acsToken = response.authResponse.accessToken;
+                    //let acsToken = JSON.stringify(response.authResponse.accessToken);
+
+                    console.log(acsToken);
+                } else {                                 // Not logged into your webpage or we are unable to tell.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                        'into this webpage.';
+                }
+            }
+
+
+            function checkLoginState() {               // Called when a person is finished with the Login Button.
+                FB.getLoginStatus(function(response) {   // See the onlogin handler
+                    statusChangeCallback(response);
+                    document.getElementsByClassName('status').innerHTML =
+                        'Thanks for logging in, ' + response.authResponse.accessToken + '!';
+                    console.log('Successful login for: ' + response.authResponse.accessToken);
+                });
+            }
+
+
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '498188843586746',
+                    cookie     : true,                     // Enable cookies to allow the server to access the session.
+                    xfbml      : true,                     // Parse social plugins on this webpage.
+                    version    : 'v6.0'           // Use this Graph API version for this call.
+                });
+
+
+                FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+                    statusChangeCallback(response);        // Returns the login status.
+                });
+            };
+
+
+            
+            function testAPI() {       // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+ console.log('Successful login for: ' + response.name);
+
+
+                    document.getElementsByClassName('status').innerHTML =
+                       'Thanks for logging in, ' + response.name + '!';
+                });
+            }
+        </script>
+'
+
+        </p>
+            
 		<p>
+
 			<label for="<?php echo $this->get_field_id( 'chystota_facebook_id' ); ?>">
 				<?php _e('Facebook Page ID:', 'chystota'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'chystota_facebook_id' ); ?>" name="<?php echo $this->get_field_name( 'chystota_facebook_id' ); ?>" value="<?php echo $instance['chystota_facebook_id']; ?>" class="widefat" />
