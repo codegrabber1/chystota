@@ -22,7 +22,10 @@ object {
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1920px) {
   .container-fluid {
-    max-width: 90% !important;
+    max-width: 95% !important;
+  }
+  .order_content {
+    top: 35%;
   }
 }
 /* Large Devices, Wide Screens */

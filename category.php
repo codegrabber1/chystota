@@ -5,13 +5,13 @@
 get_header();
 ?>
 <div class="blocks single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
-    <div class="item-service">
-        <div class="block-content d-none d-sm-none d-md-block single-content clearfix">
+    <div class="item-service clearfix">
+        <div class="single-content d-none d-sm-none d-md-block clearfix">
             <h1><?php the_title();?></h1>
             <?php while( have_posts()): the_post();
                     the_content();
                 endwhile;?>
-            <a class="order-button" href="#"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+            <a class="order-button" href="#orderPhone"><?php echo __( 'Order cleaning', 'chystota' );?></a>
         </div>
         <div class="block-img clearfix">
             <?php the_post_thumbnail( ) ; ?>
@@ -133,6 +133,7 @@ get_header();
         <?php
 
         $fields = get_field( 'sliders_category' );
+
         $cat = get_category($fields);
         $cat_name  = get_cat_name($cat->cat_ID);
 
@@ -145,6 +146,7 @@ get_header();
             'include'             => $cat_name,
             'taxonomy'            => 'post',
         );
+        
         $query = new WP_Query( $args );
         if( $query->have_posts() ):
             while( $query->have_posts() ): $query->the_post();
@@ -154,13 +156,13 @@ get_header();
                     <div class="response-items">
                         <div class="r-item">
                             <div class="author-pic">
-                                <img src="" alt="avatar">
+                                <img src="<?php echo get_field( 'avatar',$post->ID );?>" alt="<?php echo get_field( 'avatar',$post->ID );?>">
                                 <h1><?php echo the_title();?></h1>
                             </div>
                             <?php the_content();?>
                         </div>
                         <div class="r-item">
-                            <a class="fb" href="https://facebook.com/share.php?u=<?php echo get_site_url(); ?>" target="_blank">
+                            <a class="fb" href="<?php echo get_field( 'link_to_avatar' );?>" target="_blank">
                                 <i class="fas fa-share"></i>
                                 <i class="fab fa-facebook-square"></i>
                             </a>

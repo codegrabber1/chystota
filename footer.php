@@ -69,6 +69,31 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#eaf7f7",
+                "text": "#5c7291"
+            },
+            "button": {
+                "background": "#56cbdb",
+                "text": "#ffffff"
+            }
+        },
+        "showLink": false,
+        "type": "opt-in",
+        "content": {
+            "message": "Цей сайт використовує coockie для покращення роботи сайту для Ваших потреб",
+            "dismiss": "Заборонити",
+            "allow": "Дозволити"
+        }
+    });
+</script>
+<!-- start webpushr tracking code -->
+<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";
+        fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
+    webpushr('init','BJ1J9WrDgfVQmFoAoqUsywiwP9neYGrEsjAHZRnWp0sStGypo-Aot80uCGdkJDWOqPdyRJnmgBNzValWV2nqm-w');</script>
+<!-- end webpushr tracking code -->
 </body>
 </html>

@@ -54,9 +54,9 @@ class chystota_response_count_widget extends WP_Widget {
 
 
 		if( $chystota_facebook_id ){
-//			$apiUrl = 'https://graph.facebook.com/'.$chystota_facebook_id.'/me/accounts?fields=name&access_token='.$appsecret;
-			$apiUrl ="https://www.facebook.com/v6.0/dialog/oauth?
-			client_id=498188843586746&redirect_uri=http://localhost:3000/chystota.wp/wp-admin/widgets.php";
+            $apiUrl = 'https://graph.facebook.com/'.$chystota_facebook_id.'/me/accounts?fields=name&access_token='.$appsecret;
+//			$apiUrl ="https://www.facebook.com/v6.0/dialog/oauth?
+//			client_id=498188843586746&redirect_uri=http://localhost:3000/chystota.wp/wp-admin/widgets.php";
 			//open connection
 			$ch = curl_init();
 			$timeout=5;
@@ -119,11 +119,9 @@ class chystota_response_count_widget extends WP_Widget {
                     
                 </progress>
             </div>
-
             <div class="review_count">
 			    <?php echo __( "Based on $totals  reviews", "chystota" )  ;?>
             </div>
-
 		</div>
         <?php if( $chystota_facebook_id ) :?>
        
@@ -261,12 +259,12 @@ class chystota_response_count_widget extends WP_Widget {
 
 			<label for="<?php echo $this->get_field_id( 'chystota_facebook_id' ); ?>">
 				<?php _e('Facebook Page ID:', 'chystota'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'chystota_facebook_id' ); ?>" name="<?php echo $this->get_field_name( 'chystota_facebook_id' ); ?>" value="<?php echo $instance['chystota_facebook_id']; ?>" class="widefat" />
+			<input type="text" id="<?php echo $this->get_field_id( 'chystota_facebook_id' ); ?>" name="<?php echo $this->get_field_name( 'chystota_facebook_id' ); ?>" value="<?php echo $instance['chystota_facebook_id']; ?>" class="widefat" style="width:100%;"/>
 		</p>
         <p>
             <label for="<?php echo $this->get_field_id( 'appsecret' ); ?>">
 				<?php _e('Facebook Access Token:', 'chystota'); ?></label>
-            <input id="<?php echo $this->get_field_id( 'appsecret' ); ?>" name="<?php echo $this->get_field_name( 'appsecret' ); ?>" value="<?php echo $instance['appsecret']; ?>" class="widefat" />
+            <input type="text" id="<?php echo $this->get_field_id( 'appsecret' ); ?>" name="<?php echo $this->get_field_name( 'appsecret' ); ?>" value="<?php echo $instance['appsecret']; ?>" style="width:100%;" />
         </p>
 
 

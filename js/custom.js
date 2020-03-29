@@ -5,7 +5,16 @@ jQuery(document).ready(function($){
         $('body').toggleClass('lock');
     }); // end top menu.
 
-
+    // Change phone number in header.
+    $('.item').on('click', function(){
+        $('.show_phone').slideDown('slow', function(){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active').css('display','none');
+            }else{
+                $(this).addClass('active').css('display','block');
+            }
+        });
+    }); // #Change phone number in header.
     // Adding different classes to the features blocks.
     $('.block-item:nth-child(1)').each(function(){
             $(this).addClass("sofa");
@@ -46,43 +55,43 @@ jQuery(document).ready(function($){
 
     // Carousel on the discount page.
     $('#discount-block').owlCarousel({
-    loop:false,
-    items: 3,
-    //stagePadding: 20,
-    margin: 10,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items: 1.50,
-            nav: false,
-            center: true,
-            stagePadding: 20,
-        },
-        648:{
-            items: 1.50,
-            nav: false,
-            center: false,
-            stagePadding: 20,
-        },
-        768:{
-            items: 3,
-            nav: false,
-            center: false,
-            stagePadding: 20,
-        },
-        900:{
-            items: 3,
-            nav: false,
-            stagePadding: 20,
-            loop:false
-        },
-        1000:{
-            items: 3,
-            nav: false,
-            //stagePadding: 20,
-            loop:false
+        loop:false,
+        items: 3,
+        //stagePadding: 20,
+        margin: 10,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items: 1.50,
+                nav: false,
+                center: true,
+                stagePadding: 20,
+            },
+            648:{
+                items: 1.50,
+                nav: false,
+                center: false,
+                stagePadding: 20,
+            },
+            768:{
+                items: 3,
+                nav: false,
+                center: false,
+                stagePadding: 20,
+            },
+            900:{
+                items: 3,
+                nav: false,
+                stagePadding: 20,
+                loop:false
+            },
+            1000:{
+                items: 3,
+                nav: false,
+                //stagePadding: 20,
+                loop:false
+            }
         }
-    }
     });
 
     // Responsive slider.

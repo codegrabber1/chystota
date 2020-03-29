@@ -44,3 +44,19 @@
     box-shadow: $top $left $blur $r $color;
   }
 }
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin justify-content($arg) {
+  -webkit-justify-content: $arg;
+  -moz-justify-content: $arg;
+  -ms-justify-content: $arg;
+  justify-content: $arg;
+  -ms-flex-pack: $arg;
+}

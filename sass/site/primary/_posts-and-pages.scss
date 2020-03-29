@@ -33,27 +33,26 @@
     height: 595px;
 }
 .blocks {
-   align-content: center;
-   position: relative;
-   
+  position: relative;
+
 }
 .blocks,
 .item-service,
 .phases-blocks {
-    display: flex;
-    display: -moz-box;
-    display: -ms-flexbox;
+    @include flexbox();
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
 }
 .blocks,
-.item-service,
 .phases-blocks {
   flex-wrap: wrap;
 }
 .item-service {
   width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 30%;
   flex-wrap: nowrap;
 }
 .phases-blocks:last-child {
@@ -64,9 +63,7 @@
   flex: 1 50%;
 }
 .text-block {
-  display: flex;
-  display: -moz-box;
-  display: -ms-flexbox;
+  @include flexbox();
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
@@ -109,7 +106,7 @@
 .feat-img{
   position: relative;
   bottom: 0;
-  width: 80%;
+  //width: 80%;
   float: right;
 }
 .block-content h1 {
@@ -124,11 +121,9 @@
     line-height: 24px;
     opacity: .8;
 }
-.block-contet, .block-price {
+.block-price {
     margin-top: 50px;
-    display: flex;
-    display: -moz-box;
-    display: -ms-flexbox;
+    @include flexbox();
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -174,7 +169,7 @@ a.order-button{
   padding: 10px;
 }
 .block-img {
-  max-height: 300px;
+  //max-height: 300px;
 }
 .carpet p.link-more > a {
     color: $color__inverted-link;
@@ -182,12 +177,10 @@ a.order-button{
 .reviews,
 .order-form,
 .s_blocks {
-    display: flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: center;
+  @include flexbox();
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
 }
 .price-block {
   background-color: $color__background-discount;
@@ -196,7 +189,7 @@ a.order-button{
 .price-block-title
 {
   margin-bottom: 30px;
-  display: flex;
+  @include flexbox();
   align-items: flex-end;
   justify-content: space-between;
 }
@@ -207,9 +200,7 @@ a.order-button{
 .prices {
   background-color: #fff;
   @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
-  display: flex;
-  display: -moz-box;
-  display: -ms-flexbox;
+  @include flexbox();
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
@@ -305,24 +296,25 @@ a.order-button{
   object-fit: cover;
 }
 .response-items {
-  display: flex;
+  @include flexbox();
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
   margin: 30px 0 0;
 }
 .author-pic {
-  display: flex;
+  @include flexbox();
   flex-direction: row;
   align-items: center;
   margin: 0 0 20px 0;
+
 }
 .author-pic img {
-  border: 1px solid red;
   width: 70px !important;
   height: 60px !important;
   border-radius: 50%;
   margin-right: 10px;
+  @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
 }
 .r-item h1 {
   width: 100%;
@@ -393,6 +385,7 @@ progress::-webkit-progress-bar {
     border-radius: 3px;
     border: 0;
     padding: 15px;
+    @include font-size(1);
 }
 .order_content input[type="tel"] {
     padding: 10px;

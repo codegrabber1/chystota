@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    
 
 	<?php wp_head(); ?>
     <div id="fb-root"></div>
@@ -28,6 +29,7 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk')); </script>
+    
 </head>
 
 <body <?php body_class(); ?>>
@@ -88,10 +90,10 @@
 				<div class="col-7 order-2 col-sm-6 order-sm-2 col-md-3 order-md-3">
 					<ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-						    <li class="show_phone"><?php echo mcw_get_option( 'mcw_phone' )?></li>
+						    <li class="show_phone active"><?php echo mcw_get_option( 'mcw_phone' )?></li>
 						<?php endif; ?>
 						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
-						    <li style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
+						    <li class="show_phone" style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
 						<?php endif;?>
                         <li class="d-none d-sm-none d-md-none d-lg-block">
                             <div class="ui dropdown">
@@ -103,7 +105,7 @@
                                 </div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu">
-                                    <a class="item " data-value="lviv">Львів</a>
+                                    <a class="item" data-value="lviv">Львів</a>
                                     <a class="item" data-value="kyiv">Киів</a>
                                 </div>
                                 </div>

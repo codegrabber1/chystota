@@ -53,14 +53,14 @@
         $chystota_tex_color     = wp_filter_nohtml_kses( $instance['chystota_text_color'] );
 
         ?>
-        <div class="order-form">
-            <div id="order-color" class="order-block " style="color: <?php echo $chystota_tex_color?> ; background-color: <?php echo $chystota_order_color;?>">
+        <div class="order-form" id="orderPhone" style="background-color: <?php echo $chystota_order_color;?>">
+            <div id="order-color" class="order-block " style="color: <?php echo $chystota_tex_color?>;">
                 <div class="order_content clearfix">
                     <h2><?php echo $title?></h2>
                     <p>
                         <?php echo $description;?>
                     </p>
-                    <form action="" method="post">
+                    <form action="" method="post" >
                         <input type="tel" value="" placeholder="Your phone">
                         <input type="submit" value="<?php _e( 'Make order', 'chystota' );?>">
                     </form>

@@ -223,9 +223,12 @@ function chystota_scripts() {
 
     wp_enqueue_style( 'chystota-owlcss', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' );
 
+    wp_enqueue_style( 'cookieconsent', 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css' );
+
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
+
     
     wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '20151215', true );
 
@@ -237,14 +240,26 @@ function chystota_scripts() {
 
     wp_enqueue_script( 'chystota-owljs', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
 
+
     wp_enqueue_script( 'chystota-myjs', get_template_directory_uri() . '/js/custom.js', array(), '', true );
 
+    wp_enqueue_script("cookieconsentjs", "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js",array(),false,true);
+
+	function add_data_attribute( $tag, $handle, $src ) {
+		if ( 'cookieconsentjs' !== $handle )
+			return $tag;
+
+		return str_replace( ' src', ' data-cfasync="false" src', $tag );
+	}
+
+	add_filter( 'script_loader_tag', 'add_data_attribute', 10, 3 );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
 
 }
 add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
+
 
 function admin_scripts() {
 	if( is_admin() ) {
@@ -334,22 +349,29 @@ function fb_opengraph() {
 }
 add_action('wp_head', 'fb_opengraph', 5);
 
-function wpds_parent_category_template()
-{
-	if (!is_category())
-		return true;
-	$catObj = get_queried_object();
-	// Перезаписываем шаблон для определенной рубрики "design", чьей родительской рубрикой является "projects"
-	if (is_category($catObj->category_nicename) && cat_is_ancestor_of($catObj->parent, $catObj->term_id)) {
+// For Mailchimp  subscription.
+function makecodework_mailchimp_subscriber_status( $email, $status, $list_id, $api_key ){
+	$data = array(
+		'apikey'        => $api_key,
+		'email_address' => $email,
+		'status'        => $status,
 
-		$top_term = get_top_term( $catObj->taxonomy );
-		$temp_cat_name = $top_term->slug; // название термина
-		$template = TEMPLATEPATH . "/category-{$temp_cat_name}.php";
-		// загружаем, если файл шаблона существует.
-		if (file_exists($template)) {
-			load_template($template);
-			exit;
-		}
-	}
+	);
+	$mch_api = curl_init(); // initialize cURL connection
+
+	curl_setopt($mch_api, CURLOPT_URL, 'https://' . substr($api_key,strpos($api_key,'-')+1) . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . md5(strtolower($data['email_address'])));
+	curl_setopt($mch_api, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Basic '.base64_encode( 'user:'.$api_key )));
+	curl_setopt($mch_api, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
+	curl_setopt($mch_api, CURLOPT_RETURNTRANSFER, true); // return the API response
+	curl_setopt($mch_api, CURLOPT_CUSTOMREQUEST, 'PUT'); // method PUT
+	curl_setopt($mch_api, CURLOPT_TIMEOUT, 10);
+	curl_setopt($mch_api, CURLOPT_POST, true);
+	curl_setopt($mch_api, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($mch_api, CURLOPT_POSTFIELDS, json_encode($data) ); // send data in json
+
+	$result = curl_exec($mch_api);
+	return $result;
 }
+
+
 
