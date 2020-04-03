@@ -220,6 +220,7 @@ object {
     width: 100%;
     background-color: $color__active-button;
   }
+  
   .r-item a .svg-inline--fa {
     @include font-size(1.7);
     margin: 20px 0;
@@ -275,6 +276,30 @@ object {
   .order-btn {
     background-color: $color__background-blocks;
   }
+  
+  .float-btn-sticky {
+    background-color: #fff;
+    position: fixed;
+    display: none;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 20px;
+    padding: 10px;
+    z-index: 3;
+    @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
+  }
+  
+  .sticky-button,
+  .sticky-button:visited {
+    width: 100%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    background-color: $color__background-blocks;
+  }
+  
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 648px){
@@ -405,6 +430,9 @@ object {
   .owl-prev span, .owl-next span {
     top: 10%;
   }
+  .float-btn-sticky{
+    bottom: 60px;
+  }
 }
 @media only screen and (max-width: 348px){
   .show_phone {
@@ -443,9 +471,7 @@ object {
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px){
-  .toggle-mnu {
-    //display: none !important;
-  }
+  
 }
 
 /* Large Devices, Wide Screens */

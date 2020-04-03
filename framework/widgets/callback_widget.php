@@ -61,7 +61,7 @@
                         <?php echo $description;?>
                     </p>
                     <form action="" method="post" >
-                        <input type="tel" value="" placeholder="Your phone">
+                        <input type="tel" value="" placeholder="<?php _e( 'Your phone', 'chystota' )?>">
                         <input type="submit" value="<?php _e( 'Make order', 'chystota' );?>">
                     </form>
                 </div>

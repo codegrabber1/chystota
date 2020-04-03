@@ -63,7 +63,7 @@ class chystota_facebook_widget extends WP_Widget {
 			echo $before_widget;
 
 			if ( $title ) { ?>
-				<h3><?php echo $title; ?></h3>
+				<h3 class="fb-widget-title"><?php echo $title; ?></h3>
 				<?php
 			}
 			?>
@@ -103,7 +103,7 @@ class chystota_facebook_widget extends WP_Widget {
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
 	function form( $instance ) {
-		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '390', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
+		$defaults = array( 'title' => 'Find us on Facebook', 'page_url' => '', 'width' => '400', 'tabs' => 'timeline', 'show_faces' => 'on', 'show_header' => false, 'hide_cover' => false);
 		$instance = wp_parse_args((array) $instance, $defaults); ?>
 
 		<p>
@@ -113,7 +113,7 @@ class chystota_facebook_widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id('page_url'); ?>"><?php _e('Facebook Page URL:', 'chystota') ?></label>
-			<input class="widefat" style="width: 100%;" id="<?php echo $this->get_field_id('page_url'); ?>" name="<?php echo $this->get_field_name('page_url'); ?>" value="<?php echo $instance['page_url']; ?>" />
+			<input type="text" class="widefat" style="width: 100%;" id="<?php echo $this->get_field_id('page_url'); ?>" name="<?php echo $this->get_field_name('page_url'); ?>" value="<?php echo $instance['page_url']; ?>" />
 		</p>
 
 		<p>

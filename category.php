@@ -4,6 +4,7 @@
  */
 get_header();
 ?>
+<div class="scrolled-content clearfix">
 <div class="blocks single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
     <div class="item-service clearfix">
         <div class="single-content d-none d-sm-none d-md-block clearfix">
@@ -18,13 +19,19 @@ get_header();
         </div>
     </div>
 </div>
-<div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-    <h1><?php the_title();?></h1>
-    <?php while( have_posts()): the_post();
-        the_content();
-    endwhile;?>
-    <a class="order-button" href="#order-color"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+
+    <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
+        <h1><?php the_title();?></h1>
+        <?php while( have_posts()): the_post();
+            the_content();
+        endwhile;?>
+        <!-- <a class="order-button " href="#order-color"><?php //echo __( 'Order cleaning', 'chystota' );?></a> -->
+    </div>
 </div>
+<!-- Floating button -->
+ <div class="float-btn-sticky d-md-none d-lg-none clearfix">
+    <a class="sticky-button" href="#order-color"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+</div><!-- #Floating button -->
 <!-- Prices-->
 <section class="price-block">
     <?php
@@ -78,6 +85,7 @@ get_header();
         </div>
     </div>
 </section><!-- !Prices-->
+
  <section class="phases">
      <?php
         $phases = get_field( 'choose_a_category' );
@@ -172,7 +180,9 @@ get_header();
 
             <?php endwhile; endif; wp_reset_query();?>
     </div>
+   
 </section>
+
 <?php
 if( is_category() ):
 	if( dynamic_sidebar( 'abovethefooter' )) : ?>
@@ -180,6 +190,7 @@ if( is_category() ):
 	endif;
 endif;
 ?>
+
     <!-- Order From and Contact block with phone number and socials -->
 <?php
     get_template_part( 'template-parts/content', 'subfooter' );

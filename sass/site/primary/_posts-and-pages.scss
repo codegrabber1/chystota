@@ -87,13 +87,18 @@
 .mattress {
     background-color: $color__background-mattress;
 }
-
-//.order-block{}
+.mattress .feat-img{
+  bottom: -100px;
+}
+.carpet .feat-img {
+  right: -100px;
+}
 .sofa {
     background-color: $color__background-sofa;
 }
 .carpet {
-    background-color: $color__background-carpet;
+  background-color: $color__background-carpet;
+  overflow: hidden;
 }
 .mattress,
 .sofa {
