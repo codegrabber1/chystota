@@ -455,9 +455,6 @@ figure {
 .discount img.emoji {
   width: 20px !important; }
 
-._2p3a {
-  width: 100% !important; }
-
 table {
   margin: 0 0 1.5em;
   width: 100%; }
@@ -628,6 +625,13 @@ a {
   a:hover, a:active {
     outline: 0; }
 
+a.policy-link,
+a.policy-link:visited,
+a.policy-link:hover {
+  color: #ccd0d4;
+  display: block;
+  float: right; }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -678,6 +682,22 @@ a {
 
 .header__list {
   display: flex; }
+
+.cityname {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin: 0 0 20px 0; }
+
+.cityname .selection {
+  border: 1px solid #fff !important;
+  margin: 0 0 10px 0;
+  width: 100%; }
+
+.cityname .text {
+  margin-left: 15px; }
+
+.cityname .selection > .dropdown.icon {
+  right: 2em !important; }
 
 .header__list li {
   margin: 0 0 0 20px; }
@@ -888,8 +908,8 @@ a {
   color: #fff;
   padding: 50px  0; }
 
-.widget {
-  margin: 40px 0; }
+.fb-container {
+  margin: 20px 0; }
 
 .f_widget .widget {
   list-style: none; }
@@ -1044,6 +1064,15 @@ a {
   align-self: stretch;
   box-sizing: border-box; }
 
+.block-content {
+  padding-left: 24px;
+  padding-top: 50px; }
+
+.feat-img {
+  position: relative;
+  bottom: 0;
+  float: right; }
+
 .mattress {
   background-color: #86ADC2; }
 
@@ -1063,15 +1092,6 @@ a {
 .mattress,
 .sofa {
   color: #fff; }
-
-.block-content {
-  padding-left: 24px;
-  padding-top: 50px; }
-
-.feat-img {
-  position: relative;
-  bottom: 0;
-  float: right; }
 
 .block-content h1 {
   margin: 0;
@@ -1371,7 +1391,7 @@ progress::-webkit-progress-bar {
 
 .order_content input[type="submit"],
 .order-btn {
-  margin: 15px 0;
+  margin: 15px 0 0;
   border-radius: 3px;
   border: 0;
   padding: 15px;
@@ -1508,10 +1528,10 @@ progress::-webkit-progress-bar {
 .blog-content:first-child {
   margin-top: 0; }
 
-.item {
-  margin: 0 20px; }
+.item-text {
+  margin: 20px; }
 
-.item a {
+.item-text a {
   margin: 20px 0 auto;
   display: block; }
 
@@ -1632,6 +1652,12 @@ object {
 @media only screen and (max-width: 768px) {
   body .lock {
     overflow: hidden; }
+  .carpet .feat-img {
+    right: -30px;
+    bottom: -50px; }
+  .mattress .feat-img {
+    width: 100%;
+    bottom: 0; }
   .container {
     max-width: 100% !important; }
   .featured_block {
@@ -1779,7 +1805,7 @@ object {
     margin: 15px; }
   .order-block {
     background-color: #fff;
-    color: #000; }
+    color: #000 !important; }
   .order-form {
     flex-direction: column-reverse;
     margin: 0 15px; }
@@ -1874,6 +1900,8 @@ object {
     font-size: 1.1rem; }
   .main-navigation {
     padding-top: 80px; }
+  .sofa .feat-img {
+    bottom: 0; }
   .single-block {
     height: 400px; }
   .r-item h1 {

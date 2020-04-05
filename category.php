@@ -20,13 +20,13 @@ get_header();
     </div>
 </div>
 
-    <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-        <h1><?php the_title();?></h1>
-        <?php while( have_posts()): the_post();
-            the_content();
-        endwhile;?>
-        <!-- <a class="order-button " href="#order-color"><?php //echo __( 'Order cleaning', 'chystota' );?></a> -->
-    </div>
+<div class="block-content d-block d-sm-block d-md-none single-content clearfix">
+    <h1><?php the_title();?></h1>
+    <?php while( have_posts()): the_post();
+        the_content();
+    endwhile;?>
+    <!-- <a class="order-button " href="#order-color"><?php //echo __( 'Order cleaning', 'chystota' );?></a> -->
+</div>
 </div>
 <!-- Floating button -->
  <div class="float-btn-sticky d-md-none d-lg-none clearfix">
@@ -47,6 +47,7 @@ get_header();
             </div>
         </div>
     </div>
+<!--    The Prices of cleaning -->
     <div class="container-fluid">
         <div class="prices">
             <div class="prices-title ">
@@ -84,8 +85,8 @@ get_header();
             
         </div>
     </div>
-</section><!-- !Prices-->
-
+</section><!-- !Prices of cleaning-->
+<!--The phases of cleaning -->
  <section class="phases">
      <?php
         $phases = get_field( 'choose_a_category' );
@@ -115,11 +116,13 @@ get_header();
                 </div>
             </div>
             <div class="block-video">
-                <?php the_content()?>
+                <?php
+                    the_post_thumbnail();
+                ?>
             </div>
         </div>
         <?php endwhile; endif; wp_reset_query();?>
- </section>
+ </section>    <!-- !The phases of cleaning -->
 <?php
     if( is_category() ):
         if( dynamic_sidebar( 'middlepage' )) : ?>
@@ -128,6 +131,7 @@ get_header();
         endif;
     endif;
 ?>
+<!-- Slider with responses. -->
 <section class="s-response">
 
     <?php
@@ -181,7 +185,7 @@ get_header();
             <?php endwhile; endif; wp_reset_query();?>
     </div>
    
-</section>
+</section> <!-- !Slider with responses. -->
 
 <?php
 if( is_category() ):

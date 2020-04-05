@@ -38,7 +38,6 @@
 .header-info {
   justify-content: flex-end;
 }
-
 .current_page_item > a,
 .current-menu-item > a,
 .current_page_ancestor > a,
@@ -47,7 +46,24 @@
 }
 .header__list {
   display: flex;
-  
+}
+.cityname {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+.cityname .selection {
+  border: 1px solid #fff !important;
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+
+.cityname .text
+{
+  margin-left: 15px;
+}
+.cityname .selection > .dropdown.icon {
+  right: 2em !important;
 }
 .header__list li {
   margin: 0 0 0 20px;

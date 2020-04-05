@@ -13,10 +13,10 @@
 <!-- Contact block with phone number and socials -->
 <section class="s_blocks">
 	<div class="block clearfix">
-		<h2>Haven't find what you were looking for?</h2>
-		<span>Call Us on <?php if( mcw_get_option( 'mcw_phone' ) ): ?>
+		<h2><?php echo __( "Haven't find what you were looking for?" )?></h2>
+		<span>Зателефонуйте нам <?php if( mcw_get_option( 'mcw_phone' ) ): ?>
 				<a href=""><?php echo mcw_get_option( 'mcw_phone' )?></a>
-			<?php endif; ?>or find Us in socails</span>
+			<?php endif; ?>або знайдіть нас у соціальних мережах</span>
 	</div>
 	<div class="block clearfix">
         <?php if( mcw_get_option('mcw_viber' ) ): ?>

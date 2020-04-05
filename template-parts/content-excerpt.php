@@ -17,7 +17,7 @@
 	<?php the_post_thumbnail();?>
 </div>
 <div class="blog-item">
-	<div class="item">
+	<div class="item-text">
 		<a href="<?php the_permalink()?>"><?php the_title();?></a>
 		<?php the_excerpt( );?>
 	</div>

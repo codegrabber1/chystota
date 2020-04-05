@@ -30,7 +30,7 @@ if ( ! function_exists( 'chystota_setup' ) ) :
          */
          require( get_template_directory() . "/framework/widgets/feature_widget.php" );
          require( get_template_directory() . "/framework/widgets/callback_widget.php" );
-         require( get_template_directory() . "/framework/widgets/widget_responses_count.php" );
+         //require( get_template_directory() . "/framework/widgets/widget_responses_count.php" );
          require( get_template_directory() . "/framework/widgets/widget_facebook.php" );
          require( get_template_directory() . "/framework/widgets/widget_services.php" );
 
@@ -245,12 +245,13 @@ function chystota_scripts() {
 
     wp_enqueue_script("cookieconsentjs", "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js",array(),false,true);
 
-	function add_data_attribute( $tag, $handle, $src ) {
+   function add_data_attribute( $tag, $handle, $src ) {
 		if ( 'cookieconsentjs' !== $handle )
 			return $tag;
 
 		return str_replace( ' src', ' data-cfasync="false" src', $tag );
 	}
+
 
 	add_filter( 'script_loader_tag', 'add_data_attribute', 10, 3 );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -348,6 +349,13 @@ function fb_opengraph() {
     }
 }
 add_action('wp_head', 'fb_opengraph', 5);
+
+// подключаем функцию активации мета блока (my_extra_fields)
+function true_custom_fields() {
+	add_post_type_support( 'post', 'custom-fields'); // в качестве первого параметра укажите название типа поста
+}
+
+add_action('init', 'true_custom_fields');
 
 // For Mailchimp  subscription.
 function makecodework_mailchimp_subscriber_status( $email, $status, $list_id, $api_key ){

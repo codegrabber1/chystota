@@ -69,9 +69,10 @@ class chystota_facebook_widget extends WP_Widget {
 			?>
 			<div class="fb-container">
 				<div>
-					<iframe src="https://www.facebook.com/plugins/page.php?href=<?php echo urlencode($page_url); ?>&amp;tabs=<?php echo $tabs; ?>&amp;width=<?php echo $width; ?>&amp;small_header=<?php echo $show_header; ?>&amp;adapt_container_width=true&amp;hide_cover=<?php echo $hide_cover;?>&amp;show_facepile=<?php echo $show_faces; ?>&amp;appId=498188843586746" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=<?php echo urlencode($page_url); ?>&amp;tabs=<?php echo $tabs; ?>&amp;width=<?php echo $width; ?>&amp;small_header=<?php echo $show_header; ?>&amp;adapt_container_width=true&amp;hide_cover=<?php echo $hide_cover;?>&amp;show_facepile=<?php echo $show_faces; ?>&amp;appId=498188843586746" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 				</div>
 			</div>
+            
 			<?php
 			echo $after_widget;
 		endif;
@@ -118,7 +119,7 @@ class chystota_facebook_widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id('width'); ?>"><?php _e('Width:', 'chystota') ?></label>
-			<input class="widefat" style="width: 70px;" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" value="<?php echo $instance['width']; ?>" />
+			<input type="text" class="widefat" style="width: 70px;" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" value="<?php echo $instance['width']; ?>" />
 		</p>
 
 

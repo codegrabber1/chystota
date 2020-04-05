@@ -1,4 +1,6 @@
 jQuery(document).ready(function($){
+    
+
     // Top menu.
     $('.mobile-mnu').click(function(){
         $('.toggle-mnu, .main-navigation').toggleClass('on');
@@ -15,6 +17,12 @@ jQuery(document).ready(function($){
             }
         });
     }); // #Change phone number in header.
+    $('#citynames')
+        .dropdown()
+    ;
+
+
+
     // Adding different classes to the features blocks.
     $('.block-item:nth-child(1)').each(function(){
             $(this).addClass("sofa");
@@ -165,14 +173,6 @@ $(function () {
        
         
     });
-
-    //$('#toTop').click(function () {
-
-      //  $('body,html').animate({
-          //  scrollTop: 0
-        //}, 800);
-
-    //});
 
 });
     

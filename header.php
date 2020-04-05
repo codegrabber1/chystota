@@ -20,7 +20,7 @@
     
 
 	<?php wp_head(); ?>
-    <div id="fb-root"></div>
+
     <script>
         (function(d, s, id) {                      // Load the SDK asynchronously
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -45,8 +45,17 @@
                         </a>
                     </div>
 					<nav id="site-navigation" class="main-navigation">
-
-						<?php
+                        <div class="cityname d-block d-sm-block d-md-none d-lg-none">
+                            <div class="ui selection dropdown" id="citynames">
+                                <div class="default text">Львів</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div data-value="lviv" class="item">Львів</div>
+                                    <div data-value="Kyiv" class="item">Київ</div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
 						wp_nav_menu( array(
 							'theme_location'	=> 'menu-1',
 							'menu_id'			=> 'primary-menu',

@@ -77,6 +77,14 @@ object {
   body .lock {
     overflow: hidden;
   }
+  .carpet .feat-img {
+    right: -30px;
+    bottom: -50px;
+  }
+  .mattress .feat-img {
+    width: 100%;
+    bottom: 0;
+  }
   .container {
     max-width: 100% !important;
   }
@@ -260,7 +268,7 @@ object {
   }
   .order-block {
     background-color: #fff;
-    color: #000;
+    color: #000 !important;
   }
   .order-form {
     flex-direction: column-reverse;
@@ -382,6 +390,10 @@ object {
   }
   .main-navigation{
     padding-top: 80px;
+  }
+
+  .sofa .feat-img{
+    bottom: 0;
   }
   .single-block {
     height: 400px;
