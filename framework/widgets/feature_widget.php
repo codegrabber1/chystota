@@ -80,14 +80,22 @@ function chystota_feature_widgets() {
 
             <div class="block-item " >
                 <div class="block-content clearfix">
-                    <h1><?php echo the_title();?></h1>
+	                <?php $cats = wp_get_post_categories($post->ID); ;?>
+	                <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                        <h1>
+                            <a href="<?php echo get_category_link($category->cat_ID);?>">
+                                <?php echo the_title();?></a>
+                        </h1>
+	                <?php endforeach;?>
                     <p><?php the_content();?></p>
-                    <span class='block-price'><?php the_excerpt()?></span>
+	                <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                        <span class='block-price'><a href="<?php echo get_category_link($category->cat_ID);?>"><?php the_excerpt()?>  </a> </span>
+	                <?php endforeach;?>
                 </div>
                 <div class="feat-img clearfix">
 	                <?php the_post_thumbnail( )?>
                 </div>
-                <?php $cats = wp_get_post_categories($post->ID); ;?>
+
 	            <?php foreach( $cats as $cat ): $category = get_category($cat);?>
                     <p class='link-more'>
                         <a href="<?php echo get_category_link($category->cat_ID);?>">Детальніше</a></p>

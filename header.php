@@ -18,17 +18,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
     
-
 	<?php wp_head(); ?>
-
-    <script>
-        (function(d, s, id) {                      // Load the SDK asynchronously
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk')); </script>
     
 </head>
 
@@ -38,7 +28,30 @@
         <div class="site-header">
 		    <div class="container-fluid">
 			<div class="row">
-				<div class="col-2 order-3 col-sm-3 order-sm-3 col-md-7 order-md-2">
+                <div class="col-7 order-2 col-sm-6 order-sm-2 col-md-3 order-md-3">
+                    <ul class="header-info">
+						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
+                            <li class="show_phone "><?php echo mcw_get_option( 'mcw_phone' )?></li>
+						<?php endif; ?>
+                        <li class="d-none d-sm-none d-md-none d-lg-block">
+                            <div class="custom-select" >
+                                <select id="Mobility">
+                                    <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>">Львів</option>
+                                    <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>">Київ</option>
+                                </select>
+                            </div
+                        </li>
+                    </ul>
+                    <div class="lang-switcher">
+                        <div id="google_translate_element2"></div>
+                        <!-- GTranslate: https://gtranslate.io/ -->
+                        <a href="#" id="ua" onclick="doGTranslate('uk|uk');return false;" title="Ukrainian" class="active glink nturl notranslate">UA</a>
+                        <span> | </span>
+                        <a href="#" id="ru" onclick="doGTranslate('uk|ru');return false;" title="Russian" class="glink nturl notranslate">RU</a>
+
+                    </div>
+                </div>
+                <div class="col-2 order-3 col-sm-3 order-sm-3 col-md-7 order-md-2">
                     <div class="mobile-mnu d-md-none d-lg-none clearfix">
                         <a class="toggle-mnu d-lg-none" href="#">
                             <span></span>
@@ -85,7 +98,7 @@
                         </div>
 					</nav><!-- #site-navigation -->
 				</div>
-				<div class="col-3 order-1 col-sm-3 order-sm-1 col-md-2 order-md-1">
+                <div class="col-3 order-1 col-sm-3 order-sm-1 col-md-2 order-md-1">
 					<div class="site-branding">
 						<div class="header-logo">
                             <p>
@@ -95,32 +108,6 @@
                             </p>
                         </div>
 					</div><!-- .site-branding -->
-				</div>
-				<div class="col-7 order-2 col-sm-6 order-sm-2 col-md-3 order-md-3">
-					<ul class="header-info">
-						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-						    <li class="show_phone active"><?php echo mcw_get_option( 'mcw_phone' )?></li>
-						<?php endif; ?>
-						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
-						    <li class="show_phone" style="display: none"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></li>
-						<?php endif;?>
-                        <li class="d-none d-sm-none d-md-none d-lg-block">
-                            <div class="ui dropdown">
-                                <input type="hidden" name="gender">
-                                <div class="ui top left pointing dropdown">
-                                <div class="default text">
-                                    <a href="#">Львів</a>
-
-                                </div>
-                                <i class="dropdown icon"></i>
-                                <div class="menu">
-                                    <a class="item" data-value="lviv">Львів</a>
-                                    <a class="item" data-value="kyiv">Киів</a>
-                                </div>
-                                </div>
-                            </div>
-                        </li>
-					</ul>
 				</div>
 			</div>
 		</div>

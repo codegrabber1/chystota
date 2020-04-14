@@ -172,9 +172,9 @@ function mcw_theme_options_page(){
                                     <span class="description long"><?php _e( "Enter your viber number, or leave blank.", 'chystota' ); ?></span>
                                 </div>
                                 <div class="field">
-                                    <label for="mcw_options[mcw_whatsapp]"><?php _e( 'WhatsApp', 'chystota' );?></label>
-                                    <input id="mcw_options[mcw_whatsapp]" name="mcw_options[mcw_whatsapp]" type="text" value="<?php echo esc_attr ( $options['mcw_whatsapp']);?>">
-                                    <span class="description long"><?php _e( "Enter your whatsapp number, or leave blank.", 'chystota' ); ?></span>
+                                    <label for="mcw_options[mcw_telegram]"><?php _e( 'Telegram', 'chystota' );?></label>
+                                    <input id="mcw_options[mcw_telegram]" name="mcw_options[mcw_telegram]" type="text" value="<?php echo esc_attr ( $options['mcw_telegram']);?>">
+                                    <span class="description long"><?php _e( "Enter your Telegram number, or leave blank.", 'chystota' ); ?></span>
                                 </div>
                                 <div class="field">
                                     <label for="mcw_options[mcw_phone]"><?php _e( 'Phone', 'chystota' );?></label>
@@ -326,7 +326,7 @@ function mcw_default_options(){
          'mcw_inst_url'         => '',
          'mcw_youtube_url'      => '',
          'mcw_viber'            => '',
-         'mcw_whatsapp'         => '',
+         'mcw_telegram'         => '',
          'mcw_phone'            => '',
          'mcw_phone_kyiv'       => '',
          'discount_category'    => 0,
@@ -361,7 +361,7 @@ function mcw_validate_options( $input ){
         $input['mcw_phone']             = wp_filter_nohtml_kses( $input['mcw_phone'] );
         $input['mcw_phone_kyiv']        = wp_filter_nohtml_kses( $input['mcw_phone_kyiv'] );
         $input['mcw_viber']             = wp_filter_nohtml_kses( $input['mcw_viber'] );
-        $input['mcw_whatsapp']          = wp_filter_nohtml_kses( $input['mcw_whatsapp'] );
+        $input['mcw_telegram']          = wp_filter_nohtml_kses( $input['mcw_telegram'] );
         $input['contact_email']         = wp_filter_nohtml_kses( $input['contact_email' ] );
 	    $input['mcw_homepage_title']    = wp_filter_post_kses( $input['mcw_homepage_title'] );
 	    $input['mcw_meta_keywords']     = wp_filter_post_kses( $input['mcw_meta_keywords'] );

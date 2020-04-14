@@ -80,20 +80,19 @@
     window.cookieconsent.initialise({
         "palette": {
             "popup": {
-                "background": "#eaf7f7",
-                "text": "#5c7291"
+                "background": "#ffffff"
             },
             "button": {
-                "background": "#56cbdb",
+                "background": "#8ec760",
                 "text": "#ffffff"
             }
         },
         "showLink": false,
-        "type": "opt-in",
+        "theme": "classic",
+        "position": "bottom-left",
         "content": {
-            "message": "Цей сайт використовує coockie для покращення роботи сайту для Ваших потреб",
-            "dismiss": "Заборонити",
-            "allow": "Дозволити"
+            "message": "Продовжуючи працювати з нашим веб-сайтом ви погоджуєтеся з використанням файлів cookie та політикою конфіденційності.",
+            "dismiss": "Зрозуміло!"
         }
     });
 </script>

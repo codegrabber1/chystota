@@ -20,16 +20,18 @@
 	</div>
 	<div class="block clearfix">
         <?php if( mcw_get_option('mcw_viber' ) ): ?>
-		    <a href="viber://chat?number=<?php echo mcw_get_option('mcw_viber' )?>" class="socials" target="_blank"><i class="fab fa-viber"></i> Viber</a>
+		    <a href="viber://chat?number=<?php echo mcw_get_option('mcw_viber' )?>" class="socials" target="_blank"><i class="fab fa-viber"></i> <span>Viber</span></a>
         <?php endif;?>
-        <?php if( mcw_get_option( 'mcw_whatsapp' ) ):?>
-		    <a href="whatsapp://send?phone=<?php echo mcw_get_option('mcw_whatsapp' )?>" class="socials" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <?php if( mcw_get_option( 'mcw_telegram' ) ):?>
+		    <a href="https://telegram.im/<?php echo mcw_get_option('mcw_telegram' )?>" class="socials" target="_blank"><i class="fab fa-whatsapp"></i> <span>
+                Telegram</span></a>
         <?php endif;?>
         <?php if( mcw_get_option( 'mcw_fb_url' ) ):?>
-		    <a href="<?php echo mcw_get_option( 'mcw_fb_url' );?>" class="socials" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+		    <a href="<?php echo mcw_get_option( 'mcw_fb_url' );?>" class="socials" target="_blank"><i class="fab fa-facebook"></i><span>Facebook</span></a>
         <?php endif;?>
         <?php if( mcw_get_option( 'mcw_inst_url' ) ):?>
-		    <a href="<?php echo mcw_get_option( 'mcw_inst_url' );?>" class="socials" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+		    <a href="<?php echo mcw_get_option( 'mcw_inst_url' );?>" class="socials" target="_blank">
+                <i class="fab fa-instagram"></i> <span>Instagram</span></a>
         <?php endif;?>
 	</div>
 </section><!-- !Contact block with phone number and socials -->

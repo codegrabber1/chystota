@@ -1,5 +1,13 @@
 jQuery(document).ready(function($){
-    
+    // lang switcher
+    $('#ru').on('click', function(){
+        $(this).addClass('active');
+        $("#ua").removeClass('active');
+    });
+    $('#ua').on('click', function(){
+        $(this).addClass('active');
+        $("#ru").removeClass('active');
+    });
 
     // Top menu.
     $('.mobile-mnu').click(function(){
@@ -17,10 +25,6 @@ jQuery(document).ready(function($){
             }
         });
     }); // #Change phone number in header.
-    $('#citynames')
-        .dropdown()
-    ;
-
 
 
     // Adding different classes to the features blocks.
@@ -143,10 +147,18 @@ jQuery(document).ready(function($){
         }
     });
 
+    $('#citynames')
+        .dropdown()
+    ;
     // Phone dropdown.
     $('.ui.dropdown')
         .dropdown()
     ;
+
+    $('#Mobility').on('change', function(){
+        let val  = $("#Mobility :selected").val();
+        $('.show_phone').html(val);
+    });
 $(function () {
      
     $(window).scroll(function () {
@@ -177,6 +189,7 @@ $(function () {
 });
     
 });// end ready
+
 
 
 

@@ -240,8 +240,12 @@ function chystota_scripts() {
 
     wp_enqueue_script( 'chystota-owljs', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
 
+	wp_enqueue_script( 'chystota-lang-js', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2', array(), '', true );
+
+	wp_enqueue_script( 'chystota-langjs', get_template_directory_uri() . '/js/lang.js', array(), '', true );
 
     wp_enqueue_script( 'chystota-myjs', get_template_directory_uri() . '/js/custom.js', array(), '', true );
+
 
     wp_enqueue_script("cookieconsentjs", "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js",array(),false,true);
 
@@ -273,6 +277,11 @@ function admin_scripts() {
 	}
 }
 add_action( 'admin_init', 'admin_scripts' );
+
+function custom_add_google_fonts() {
+	wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap', false );
+}
+add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
 
 /**
  * Pagination for archive, taxonomy, category, tag and search results pages

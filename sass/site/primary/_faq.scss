@@ -15,7 +15,6 @@
   position: relative;
   width: 100%;
   height: auto;
-  background-color: #f5f5f5;
 }
 .set > a{
   display: block;
@@ -31,8 +30,9 @@
 .set > a .svg-inline--fa{
   float: right;
   margin-top: 2px;
+  color: #B2D7C1;
 }
-.set > a.active{
+.set > a.active .svg-inline--fa{
   background-color: $color__background-body;
   color: $color__link;
 }

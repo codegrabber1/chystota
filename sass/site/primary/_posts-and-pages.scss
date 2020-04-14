@@ -100,32 +100,43 @@
 }
 .mattress .feat-img{
   bottom: -100px;
+  right: -70px;
 }
 .carpet .feat-img {
   right: -100px;
 }
 .sofa {
   background-color: $color__background-sofa;
+  overflow: hidden;
+}
+.sofa .feat-img {
+  position: relative;
+  bottom: -10px;
+  float: right;
+  right: -90px;
 }
 .carpet {
   background-color: $color__background-carpet;
   overflow: hidden;
 }
-.mattress,
-.sofa {
+.mattress a,
+.sofa a{
   color: $color__text-footer;
 }
 .block-content h1 {
     margin: 0;
     padding: 0;
     line-height: 43px;
+  font-size: 36px;
+  font-weight: 600;
 
 }
 .block-content p {
-    margin: 10px 0;
-    padding: 0;
-    line-height: 24px;
-    opacity: .8;
+  margin: 10px 0;
+  padding: 0;
+  line-height: 24px;
+  opacity: .8;
+  font-size: 16px;
 }
 .block-price {
     margin-top: 50px;
@@ -138,6 +149,7 @@
     width: 110px;
     background: $color__background-opacity;
     padding: 8px;
+  font-size: 16px;
 
 }
 .block-contet, .block-price p {
@@ -156,6 +168,7 @@
     color: $color__text-footer;
     text-decoration: none;
     text-transform: uppercase;
+  font-size: 16px;
 
 }
 .single-content {
@@ -177,7 +190,8 @@ a.order-button{
 .block-img {
   //max-height: 300px;
 }
-.carpet p.link-more > a {
+.carpet p.link-more > a,
+.carpet a {
     color: $color__inverted-link;
 }
 .reviews,
@@ -243,6 +257,7 @@ a.order-button{
 }
 .s_blocks {
   flex-direction: column;
+  background-color: $color__background-discount;
 }
 .reviews,
 .s_blocks,
@@ -274,7 +289,7 @@ a.order-button{
 }
 .review_count {
   color: $color__text-grey;
-  @include font-size(1);
+  
   line-height: 24px;
 }
 .review_line progress {
@@ -415,7 +430,7 @@ progress::-webkit-progress-bar {
     margin: 0;
     padding: 0;
 }
-.block .socials{
+.block .socials {
     background-color: $color__link;
     padding: 5px 10px;
     color: $color__text-footer;
@@ -426,6 +441,11 @@ progress::-webkit-progress-bar {
     text-align: left;
 }
 .socials .svg-inline--fa {
-    margin-right: 8px;
-    @include font-size(1.3);
+    margin: 5px 8px;
+    @include font-size(1.4);
+  float: left;
+}
+.socials span {
+  margin-top: 5px;
+  display: block;
 }
