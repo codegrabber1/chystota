@@ -78,7 +78,7 @@ object {
     overflow: hidden;
   }
   .carpet .feat-img {
-    right: -30px;
+    right: -130px;
     bottom: -50px;
   }
   .mattress .feat-img {
@@ -117,6 +117,7 @@ object {
     margin: 0;
     @include font-size(1.2);
     justify-content: center;
+    float: none;
 
   }
   .header__list {
@@ -124,7 +125,7 @@ object {
     width: 100%;
   }
   .header__list li {
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
   }
   .header__list li a {
     @include font-size(1);
@@ -149,16 +150,29 @@ object {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    padding: 0 20px;
+  }
+  .lang-switcher {
+    margin: 10px 0;
+    padding: 20px 30px;
+    border-top: 1px solid #ccc;
+    width: 100%;
   }
   .menu-social > li a {
     color: $color__menu-link;
-    @include font-size(1.5)
+    @include font-size(2);
+    width: 35px;
+    height: 35px;
 
   }
   .show_phone {
     @include font-size(1.5)
   }
+  
+  .block-item {
+    padding: 30px 0;
+  }
+  
   .item-service {
     justify-content: flex-end;
     position: absolute;
@@ -213,7 +227,7 @@ object {
   }
   .feat-img img{
    float: right;
-   width: 65%;
+   width: 100%;
   }
   .s_blocks {
     padding: 40px 0;
@@ -253,6 +267,11 @@ object {
   .price-excerpt {
     text-align: right;
   }
+  .reviews,
+  .s_blocks,
+  .price-block{
+    padding: 50px 0;
+  }
   .discount
   {
     background: #fff;
@@ -269,10 +288,11 @@ object {
   .order-block {
     background-color: #fff;
     color: #000 !important;
+    width: 100%;
   }
   .order-form {
     flex-direction: column-reverse;
-    margin: 0 15px;
+    margin: 20px 15px;
 
   }
   .order_content {
@@ -306,6 +326,12 @@ object {
     text-align: center;
     padding: 10px;
     background-color: $color__background-blocks;
+  }
+  .socials-block {
+    width: 100%;
+  }
+  .block .socials {
+    margin: 10px 0;
   }
   
 }
@@ -372,6 +398,7 @@ object {
   }
   .block .socials {
     margin: 10px 5px;
+    width: auto; 
   }
 
   .f_widget .f-title::after,
@@ -380,6 +407,9 @@ object {
   }
   .discount{
     margin: 5px 7px;
+  }
+  .socials-block {
+    justify-content: space-around;
   }
 
 }
@@ -394,6 +424,16 @@ object {
 
   .sofa .feat-img{
     bottom: 0;
+  }
+  .block-content h1 {
+    font-size: 19px;
+  }
+
+  .block-content p {
+    font-size: 15px;
+  }
+  .block-price {
+    font-size: 13px;
   }
   .single-block {
     height: 400px;
@@ -413,6 +453,7 @@ object {
   .prices-title h3 {
     @include font-size(1.1)
   }
+  
 
 }
 /* Extra Small Devices, Phones */
@@ -431,6 +472,9 @@ object {
   }
   .feat-img {
     bottom: 20px;
+  }
+  .carpet .feat-img {
+    right: -100px;
   }
   .order_content {
     right: 15px;
@@ -458,6 +502,10 @@ object {
   }
   .prices-title img {
     width: 50px;
+  }
+  .header__list li a,
+  .header-info li{
+    font-size: 13px;
   }
 }
 /* Custom, iPhone Retina */

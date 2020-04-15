@@ -97,6 +97,7 @@
 
 .mattress {
   background-color: $color__background-mattress;
+  overflow: hidden;
 }
 .mattress .feat-img{
   bottom: -100px;
@@ -124,9 +125,9 @@
   color: $color__text-footer;
 }
 .block-content h1 {
-    margin: 0;
-    padding: 0;
-    line-height: 43px;
+  margin: 0;
+  padding: 0;
+  line-height: 43px;
   font-size: 36px;
   font-weight: 600;
 
@@ -157,18 +158,18 @@
   padding: 5px;
 }
 .blocks p.link-more {
-    opacity: 1;
+  opacity: 1;
 }
-.blocks p.link-more > a {
-    display: block;
-    position: absolute;
-    margin: 0 24px;
-    bottom: 21px;
-    @include font-size(0.9);
-    color: $color__text-footer;
-    text-decoration: none;
-    text-transform: uppercase;
-  font-size: 16px;
+.blocks p.link-more {
+  display: block;
+  position: absolute;
+  margin: 0 24px;
+  bottom: 21px;
+  color: $color__text-footer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
 
 }
 .single-content {
@@ -187,10 +188,8 @@ a.order-button{
   background: #000;
   padding: 10px;
 }
-.block-img {
-  //max-height: 300px;
-}
-.carpet p.link-more > a,
+
+.carpet p.link-more,
 .carpet a {
     color: $color__inverted-link;
 }
@@ -384,14 +383,14 @@ progress::-webkit-progress-bar {
 .order-block {
     color: $color__text-footer;
     height: 545px;
-    position: relative;
+    display: flex;
+    align-items: center;
+
 }
 .order_content {
-    width: 70%;
-    margin: 0 auto;
-    position: absolute;
-    top: 25%;
-    right: 20%;
+  max-width: 450px;    
+  width: 100%;
+  margin: 0 auto;
 }
 .order-btn {
     position: absolute;
@@ -425,27 +424,45 @@ progress::-webkit-progress-bar {
 .block {
     margin: 20px 0;
     text-align: center;
+    
 }
 .block h2{
     margin: 0;
     padding: 0;
+    line-height: 43px;
+    
+}
+.socials-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 780px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 .block .socials {
     background-color: $color__link;
     padding: 5px 10px;
     color: $color__text-footer;
-    margin: 0 5px;
-    border-radius: 10px;
-    width: 130px;
-    display: inline-block;
+    max-width: 180px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
     text-align: left;
+    align-items: center;
+    text-align: left;
+    
+    
 }
 .socials .svg-inline--fa {
-    margin: 5px 8px;
-    @include font-size(1.4);
+  margin: 5px 8px;
+  @include font-size(1.4);
   float: left;
+  width: 25px;
+  height: 25px;
 }
 .socials span {
-  margin-top: 5px;
   display: block;
+  width: 100%;
+  margin-left: 10px;
 }

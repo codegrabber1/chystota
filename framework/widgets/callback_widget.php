@@ -60,6 +60,7 @@
                     <p>
                         <?php echo $description;?>
                     </p>
+                    <?php //echo do_shortcode( '[amoforms id="1"]', true )?>
                     <form action="" method="post" >
                         <input type="tel" value="" placeholder="<?php _e( 'Your phone', 'chystota' )?>">
                         <input type="submit" value="<?php _e( 'Make order', 'chystota' );?>">

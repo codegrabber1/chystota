@@ -65,13 +65,6 @@
 				</div>
 			</div>
 		</div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <a class="policy-link" href="http://localhost/chystota.wp/privacy-policy/">Політика конфіденційності</a>
-                </div>
-            </div>
-        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

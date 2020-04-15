@@ -695,9 +695,6 @@ a.policy-link:hover {
   background-color: transparent !important;
   box-shadow: none !important; }
 
-body {
-  top: 0 !important; }
-
 #google_translate_element2 {
   display: none !important; }
 
@@ -958,7 +955,7 @@ body {
   width: 100%;
   background-color: #21A068;
   color: #fff;
-  padding: 50px  0; }
+  padding: 50px 0 0; }
 
 .fb-container {
   margin: 20px 0; }
@@ -972,7 +969,7 @@ body {
   font-weight: normal;
   font-size: 12px;
   font-size: 1.2rem;
-  line-height: 119%; }
+  line-height: 19px; }
 
 .f_widget .f-title,
 .f_widget .widgettitle {
@@ -999,7 +996,8 @@ body {
 
 .f-social {
   width: 60%;
-  float: right; }
+  float: right;
+  margin: 20px 0 0; }
 
 .f_widget .f-content a,
 .f_widget .menu-item a,
@@ -1126,7 +1124,8 @@ body {
   float: right; }
 
 .mattress {
-  background-color: #86ADC2; }
+  background-color: #86ADC2;
+  overflow: hidden; }
 
 .mattress .feat-img {
   bottom: -100px;
@@ -1192,17 +1191,16 @@ body {
 .blocks p.link-more {
   opacity: 1; }
 
-.blocks p.link-more > a {
+.blocks p.link-more {
   display: block;
   position: absolute;
   margin: 0 24px;
   bottom: 21px;
-  font-size: 9px;
-  font-size: 0.9rem;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 16px; }
+  font-size: 14px;
+  font-weight: 600; }
 
 .single-content {
   width: 40%;
@@ -1220,7 +1218,7 @@ a.order-button {
   background: #000;
   padding: 10px; }
 
-.carpet p.link-more > a,
+.carpet p.link-more,
 .carpet a {
   color: #222222; }
 
@@ -1438,14 +1436,13 @@ progress::-webkit-progress-bar {
 .order-block {
   color: #fff;
   height: 545px;
-  position: relative; }
+  display: flex;
+  align-items: center; }
 
 .order_content {
-  width: 70%;
-  margin: 0 auto;
-  position: absolute;
-  top: 25%;
-  right: 20%; }
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto; }
 
 .order-btn {
   position: absolute;
@@ -1483,27 +1480,41 @@ progress::-webkit-progress-bar {
 
 .block h2 {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  line-height: 43px; }
+
+.socials-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 780px;
+  margin: 0 auto;
+  flex-wrap: wrap; }
 
 .block .socials {
   background-color: #21A068;
   padding: 5px 10px;
   color: #fff;
-  margin: 0 5px;
-  border-radius: 10px;
-  width: 130px;
-  display: inline-block;
+  max-width: 180px;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  text-align: left;
+  align-items: center;
   text-align: left; }
 
 .socials .svg-inline--fa {
   margin: 5px 8px;
   font-size: 14px;
   font-size: 1.4rem;
-  float: left; }
+  float: left;
+  width: 25px;
+  height: 25px; }
 
 .socials span {
-  margin-top: 5px;
-  display: block; }
+  display: block;
+  width: 100%;
+  margin-left: 10px; }
 
 /*--------------------------------------------------------------
 ## Discount page
@@ -1723,7 +1734,7 @@ object {
   body .lock {
     overflow: hidden; }
   .carpet .feat-img {
-    right: -30px;
+    right: -130px;
     bottom: -50px; }
   .mattress .feat-img {
     width: 100%;
@@ -1757,12 +1768,13 @@ object {
     margin: 0;
     font-size: 12px;
     font-size: 1.2rem;
-    justify-content: center; }
+    justify-content: center;
+    float: none; }
   .header__list {
     display: block;
     width: 100%; }
   .header__list li {
-    margin: 0 0 20px 0; }
+    margin: 0 0 15px 0; }
   .header__list li a {
     font-size: 10px;
     font-size: 1rem;
@@ -1783,14 +1795,23 @@ object {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center; }
+    padding: 0 20px; }
+  .lang-switcher {
+    margin: 10px 0;
+    padding: 20px 30px;
+    border-top: 1px solid #ccc;
+    width: 100%; }
   .menu-social > li a {
     color: #111;
-    font-size: 15px;
-    font-size: 1.5rem; }
+    font-size: 20px;
+    font-size: 2rem;
+    width: 35px;
+    height: 35px; }
   .show_phone {
     font-size: 15px;
     font-size: 1.5rem; }
+  .block-item {
+    padding: 30px 0; }
   .item-service {
     justify-content: flex-end;
     position: absolute;
@@ -1831,7 +1852,7 @@ object {
     bottom: 70px; }
   .feat-img img {
     float: right;
-    width: 65%; }
+    width: 100%; }
   .s_blocks {
     padding: 40px 0; }
   .single-content {
@@ -1860,6 +1881,10 @@ object {
     float: left; }
   .price-excerpt {
     text-align: right; }
+  .reviews,
+  .s_blocks,
+  .price-block {
+    padding: 50px 0; }
   .discount {
     background: #fff;
     -webkit-box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.17);
@@ -1875,10 +1900,11 @@ object {
     margin: 15px; }
   .order-block {
     background-color: #fff;
-    color: #000 !important; }
+    color: #000 !important;
+    width: 100%; }
   .order-form {
     flex-direction: column-reverse;
-    margin: 0 15px; }
+    margin: 20px 15px; }
   .order_content {
     position: unset;
     padding: 15px 0 0;
@@ -1906,7 +1932,11 @@ object {
     color: #fff;
     text-align: center;
     padding: 10px;
-    background-color: #21A068; } }
+    background-color: #21A068; }
+  .socials-block {
+    width: 100%; }
+  .block .socials {
+    margin: 10px 0; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 648px) {
@@ -1956,12 +1986,15 @@ object {
   .f_widget .f-title::after {
     width: 100%; }
   .block .socials {
-    margin: 10px 5px; }
+    margin: 10px 5px;
+    width: auto; }
   .f_widget .f-title::after,
   .f_widget .widgettitle::after {
     width: 100%; }
   .discount {
-    margin: 5px 7px; } }
+    margin: 5px 7px; }
+  .socials-block {
+    justify-content: space-around; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
@@ -1972,6 +2005,12 @@ object {
     padding-top: 80px; }
   .sofa .feat-img {
     bottom: 0; }
+  .block-content h1 {
+    font-size: 19px; }
+  .block-content p {
+    font-size: 15px; }
+  .block-price {
+    font-size: 13px; }
   .single-block {
     height: 400px; }
   .r-item h1 {
@@ -1999,6 +2038,8 @@ object {
     line-height: 30px; }
   .feat-img {
     bottom: 20px; }
+  .carpet .feat-img {
+    right: -100px; }
   .order_content {
     right: 15px;
     width: 100%; }
@@ -2018,7 +2059,10 @@ object {
   .prices-title {
     align-items: baseline; }
   .prices-title img {
-    width: 50px; } }
+    width: 50px; }
+  .header__list li a,
+  .header-info li {
+    font-size: 13px; } }
 
 /* Custom, iPhone Retina */
 /*==========  Mobile First Method  ==========*/

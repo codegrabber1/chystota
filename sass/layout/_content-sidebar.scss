@@ -32,7 +32,7 @@
 	width: $size__site-main;
     background-color: $color__background-blocks;
     color: $color__text-footer;
-    padding: 50px  0;
+    padding: 50px 0 0;
 }
 .fb-container {
     margin: 20px 0;
@@ -46,7 +46,7 @@
    font-style: normal;
    font-weight: normal;
    @include font-size(1.2);
-   line-height: 119%;
+   line-height: 19px;
 }
 .f_widget .f-title,
 .f_widget .widgettitle{
@@ -74,6 +74,7 @@
 .f-social {
     width: 60%;
     float: right;
+    margin: 20px 0 0;
 }
 .f_widget .f-content a,
 .f_widget .menu-item a,

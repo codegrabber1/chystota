@@ -9,7 +9,7 @@
 
 ?>
 <!-- Testimonials -->
-<section >
+<section>
     <?php
         if( !dynamic_sidebar( 'frontpage' ) ) : ?>
         <?php endif;

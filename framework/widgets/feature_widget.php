@@ -77,31 +77,28 @@ function chystota_feature_widgets() {
             <?php
                 while( $query->have_posts() ): $query->the_post();
                 global $post; ?>
-
             <div class="block-item " >
-                <div class="block-content clearfix">
-	                <?php $cats = wp_get_post_categories($post->ID); ;?>
-	                <?php foreach( $cats as $cat ): $category = get_category($cat);?>
-                        <h1>
-                            <a href="<?php echo get_category_link($category->cat_ID);?>">
-                                <?php echo the_title();?></a>
-                        </h1>
-	                <?php endforeach;?>
-                    <p><?php the_content();?></p>
-	                <?php foreach( $cats as $cat ): $category = get_category($cat);?>
-                        <span class='block-price'><a href="<?php echo get_category_link($category->cat_ID);?>"><?php the_excerpt()?>  </a> </span>
-	                <?php endforeach;?>
-                </div>
-                <div class="feat-img clearfix">
-	                <?php the_post_thumbnail( )?>
-                </div>
-
-	            <?php foreach( $cats as $cat ): $category = get_category($cat);?>
-                    <p class='link-more'>
-                        <a href="<?php echo get_category_link($category->cat_ID);?>">Детальніше</a></p>
-	            <?php endforeach;?>
+                <?php $cats = wp_get_post_categories($post->ID); ;?>
+                 <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                <a href="<?php echo get_category_link($category->cat_ID);?>">
+                    <div class="block-content clearfix">
+                            <h1>
+                                <?php echo the_title();?>
+                            </h1>
+                        <p><?php the_content();?></p>
+                            <span class='block-price'>
+                                <?php the_excerpt()?>  
+                            </span>
+                    </div>
+                    <div class="feat-img clearfix">
+                        <?php the_post_thumbnail( )?>
+                    </div>
+	            
+                <p class='link-more'> Детальніше</p>
+                </a>
+                <?php endforeach;?>
             </div>
-        <?php endwhile;?>
+       <?php endwhile;?>
         </div>
         <?php
         endif;wp_reset_query();
