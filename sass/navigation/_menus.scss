@@ -109,7 +109,9 @@
 .header-info li {
   margin-left: 10px;
 }
-
+.show_phone a {
+  color: $color__menu-link;
+}
 .custom-select select {
   border: none;
   background: #ffffff;

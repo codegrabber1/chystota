@@ -41,6 +41,23 @@ object {
   .header-info li {
     margin-left: 8px;
   }
+  .item-service {
+    width: 35%;
+  }
+  .block-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60%;
+    width: 50%;
+  }
+  .carpet .block-img {
+    height: 68%;
+  }
+  .sofa .block-img {
+    height: 70%;
+    width: 50%;
+  }
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -53,7 +70,11 @@ object {
   }
   .block-content {
     padding: 0 20px;
+    
   }
+.blog-content{
+  flex-direction: column;  
+}
   .block-content h1 {
     line-height: 37px;
   }
@@ -77,11 +98,20 @@ object {
   body .lock {
     overflow: hidden;
   }
-  .carpet .feat-img {
-    right: -130px;
-    bottom: -50px;
+  .sofa .feat-img,
+  .mattress .feat-img{
+    position: relative;
   }
-  .mattress .feat-img {
+  .carpet .feat-img {
+    width: 100%;
+    margin: 0;
+    float: right;
+  }
+  .carpet .feat-img img{
+    float: right;
+  }
+  .mattress .feat-img,
+  .sofa .feat-img {
     width: 100%;
     bottom: 0;
   }
@@ -178,9 +208,19 @@ object {
     position: absolute;
     bottom: 0;
   }
+  .text-block {
+    width: 80%;
+  }
+  .text-block h2 {
+    font-size: 25px;
+  }
   .block-img img{
-    width: 90%;
+    width: 100%;
     float: right;
+  }
+  .sofa .block-img {
+    height: auto;
+    width: 70%;
   }
   .f-social{
     width: 100%;
@@ -189,6 +229,9 @@ object {
   }
   .price-block {
     padding: 60px 0;
+  }
+  .price-item h3 {
+    margin: 0;
   }
   .price-block-title {
     display: none !important;
@@ -225,10 +268,10 @@ object {
     position: relative;
     bottom: 70px;
   }
-  .feat-img img{
-   float: right;
-   width: 100%;
-  }
+  // .feat-img img{
+  //  float: right;
+  //  width: 100%;
+  // }
   .s_blocks {
     padding: 40px 0;
   }
@@ -263,6 +306,7 @@ object {
   }
   .price-content p {
     float: left;
+    margin: 0 0 10px 0;
   }
   .price-excerpt {
     text-align: right;
@@ -441,6 +485,25 @@ object {
   .r-item h1 {
     @include font-size(1.3)
   }
+  .s-response h2 {
+    font-size: 23px;
+  }
+  .text-block {
+    margin: 40px auto;
+  }
+  .author-pic p {
+    font-size: 16px;
+  }
+  .price-item h3{
+    font-size: 19px;
+  }
+  .text-block h2,
+  .order_content h2,
+  .reviews h2,
+  .block h2
+  {
+    font-size: 23px;
+  }
   .owl-prev span, .owl-next span {
     top: 15%
   }
@@ -473,8 +536,11 @@ object {
   .feat-img {
     bottom: 20px;
   }
+  .sofa .feat-img img{
+    width: 80%;
+  }
   .carpet .feat-img {
-    right: -100px;
+    margin: 0 100px;
   }
   .order_content {
     right: 15px;
@@ -503,6 +569,9 @@ object {
   .prices-title img {
     width: 50px;
   }
+  .carpet .block-img{
+    height: auto; 
+  }
   .header__list li a,
   .header-info li{
     font-size: 13px;
@@ -510,7 +579,9 @@ object {
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px){
-
+  .carpet .feat-img {
+    max-height: 250px;
+  }
 
 }
 /*==========  Mobile First Method  ==========*/

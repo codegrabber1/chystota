@@ -21,11 +21,9 @@ if( $args ):
             <div class="blog-img">
 	            <?php chystota_post_thumbnail(); ?>
             </div>
-            <div class="blog-item">
-                <div class="item">
-                    <a href="<?php the_permalink()?>"><?php the_title();?></a>
-			        <?php the_excerpt( );?>
-                </div>
+            <div class="item-text">
+                <h2><a href="<?php the_permalink()?>"><?php the_title();?></a></h2>
+				<p><?php the_excerpt( );?></p>
             </div>
         </div>
 <?php endwhile; endif; endif; wp_reset_query();?>

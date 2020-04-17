@@ -12,13 +12,10 @@
  * @package Chystota
  */
 ?>
-
-<div class="blog-img">
+<div class="blog-img clearfix">
 	<?php the_post_thumbnail();?>
 </div>
-<div class="blog-item">
-	<div class="item-text">
-		<a href="<?php the_permalink()?>"><?php the_title();?></a>
-		<?php the_excerpt( );?>
-	</div>
+<div class="item-text clearfix">
+	<h2><a href="<?php the_permalink()?>"><?php the_title();?></a></h2>
+	<p><?php the_excerpt( );?></p>
 </div>

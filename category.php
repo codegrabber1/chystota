@@ -5,18 +5,18 @@
 get_header();
 ?>
 <div class="scrolled-content clearfix">
-<div class="blocks single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
+<div class="single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
     <div class="item-service clearfix">
         <div class="single-content d-none d-sm-none d-md-block clearfix">
-            <h1><?php the_title();?></h1>
+            <h1><?php echo get_field( 'full_category_name' );?></h1>
             <?php while( have_posts()): the_post();
                     the_content();
                 endwhile;?>
             <a class="order-button" href="#orderPhone"><?php echo __( 'Order cleaning', 'chystota' );?></a>
         </div>
-        <div class="block-img clearfix">
-            <?php the_post_thumbnail( ) ; ?>
-        </div>
+    </div>
+    <div class="block-img clearfix">
+        <img src="<?php echo get_field( 'full_pict' );?>" alt="<?php the_title();?>">
     </div>
 </div>
 
@@ -71,13 +71,13 @@ get_header();
             );
             $query = new WP_Query( $args );
             if( $query->have_posts() ):
-                while( $query->have_posts() ): $query->the_post();
-                    ?>
+                while( $query->have_posts() ): $query->the_post(); ?>
                 <div class="price-item">
-                    <h3><?php the_title()?></h3>
+                    <h3 class="d-none d-sm-none d-md-block d-lg-block"><?php the_title()?></h3>
+                    <h3 class="d-block d-sm-block d-md-none d-lg-none"><?php the_excerpt();?></h3>
                     <div class="price-content">
                         <?php the_content()?>
-                        <span class="price-excerpt d-block d-sm-block d-md-none d-lg-none"><?php the_excerpt();?></span>
+                        <span class="price-excerpt d-block d-sm-block d-md-none d-lg-none"><?php the_title()?></span>
                     </div>
                     <span class="d-none d-sm-none d-md-block d-lg-block"><?php the_excerpt();?></span>
                 </div>
@@ -126,7 +126,6 @@ get_header();
 <?php
     if( is_category() ):
         if( dynamic_sidebar( 'middlepage' )) : ?>
-
             <?php
         endif;
     endif;
@@ -169,7 +168,7 @@ get_header();
                         <div class="r-item">
                             <div class="author-pic">
                                 <img src="<?php echo get_field( 'avatar',$post->ID );?>" alt="<?php echo get_field( 'avatar',$post->ID );?>">
-                                <h1><?php echo the_title();?></h1>
+                                <p><?php echo the_title();?></p>
                             </div>
                             <?php the_content();?>
                         </div>

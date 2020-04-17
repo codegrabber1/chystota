@@ -54,7 +54,7 @@
 								</ul>
 								<div class="f-social clearfix">
 									<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-									<?php echo mcw_get_option( 'mcw_phone' )?>
+									<a href="tel:<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo mcw_get_option( 'mcw_phone' )?></a>
 									<?php endif; ?>
 								</div>
 

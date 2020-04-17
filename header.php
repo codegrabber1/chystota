@@ -31,7 +31,8 @@
                 <div class="col-7 order-2 col-sm-7 order-sm-2 col-md-3 order-md-3">
                     <ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-                            <li class="show_phone "><?php echo mcw_get_option( 'mcw_phone' )?></li>
+                            <li class="show_phone ">
+                                <a href="tel:<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo mcw_get_option( 'mcw_phone' )?></a></li>
 						<?php endif; ?>
                         <li class="d-none d-sm-none d-md-none d-lg-block">
                             <div class="custom-select" >

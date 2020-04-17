@@ -19,12 +19,12 @@
 	<div class="block clearfix">
 		<div class="socials-block">
 		<?php if( mcw_get_option('mcw_viber' ) ): ?>
-		    <a href="viber://chat?number=<?php echo mcw_get_option('mcw_viber' )?>" class="socials" target="_blank">
+		    <a href="viber://pa?chatURI=<?php echo mcw_get_option('mcw_viber' )?>" class="socials" target="_blank">
 			<i class="fab fa-viber"></i> <span class="d-none d-sm-block d-md-block d-lg-block">Viber</span></a>
         <?php endif;?>
         <?php if( mcw_get_option( 'mcw_telegram' ) ):?>
 		    <a href="https://telegram.im/<?php echo mcw_get_option('mcw_telegram' )?>" class="socials" target="_blank">
-			<i class="fab fa-whatsapp"></i> <span class="d-none d-sm-block d-md-block d-lg-block">Telegram</span> </a>
+			<i class="fab fa-telegram"></i> <span class="d-none d-sm-block d-md-block d-lg-block">Telegram</span> </a>
         <?php endif;?>
         <?php if( mcw_get_option( 'mcw_fb_url' ) ):?>
 		    <a href="<?php echo mcw_get_option( 'mcw_fb_url' );?>" class="socials" target="_blank">

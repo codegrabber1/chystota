@@ -44,7 +44,7 @@ get_header();
 			?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
                         
 						<?php if( $query -> have_posts() ) :?>
 							<?php
@@ -60,7 +60,7 @@ get_header();
 						echo chystota_pagination();
 						?>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
 						<?php get_sidebar();?>
                     </div>
                 </div>

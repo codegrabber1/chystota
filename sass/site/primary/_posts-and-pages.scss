@@ -30,11 +30,16 @@
     height: 100%;
 }
 .single-block {
-    height: 595px;
+  max-height: 595px;
+  height: 595px;
+  position: relative;
+  @include flexbox();
+  flex-direction: row;
+  justify-content: space-between;
+
 }
 .blocks {
   position: relative;
-
 }
 .blocks,
 .item-service,
@@ -44,16 +49,28 @@
     justify-content: space-between;
     align-items: stretch;
 }
-.blocks,
-.phases-blocks {
-  flex-wrap: wrap;
-}
+
 .item-service {
-  width: 100%;
+  width: 30%;
   height: 300px;
+  float: left;
   position: absolute;
   top: 30%;
-  flex-wrap: nowrap;
+  left: 5%;
+  
+}
+.block-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+}
+.sofa .block-img{
+  height: 70%;
+  width: 35%;
+}
+.carpet .block-img {
+  height: 80%;
 }
 .phases-blocks:last-child {
   flex-direction: row-reverse;
@@ -68,22 +85,22 @@
   align-items: stretch;
   justify-content: center;
   align-self: center;
-  width: 80%;
+  width: 60%;
   margin: 100px auto;
   line-height: 24px;
-  @include font-size(1)
+  font-size: 16px;
+  font-weight: normal;
 
 }
 .phases-blocks .block-video {
   background-color: $color__link;
 }
-
 .block-item {
     flex: 1 30%;
     align-self: stretch;
     box-sizing: border-box;
+    position: relative;
 }
-
 .block-content {
    padding-left: 24px;
    padding-top: 50px;
@@ -91,38 +108,53 @@
 .feat-img{
   position: relative;
   bottom: 0;
-  //width: 80%;
-  float: right;
 }
 
 .mattress {
   background-color: $color__background-mattress;
   overflow: hidden;
 }
+.sofa .feat-img,
+.mattress .feat-img {
+  position: absolute;
+}
 .mattress .feat-img{
-  bottom: -100px;
-  right: -70px;
+  width: 890px;
+  margin: 0 40px;
 }
 .carpet .feat-img {
-  right: -100px;
+  max-height: 430px;
+  height: 100%;
+  width: 553px;
+  margin: 0 90px;
 }
 .sofa {
   background-color: $color__background-sofa;
   overflow: hidden;
 }
 .sofa .feat-img {
-  position: relative;
-  bottom: -10px;
+  width: 100%;
+}
+.sofa .feat-img img {
   float: right;
-  right: -90px;
 }
 .carpet {
   background-color: $color__background-carpet;
   overflow: hidden;
+   
 }
 .mattress a,
-.sofa a{
+.mattress h1,
+.mattress p,
+.sofa a,
+.sofa h1,
+.sofa p {
   color: $color__text-footer;
+}
+.carpet h1,
+.carpet p.link-more,
+.carpet span {
+  color: $color__carpet_text !important;
 }
 .block-content h1 {
   margin: 0;
@@ -140,16 +172,16 @@
   font-size: 16px;
 }
 .block-price {
-    margin-top: 50px;
-    @include flexbox();
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 24px;
-    border-radius: 3px;
-    width: 110px;
-    background: $color__background-opacity;
-    padding: 8px;
+  margin-top: 50px;
+  @include flexbox();
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 3px;
+  width: 110px;
+  background: $color__background-opacity;
+  padding: 8px;
   font-size: 16px;
 
 }
@@ -173,8 +205,6 @@
 
 }
 .single-content {
-    width: 40%;
-    margin-left: 60px;
     position: relative;
 }
 a.order-button{
@@ -189,9 +219,8 @@ a.order-button{
   padding: 10px;
 }
 
-.carpet p.link-more,
 .carpet a {
-    color: $color__inverted-link;
+    color: $color__text-footer;
 }
 .reviews,
 .order-form,
@@ -212,6 +241,11 @@ a.order-button{
   align-items: flex-end;
   justify-content: space-between;
 }
+.price-block-title h2 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 43px; 
+}
 .prices-title {
   width: 90%;
   display: none;
@@ -223,10 +257,17 @@ a.order-button{
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  padding: 30px 0;
+  padding: 40px 0;
+  border-radius: 4px;
 }
 .price-item {
   width: 23.33%;
+}
+.price-item h3 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 0 30px 0;
 }
 .price-content::after {
   display: block;
@@ -236,12 +277,14 @@ a.order-button{
 
 }
 .prices p {
-  margin: 2px 0;
+  margin: 10px 0;
 
 }
 .prices span {
   color: $color__link;
   display: block;
+  font-weight: 600;
+  margin: 10px 0;
 }
 .reviews,
 .order-form {
@@ -262,7 +305,7 @@ a.order-button{
 .s_blocks,
 .price-block
 {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 .reviews h2 {
   margin-bottom: 20px;
@@ -272,13 +315,11 @@ a.order-button{
   margin: 0 auto;
 }
 .review-block .icon {
-  @include font-size(2);
+  font-size: 20px;
   position: relative;
   bottom: -10px;
-
-}
-.review-block span {
-  @include font-size(1.4);
+  font-weight: 600;
+  font-style: normal;
 
 }
 .review-block span.review_number {
@@ -286,14 +327,33 @@ a.order-button{
   right: 0;
   bottom: 0;
 }
+.review-block span.review_number span {
+  color: $color__inactive_text;
+}
 .review_count {
   color: $color__text-grey;
-  
+  margin: 10px 0;
   line-height: 24px;
 }
 .review_line progress {
   width: 100%;
   height: 3px;
+  background-color: $color__background-progress;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+.review_line progress::-moz-progress-bar{
+  background-color: $color__background-progress;
+}
+.review_line progress::-webkit-progress-bar {
+  background-color: $color__background-progress;
+}
+.review_line progress::-webkit-progress-value {
+  background-color: $color__background-progress;
+}
+.review_line progress::-ms-fill{
   background-color: $color__background-progress;
 }
 .response,
@@ -331,10 +391,14 @@ a.order-button{
 }
 .author-pic img {
   width: 70px !important;
-  height: 60px !important;
+  height: 70px !important;
   border-radius: 50%;
   margin-right: 10px;
   @include box-shadow(0, 0, 15px, -4px, rgba(0, 0, 0, 0.17));
+}
+.author-pic p {
+  font-size: 24px;
+  font-weight: 600;
 }
 .r-item h1 {
   width: 100%;
@@ -427,7 +491,7 @@ progress::-webkit-progress-bar {
     
 }
 .block h2{
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
     line-height: 43px;
     
