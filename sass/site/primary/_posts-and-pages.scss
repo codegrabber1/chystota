@@ -153,7 +153,8 @@
 }
 .carpet h1,
 .carpet p.link-more,
-.carpet span {
+.carpet span,
+.carpet .block-content p {
   color: $color__carpet_text !important;
 }
 .block-content h1 {
@@ -164,6 +165,7 @@
   font-weight: 600;
 
 }
+
 .block-content p {
   margin: 10px 0;
   padding: 0;

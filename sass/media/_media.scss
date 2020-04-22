@@ -110,6 +110,9 @@ object {
   .carpet .feat-img img{
     float: right;
   }
+  .mattress .feat-img img {
+    float: right;
+  }
   .mattress .feat-img,
   .sofa .feat-img {
     width: 100%;
@@ -252,7 +255,7 @@ object {
     padding: 0 15px;
   }
   .blocks {
-    margin: 80px 10px 0;
+    margin: 70px 10px 0;
     border-radius: 5px;
   }
   .block-item
@@ -263,15 +266,16 @@ object {
   }
   .block-img{
     max-height: unset !important;
+    width: 100%;
+    height: 70%;
   }
   .feat-img {
     position: relative;
     bottom: 70px;
   }
-  // .feat-img img{
-  //  float: right;
-  //  width: 100%;
-  // }
+  .carpet .block-img {
+    height: 80%;
+  }
   .s_blocks {
     padding: 40px 0;
   }
@@ -343,6 +347,10 @@ object {
     position: unset;
     padding: 15px 0 0;
     width: 100%;
+    margin: 20px 0;
+  }
+  #amoforms_form_1.amoforms #style-5 .amoforms_submit_button {
+    background-color: $color__background-blocks !important;
   }
   .order_content input[type="submit"],
   .order-btn {
@@ -470,7 +478,8 @@ object {
     bottom: 0;
   }
   .block-content h1 {
-    font-size: 19px;
+    font-size: 32px;
+    line-height: 38px;
   }
 
   .block-content p {
@@ -534,13 +543,17 @@ object {
     line-height: 30px;
   }
   .feat-img {
-    bottom: 20px;
+    bottom: 60px;
   }
+   .block-img {
+     height: 60%;
+   }
   .sofa .feat-img img{
     width: 80%;
   }
   .carpet .feat-img {
-    margin: 0 100px;
+    width: 80%;
+    max-height: 280px;
   }
   .order_content {
     right: 15px;
@@ -569,8 +582,16 @@ object {
   .prices-title img {
     width: 50px;
   }
+ 
   .carpet .block-img{
     height: auto; 
+  }
+  .feat-img{
+    bottom: 0;
+  }
+  .carpet .feat-img {
+    width: 70%;
+    max-height: 230px;
   }
   .header__list li a,
   .header-info li{
@@ -579,9 +600,7 @@ object {
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px){
-  .carpet .feat-img {
-    max-height: 250px;
-  }
+
 
 }
 /*==========  Mobile First Method  ==========*/

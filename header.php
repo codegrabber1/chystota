@@ -23,26 +23,32 @@
 </head>
 
 <body <?php body_class(); ?>>
+ 
 <div id="page" class="site">
-	<header id="masthead" class="header">
+    <header id="masthead" class="header">
         <div class="site-header">
 		    <div class="container-fluid">
 			<div class="row">
                 <div class="col-7 order-2 col-sm-7 order-sm-2 col-md-3 order-md-3">
-                    <ul class="header-info">
+                   <ul class="header-info">
 						<?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-                            <li class="show_phone ">
+						    <li class="show_phone active">
                                 <a href="tel:<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo mcw_get_option( 'mcw_phone' )?></a></li>
 						<?php endif; ?>
+						<?php if( mcw_get_option( 'mcw_phone_kyiv' ) ):?>
+						    <li class="show_phone" style="display: none">
+                                <a href="tel:<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo mcw_get_option( 'mcw_phone_kyiv' )?></a></li>
+                        <?php endif;?>
                         <li class="d-none d-sm-none d-md-none d-lg-block">
                             <div class="custom-select" >
-                                <select id="Mobility">
+                                <select id="Mobility" class="ui dropdown">
                                     <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>">Львів</option>
                                     <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>">Київ</option>
                                 </select>
-                            </div
+                            </div>
                         </li>
-                    </ul>
+                   </ul>
+                        
                     <div class="lang-switcher d-none d-sm-none d-md-none d-lg-block">
                         <div id="google_translate_element2"></div>
                         <!-- GTranslate: https://gtranslate.io/ -->
@@ -60,13 +66,12 @@
                     </div>
 					<nav id="site-navigation" class="main-navigation">
                         <div class="cityname d-block d-sm-block d-md-none d-lg-none">
-                            <div class="ui selection dropdown" id="citynames">
-                                <div class="default text">Львів</div>
-                                <i class="dropdown icon"></i>
-                                <div class="menu">
-                                    <div data-value="lviv" class="item">Львів</div>
-                                    <div data-value="Kyiv" class="item">Київ</div>
-                                </div>
+                            <div class="custom-select" >
+                                <select id="mobil" class="ui dropdown">
+                                    <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>">Львів</option>
+                                    <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>">Київ</option>
+
+                                </select>
                             </div>
                         </div>
                         <?php
@@ -123,5 +128,15 @@
 		</div>
         </div>
 	</header><!-- #masthead -->
-
+    <div id="geocity" class="display: none">
+        <div class='cityLink'>
+            <p>Your cite is :</p>
+            <ul>
+                <li><a href="#" data-option="Львів" class="cityName active">Львів</a></li>
+                <li><a href="#" data-option="Київ" class="cityName">Ні, Київ</a></li>
+            </ul>
+        </div>
+    </div>
+    
 	<div id="content" class="site-content">
+   

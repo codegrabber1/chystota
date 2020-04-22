@@ -21,11 +21,10 @@ get_header();
 </div>
 
 <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-    <h1><?php the_title();?></h1>
+    <h1><?php echo get_field( 'full_category_name' );?></h1>
     <?php while( have_posts()): the_post();
         the_content();
     endwhile;?>
-    <!-- <a class="order-button " href="#order-color"><?php //echo __( 'Order cleaning', 'chystota' );?></a> -->
 </div>
 </div>
 <!-- Floating button -->
