@@ -55,9 +55,13 @@
 }
 
 .site-main {
-	margin: $size__site-top 0 0 0;
+    margin: $size__site-top 0 0 0;
+    
 }
-
+.site-content {
+    // position: relative;
+    // height: 100%;
+}
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
@@ -70,6 +74,7 @@
     background-color: $color__background-blocks;
     color: $color__text-footer;
     padding: 50px 0 0;
+   
 }
 .fb-container {
     margin: 20px 0;

@@ -406,6 +406,13 @@ html {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit; }
 
+html,
+body {
+  /* Set the height to match that of the viewport. */
+  height: 100vh;
+  /* Set the width to match that of the viewport. */
+  width: 100vw; }
+
 body {
   background: #fff;
   /* Fallback for when there is no custom background color defined. */
@@ -1066,7 +1073,46 @@ a.policy-link:hover {
   margin-right: auto; }
 
 .no-sidebar .site-main {
-  margin-right: 0; }
+  margin: 0 !important;
+  overflow: hidden; }
+
+.not-found {
+  background: url("images/404_bg.png");
+  background-color: #ffffff;
+  /* You must set a specified height */
+  background-position: top;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */ }
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0 !important;
+  text-align: center; }
+
+.page-content h2 {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 57px; }
+
+.not-found-btn,
+.not-found-btn:hover,
+.not-found-btn:visited {
+  width: 408px;
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 50px 0 0; }
 
 /*--------------------------------------------------------------
 ## Posts and pages

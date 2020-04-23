@@ -7,12 +7,20 @@ html {
 *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
+html,
+body {
+	/* Set the height to match that of the viewport. */
+    height: 100vh;
 
+    /* Set the width to match that of the viewport. */
+    width: 100vw;
+}
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 	min-width: 320px;
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 16px;
+	
 }
 
 
