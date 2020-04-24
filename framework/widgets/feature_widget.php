@@ -79,7 +79,7 @@ function chystota_feature_widgets() {
                 global $post; ?>
             <div class="block-item " >
                 <?php $cats = wp_get_post_categories($post->ID); ;?>
-                 <?php foreach( $cats as $cat ): $category = get_category($cat);?>
+                <?php foreach( $cats as $cat ): $category = get_category($cat);?>
                 <a href="<?php echo get_category_link($category->cat_ID);?>">
                     <div class="block-content clearfix">
                             <h1>

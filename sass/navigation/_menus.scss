@@ -26,25 +26,39 @@
 }
 .main-navigation,
 .header-info,
-.lang-switcher{
+.lang-switcher,
+.logo-block
+ {
   position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
-  height: 100%;
+}
+.menu-block {
+  display: flex;
+}
+.logo-block {
+  justify-content: center;
+}
+.logo-block,
+.menu-block,
+.city-head,
+.lang-switcher{
+  flex: 1 0 auto;
 }
 
 .main-navigation {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 
 .header-info {
   justify-content: flex-end;
-  float: left;
+
 }
-.lang-switcher{
-  float: right;
+.lang-switcher,
+{
+  text-align: center;
 
 }
 #goog-gt-tt {display:none !important;}

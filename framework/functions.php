@@ -217,10 +217,6 @@ function chystota_scripts() {
 
     wp_enqueue_style( 'chystota-fontawesomecss', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css' );
 
-    wp_enqueue_style( 'chystota-superfishcss', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/css/superfish.min.css' );
-
-    wp_enqueue_style( 'chystota-mmenucss', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.0.3/jquery.mmenu.all.css' );
-
     wp_enqueue_style( 'chystota-owlcss', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' );
 
     wp_enqueue_style( 'cookieconsent', 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css' );
@@ -233,10 +229,6 @@ function chystota_scripts() {
     wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '20151215', true );
 
     wp_enqueue_script( 'chystota-fawjs', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js', array(), '20151215', true );
-
-    wp_enqueue_script( 'chystota-superfishjs', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/js/superfish.min.js', array(), '20151215', true );
-
-    wp_enqueue_script( 'chystota-mmenujs', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.0.3/jquery.mmenu.all.js', array(), '20151215', true );
 
     wp_enqueue_script( 'chystota-owljs', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
 

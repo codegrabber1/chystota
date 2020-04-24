@@ -25,9 +25,13 @@
 .featured_block {
     width: 100%;
     margin: 50px 0 0;
+    max-height: 676px;
+    height: 100%;
+    
 }
 .blocks {
-    height: 100%;
+  max-height: 676px;
+  height: 100%;
 }
 .single-block {
   max-height: 595px;
@@ -96,67 +100,18 @@
   background-color: $color__link;
 }
 .block-item {
-    flex: 1 30%;
-    align-self: stretch;
-    box-sizing: border-box;
-    position: relative;
+    flex: 1 ;
+    padding: 20px 0 0;  
 }
 .block-content {
    padding-left: 24px;
-   padding-top: 50px;
 }
 .feat-img{
-  position: relative;
-  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
 
-.mattress {
-  background-color: $color__background-mattress;
-  overflow: hidden;
-}
-.sofa .feat-img,
-.mattress .feat-img {
-  position: absolute;
-}
-.mattress .feat-img{
-  width: 890px;
-  margin: 0 40px;
-}
-.carpet .feat-img {
-  max-height: 430px;
-  height: 100%;
-  width: 553px;
-  margin: 0 90px;
-}
-.sofa {
-  background-color: $color__background-sofa;
-  overflow: hidden;
-}
-.sofa .feat-img {
-  width: 100%;
-}
-.sofa .feat-img img {
-  float: right;
-}
-.carpet {
-  background-color: $color__background-carpet;
-  overflow: hidden;
-   
-}
-.mattress a,
-.mattress h1,
-.mattress p,
-.sofa a,
-.sofa h1,
-.sofa p {
-  color: $color__text-footer;
-}
-.carpet h1,
-.carpet p.link-more,
-.carpet span,
-.carpet .block-content p {
-  color: $color__carpet_text !important;
-}
 .block-content h1 {
   margin: 0;
   padding: 0;

@@ -99,14 +99,24 @@ function mcw_custom_styles(){
 	$options = get_option( 'mcw_options' );
 	$mcw_custom_style = '';
 	wp_enqueue_style( 'style', get_template_directory_uri().'style.css' );
-	$mcw_links_color = $options['mcw_links_color'];
+	$mcw_bg_color_sofa     = $options['mcw_bg_color_sofa'];
+	$mcw_bg_color_carpet   = $options['mcw_bg_color_carpet'];
+	$mcw_bg_color_mattress = $options['mcw_bg_color_mattress'];  
+	
+	$mcw_text_color_sofa = $options['mcw_text_color_sofa'];
+	$mcw_text_carpet 	 = $options['mcw_text_color_carpet'];
+	$mcw_text_mattress 	 = $options['mcw_text_color_mattress'];
 
-	if( !empty( $mcw_links_color ) ) {
-		$mcw_custom_style .= "a,.entry-title a, .inline-menu li a, .sf-menu li > a, .site-info a {\n color: $mcw_links_color;\n}\n\n";
-		$mcw_custom_style .= ".gallery-filter ul li.active span, .gallery-filter ul li:hover span {\n color: $mcw_links_color;\n}\n\n";
-		
+	if( !empty( $mcw_bg_color_sofa ) || !empty( $mcw_text_color_sofa )) {
+		$mcw_custom_style .= ".sofa {\n background-color: $mcw_bg_color_sofa;\n}\n\n";
+		$mcw_custom_style .= ".sofa a, .sofa h1, .sofa p {\n color: $mcw_text_color_sofa;\n}\n\n";
+		$mcw_custom_style .= ".carpet {\n background-color: $mcw_bg_color_carpet;\n}\n\n";
+		$mcw_custom_style .= ".carpet h1, .carpet p.link-more, .carpet span,
+								.carpet .block-content p {\n color: $mcw_text_carpet;\n}\n\n";
+		$mcw_custom_style .= ".mattress {\n background-color: $mcw_bg_color_mattress;\n}\n\n";
+		$mcw_custom_style .= ".mattress a, .mattress h1, .mattress p,
+								.sofa a, .sofa h1, .sofa p {\n color: $mcw_text_mattress;\n}\n\n";
 	}
-
-	wp_add_inline_style( 'style', $mcw_custom_style );
+		wp_add_inline_style( 'style', $mcw_custom_style );
 }
 add_action( 'wp_enqueue_scripts', 'mcw_custom_styles' );

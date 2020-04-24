@@ -95,6 +95,7 @@ function mcw_theme_options_page(){
                <div class="tabs">
                    <ul>
                        <li class="general first"><a href="#general"><i class="icon-cogs"></i><?php echo _e('General', 'chystota'); ?></a></li>
+                       <li class="promo"><a href="#promo"><?php echo _e( 'Promo', 'chystota' );?></a></li>
                        <li class="category"><a href="#category"><?php echo _e( 'Categories', 'chystota' );?></a></li>
                        <li class="seo"><a href="#seo"><?php echo _e( 'SEO', 'chystota' );?></a></li>
                        <li class="reset"><a href="#reset"><i class="icon-refresh"></i><?php echo _e( 'Reset', 'chystota' );?></a></li>
@@ -142,13 +143,6 @@ function mcw_theme_options_page(){
                                     <input class="upload_image_button" id="mcw_apple_touch_button" type="button" value="Upload" />
                                     <span class="description updesc"><?php _e('Upload your 114px by 114px icon.', 'chystota'); ?></span>
                                 </div>
-
-                                <div class='field'>
-                                    <label><?php _e( 'Choose the links color', 'chystota' );?></label>
-                                    <div id="mcw_links_color_selector" class="color-pic"><div style="background-color:<?php echo $options['mcw_links_color']?>"></div></div>
-                                    <input style="width: 80px; margin-right: 5px" id="mcw_links_color" type="text" name="mcw_options[mcw_links_color]" value="<?php echo $options['mcw_links_color'];?>">
-                                    <span class="description chkdesc"><?php _e( 'Choose a color of the links.', 'chystota' ); ?></span>
-                                </div>
                                 <h3><?php _e( 'Set social links', 'chystota' );?></h3>
                                 <div class="field">
                                     <label for="mcw_options[mcw_fb_url]"><?php _e( 'Facebook URL', 'chystota' );?></label>
@@ -194,6 +188,116 @@ function mcw_theme_options_page(){
                                 </div>
                             </div>
                         </div>  <!-- #general -->
+                        <div id="promo" class="tab_block">
+                            <h2><?php _e( 'Promote your services', 'chystota' );?></h2>
+                            <div class="fields_wrap">
+                                <div class="field infobox">
+                                    <p><strong><?php _e('Show blocks on the front page.', 'chystota'); ?></strong></p>
+                                    <?php _e('Choose three categories to promote your services.', 'chystota'); ?>
+                                </div>
+                                <div class="fields" >
+                                    <h3><?php _e( 'Choose a category to promote your first service', 'chystota' );?></h3>
+                                    
+                                    <label for="mcw_options[first_service]"><?php _e( 'First service', 'chystota' )?></label>
+                                    <select name="mcw_options[first_service]" id="mcw_options[first_service]" class="styled">
+                                        <?php $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ) );    ?>
+                                        <option <?php selected( 0 == $options['first_service'] )?> value="0">
+                                            <?php _e( 'All categories', 'chystota' );?>
+                                        </option>
+                                        <?php 
+                                            if( $categories ):
+                                                foreach( $categories as $serve ):
+                                            ?>
+                                            <option <?php selected( $serve->term_id == $options['first_service'] )?>
+                                                value="<?php echo $serve->term_id;?>"><?php echo $serve->cat_name?>
+                                            </option>
+                                        <?php
+                                            endforeach; endif;?>
+                                    </select>
+                                    <div style="display: flex; flex-direction: row">
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of background', 'chystota' );?></label>
+                                            <div id="mcw_bg_sofa" class="color-pic"><div style="background-color:<?php echo $options['mcw_bg_color_sofa']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_bg_color_sofa" type="text" name="mcw_options[mcw_bg_color_sofa]" value="<?php echo $options['mcw_bg_color_sofa'];?>">
+                                            
+                                        </div>
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of text', 'chystota' );?></label>
+                                            <div id="mcw_text_sofa" class="color-pic"><div style="background-color:<?php echo $options['mcw_text_color_sofa']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_text_color_sofa" type="text" name="mcw_options[mcw_text_color_sofa]" value="<?php echo $options['mcw_text_color_sofa'];?>">
+                                            
+                                        </div>
+                                    </div>
+                                </div><!-- #First service --> 
+                                <div class="fields">
+                                    <h3><?php _e( 'Choose a category to promote your second service', 'chystota' );?></h3>
+                                    <label for="mcw_options[second_service]"><?php _e( 'Second service', 'chystota' )?></label>
+                                    <select name="mcw_options[second_service]" id="mcw_options[second_service]" class="styled">
+                                        <?php $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ) );    ?>
+                                        <option <?php selected( 0 == $options['first_service'] )?> value="0">
+                                            <?php _e( 'All categories', 'chystota' );?>
+                                        </option>
+                                        <?php 
+                                            if( $categories ):
+                                                foreach( $categories as $serve ):
+                                            ?>
+                                            <option <?php selected( $serve->term_id == $options['second_service'] )?>
+                                                value="<?php echo $serve->term_id;?>"><?php echo $serve->cat_name?>
+                                            </option>
+                                        <?php
+                                            endforeach; endif;?>
+                                    </select>
+                                    <div style="display: flex; flex-direction: row">
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of background', 'chystota' );?></label>
+                                            <div id="mcw_bg_carpet" class="color-pic"><div style="background-color:<?php echo $options['mcw_bg_color_carpet']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_bg_color_carpet" type="text" name="mcw_options[mcw_bg_color_carpet]" value="<?php echo $options['mcw_bg_color_carpet'];?>">
+                                            
+                                        </div>
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of text', 'chystota' );?></label>
+                                            <div id="mcw_text_carpet" class="color-pic"><div style="background-color:<?php echo $options['mcw_text_color_carpet']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_text_color_carpet" type="text" name="mcw_options[mcw_text_color_carpet]" value="<?php echo $options['mcw_text_color_carpet'];?>">
+                                            
+                                        </div>
+                                    </div>
+                                </div> <!-- #Second service --> 
+                                <div class="fields">
+                                    <h3><?php _e( 'Choose a category to promote your third service', 'chystota' );?></h3>
+                                    <label for="mcw_options[third_service]"><?php _e( 'Third service', 'chystota' )?></label>
+                                    <select name="mcw_options[third_service]" id="mcw_options[third_service]" class="styled">
+                                        <?php $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ) );    ?>
+                                        <option <?php selected( 0 == $options['third_service'] )?> value="0">
+                                            <?php _e( 'All categories', 'chystota' );?>
+                                        </option>
+                                        <?php 
+                                            if( $categories ):
+                                                foreach( $categories as $serve ):
+                                            ?>
+                                            <option <?php selected( $serve->term_id == $options['third_service'] )?>
+                                                value="<?php echo $serve->term_id;?>"><?php echo $serve->cat_name?>
+                                            </option>
+                                        <?php
+                                            endforeach; endif;?>
+                                    </select>
+
+                                    <div style="display: flex; flex-direction: row">
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of background', 'chystota' );?></label>
+                                            <div id="mcw_bg_mattress" class="color-pic"><div style="background-color:<?php echo $options['mcw_bg_color_mattress']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_bg_color_mattress" type="text" name="mcw_options[mcw_bg_color_mattress]" value="<?php echo $options['mcw_bg_color_mattress'];?>">
+                                            
+                                        </div>
+                                        <div class='field' style=" margin: 10px 0; ">
+                                            <label><?php _e( 'Choose the color of text', 'chystota' );?></label>
+                                            <div id="mcw_text_mattress" class="color-pic"><div style="background-color:<?php echo $options['mcw_text_color_mattress']?>"></div></div>
+                                            <input style="width: 80px; margin-right: 5px" id="mcw_text_color_mattress" type="text" name="mcw_options[mcw_text_color_mattress]" value="<?php echo $options['mcw_text_color_mattress'];?>">
+                                            
+                                        </div>
+                                    </div>
+                                </div> <!-- #Third service --> 
+                            </div>
+                        </div>
                         <div id="category" class="tab_block">
                             <h2><?php _e( 'Set categories', 'chystota' );?></h2>
                             <div class="fields_wrap">
@@ -286,7 +390,6 @@ function mcw_theme_options_page(){
                                 <span class="description"><?php _e( 'Add keywords. You can add more keywords separated by commas.', 'chystota' ); ?></span>
                             </div>
                         </div>
-
                         <div id="reset" class="tab_block">
                             <h2><?php _e( 'Reset', 'chystota' ); ?></h2>
                             <div class="fields_wrap">
@@ -329,6 +432,9 @@ function mcw_default_options(){
          'mcw_telegram'         => '',
          'mcw_phone'            => '',
          'mcw_phone_kyiv'       => '',
+         'first_service'        => 0,
+         'second_service'       => 0,
+         'third_service'        => 0,
          'discount_category'    => 0,
          'faq_category'         => 0,
          'blog_category'        => 0,
@@ -368,7 +474,37 @@ function mcw_validate_options( $input ){
 	    $input['mcw_meta_description']  = wp_filter_post_kses( $input['mcw_meta_description'] );
 
 
-	    /**
+        /**
+         *  First Service.
+         */
+        $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );
+        $cat_ids = array();
+        foreach( $categories as $category )
+            $cat_ids[] = $category->term_id;
+        if( !in_array( $input['first_service'], $cat_ids ) && ( $input['first_service'] ) !=0 )
+            $input['first_service'] = $options['first_service'];
+        
+        /**
+         *  Second Service.
+         */
+        $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );
+        $cat_ids = array();
+        foreach( $categories as $category )
+            $cat_ids[] = $category->term_id;
+        if( !in_array( $input['second_service'], $cat_ids ) && ( $input['second_service'] ) !=0 )
+            $input['second_service'] = $options['second_service'];
+        
+        /**
+         *  Third Service.
+         */
+        $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );
+        $cat_ids = array();
+        foreach( $categories as $category )
+            $cat_ids[] = $category->term_id;
+        if( !in_array( $input['third_service'], $cat_ids ) && ( $input['third_service'] ) !=0 )
+            $input['third_service'] = $options['third_service'];
+        
+            /**
          *  FAQ category.
          */
         $categories = get_categories( array( 'hide_empty' => 0, 'hierarchical' => 0 ) );

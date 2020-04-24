@@ -33,12 +33,46 @@
             }
         });
 
-        // $('#widget-chystota_callback_widget-4-mcw_order_color_selector').ColorPicker({
-        //     onChange: function (hsb,hex,rgb){
-        //         $('#widget-chystota_callback_widget-4-mcw_order_color_selector div').css('backgroundColor', '#' + hex);
-        //         $('#widget-chystota_callback_widget-4-chystota_order_color').val('#'+hex);
-        //     }
-        // });
+        //backround colorpicker
+        $('#mcw_bg_sofa').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_bg_sofa div').css('backgroundColor', '#' + hex);
+                $('#mcw_bg_color_sofa').val('#' + hex);
+            }
+        });
+        //Links colorpicker
+        $('#mcw_text_sofa').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_text_sofa div').css('backgroundColor', '#' + hex);
+                $('#mcw_text_color_sofa').val('#' + hex);
+            }
+        });
+
+        $('#mcw_bg_carpet').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_bg_carpet div').css('backgroundColor', '#' + hex);
+                $('#mcw_bg_color_carpet').val('#' + hex);
+            }
+        });
+        $('#mcw_text_carpet').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_text_carpet div').css('backgroundColor', '#' + hex);
+                $('#mcw_text_color_carpet').val('#' + hex);
+            }
+        });
+
+        $('#mcw_bg_mattress').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_bg_mattress div').css('backgroundColor', '#' + hex);
+                $('#mcw_bg_color_mattress').val('#' + hex);
+            }
+        });
+        $('#mcw_text_mattress').ColorPicker({
+            onChange: function (hsb, hex, rgb) {
+                $('#mcw_text_mattress div').css('backgroundColor', '#' + hex);
+                $('#mcw_text_color_mattress').val('#' + hex);
+            }
+        });
 
         setTimeout(function () {
             $(".fade").fadeOut("slow", function () {

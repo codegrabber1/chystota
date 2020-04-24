@@ -16,17 +16,38 @@ jQuery(document).ready(function($){
         .dropdown();
     //Changing phone number on the top.
     $('#Mobility').on('change', function () {
-        // let val  = $("#Mobility :selected").val();
-        // $('.show_phone').html(val);
+        let val = $("#Mobility :selected").val();
+        localStorage.setItem('getPhone', val);
+        let getPhone = localStorage.getItem('getPhone');
+        //alert(getPhone);
+        $('.f-phone').html(getPhone);
+        $('.subfooter_phone').html(getPhone);
+        $('.show_phone').html(getPhone);
         
-        $('.show_phone').slideDown('slow', function () {
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active').css('display', 'none');
-            } else {
-                $(this).addClass('active').css('display', 'block');
-            }
-        });
+        // $('.show_phone').slideDown('slow', function () {
+        //     if ($(this).hasClass('active')) {
+        //         $(this).removeClass('active').css('display', 'none');
+        //     } else {
+        //         $(this).addClass('active').css('display', 'block');
+        //     }
+        // });
     });
+
+    //Changing phone number on the top.
+    $('#mobil').on('change', function () {
+        let val = $("#mobil :selected").val();
+        $('.f-phone').html(val);
+        $('.subfooter_phone').html(val);
+        $('.show_phone').html(val);
+
+        // $('.show_phone').slideDown('slow', function () {
+        //      if ($(this).hasClass('active')) {
+        //          $(this).removeClass('active').css('display', 'none');
+        //      } else {
+        //          $(this).addClass('active').css('display', 'block');
+        //      }
+        //  });
+    }); // #Change phone number in header.
     // Switch city.
     let cityLink = $('#geocity');
     let showCity = localStorage.getItem('nameTown');
@@ -38,8 +59,7 @@ jQuery(document).ready(function($){
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active').css('display', 'none');
             } else {
-                $(this).addClass('active').css('display', 'block');
-                
+                $(this).addClass('active').css('display', 'block');                
             }
             $('.custom-select .text').html(showCity);
                    
@@ -107,26 +127,15 @@ jQuery(document).ready(function($){
     }); // end top menu.
 
     // Change phone number in header.
-    $('#mobil').on('change', function(){
-        $('.show_phone').slideDown('slow', function(){
-            if($(this).hasClass('active')){
-                $(this).removeClass('active').css('display','none');
-            }else{
-                $(this).addClass('active').css('display','block');
-            }
-        });
-    }); // #Change phone number in header.
-
-    // Adding different classes to the features blocks.
-    $('.block-item:nth-child(1)').each(function(){
-            $(this).addClass("sofa");
-        });
-    $('.block-item:nth-child(2)').each(function(){
-            $(this).addClass("carpet");
-        });
-    $('.block-item:nth-child(3)').each(function(){
-            $(this).addClass("mattress");
-        });
+    // $('#mobil').on('change', function(){
+    //     $('.show_phone').slideDown('slow', function(){
+    //         if($(this).hasClass('active')){
+    //             $(this).removeClass('active').css('display','none');
+    //         }else{
+    //             $(this).addClass('active').css('display','block');
+    //         }
+    //     });
+    // }); // #Change phone number in header.
 
     // Accordion for the faq page.
     $(".set > a").on("click", function() {

@@ -13,7 +13,7 @@
 	<div class="block clearfix">
 		<h2><?php echo __( "Не знайшли, що шукали ?" )?></h2>
 		<span>Зателефонуйте нам <?php if( mcw_get_option( 'mcw_phone' ) ): ?>
-				<a href=""><?php echo mcw_get_option( 'mcw_phone' )?></a>
+				<a class="subfooter_phone" href="tel:<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo mcw_get_option( 'mcw_phone' )?></a>
 			<?php endif; ?>або знайдіть нас у соціальних мережах</span>
 	</div>
 	<div class="block clearfix">

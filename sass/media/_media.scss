@@ -33,14 +33,19 @@ object {
   .response img {
     height: auto;
   }
+  .header__list li {
+    margin: 0 0 0 15px;
+  }
 }
-@media only screen and (max-width: 1165px ){
 
-}
 @media only screen and (max-width: 1024px ){
+  .header__list li {
+    margin: 0 0 0 10px;
+  }
   .header-info li {
     margin-left: 8px;
   }
+  
   .item-service {
     width: 35%;
   }
@@ -61,9 +66,9 @@ object {
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  .show_phone,
-  .header__list{
-    @include font-size(.9);
+  .header__list li a,
+  .header-info li {
+    font-size: 15px;
   }
   .block-item {
     padding: 50px 0;
@@ -97,6 +102,13 @@ object {
 @media only screen and (max-width: 768px){
   body .lock {
     overflow: hidden;
+  }
+  .menu-block{
+    justify-content: center;
+  }
+  .header__list li a,
+  .header-info li {
+    font-size: 16px;
   }
   .sofa .feat-img,
   .mattress .feat-img{
@@ -170,7 +182,6 @@ object {
     padding-bottom: 10px;
   }
   .mobile-mnu{
-    margin: 10px 0 0 0;
     position: relative;
     z-index: 3;
     float: right;
@@ -467,6 +478,14 @@ object {
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px){
+  
+  // .logo-block,
+  // .menu-block {
+  //   flex: 1 0 auto;
+  // }
+  // .menu-block {
+  //   width: 20%;
+  // }
   .show_phone {
     @include font-size(1.1)
   }
@@ -593,10 +612,7 @@ object {
     width: 70%;
     max-height: 230px;
   }
-  .header__list li a,
-  .header-info li{
-    font-size: 13px;
-  }
+  
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px){
