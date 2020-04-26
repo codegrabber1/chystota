@@ -223,7 +223,7 @@ function chystota_scripts() {
 
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-    wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
+    //wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
 
     
     wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '20151215', true );
@@ -241,7 +241,27 @@ function chystota_scripts() {
 
     wp_enqueue_script("cookieconsentjs", "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js",array(),false,true);
 
-   function add_data_attribute( $tag, $handle, $src ) {
+   function mihdan_add_defer_attribute( $tag, $handle ) {
+    
+        $handles = array(
+            // 'chystota-semanticjs',
+            'chystota-fawjs',
+            // 'chystota-owljs',
+            'chystota-myjs',
+        );
+            
+        foreach( $handles as $defer_script) {
+            if ( $defer_script === $handle ) {
+                return str_replace( ' src', ' async="async" src', $tag );
+            }
+        }
+        
+        return $tag;
+        }
+        add_filter( 'script_loader_tag', 'mihdan_add_defer_attribute', 10, 2 );
+   
+   
+    function add_data_attribute( $tag, $handle, $src ) {
 		if ( 'cookieconsentjs' !== $handle )
 			return $tag;
 
@@ -380,6 +400,54 @@ function makecodework_mailchimp_subscriber_status( $email, $status, $list_id, $a
 
 	$result = curl_exec($mch_api);
 	return $result;
+}
+
+/**
+ * Disable the emoji's
+ */
+function disable_emojis() {
+ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+ remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+ remove_action( 'wp_print_styles', 'print_emoji_styles' );
+ remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+ remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+ remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+ remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+ add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+ add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+
+/**
+ * Filter function used to remove the tinymce emoji plugin.
+ * 
+ * @param array $plugins 
+ * @return array Difference betwen the two arrays
+ */
+function disable_emojis_tinymce( $plugins ) {
+ if ( is_array( $plugins ) ) {
+ return array_diff( $plugins, array( 'wpemoji' ) );
+ } else {
+ return array();
+ }
+}
+
+/**
+ * Remove emoji CDN hostname from DNS prefetching hints.
+ *
+ * @param array $urls URLs to print for resource hints.
+ * @param string $relation_type The relation type the URLs are printed for.
+ * @return array Difference betwen the two arrays.
+ */
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+ if ( 'dns-prefetch' == $relation_type ) {
+ /** This filter is documented in wp-includes/formatting.php */
+ $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+
+$urls = array_diff( $urls, array( $emoji_svg_url ) );
+ }
+
+return $urls;
 }
 
 

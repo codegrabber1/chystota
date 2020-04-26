@@ -249,17 +249,17 @@ jQuery(document).ready(function($){
     
     
     $(function () {
-        
+
         $(window).scroll(function () {
         const elem = $('#resp-slider');
-        
+
         const elemContent = $('.block-content');
         //const elemCont = $('.block-content');
         //let topHeight = elemCont.position();
         // alert(topHeight.top);
         let scroll = $(window).scrollTop() + $(window).height();
         let offset = elem.offset().top + elem.height();
-        
+
         if ($(window).scrollTop() >= elemContent.outerHeight(true)) {
             //$('.float-btn-sticky').css('bottom', + topHeight.top + "px");
             if (scroll > offset) {
@@ -270,9 +270,9 @@ jQuery(document).ready(function($){
         }else {
             $('.float-btn-sticky').fadeOut();
         }
-        
-        
-            
+
+
+
         });
 
     });

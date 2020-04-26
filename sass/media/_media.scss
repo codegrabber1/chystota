@@ -45,33 +45,21 @@ object {
   .header-info li {
     margin-left: 8px;
   }
-  
-  .item-service {
-    width: 35%;
-  }
-  .block-img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 60%;
-    width: 50%;
-  }
-  .carpet .block-img {
-    height: 68%;
-  }
-  .sofa .block-img {
-    height: 70%;
-    width: 50%;
-  }
+ 
+  // .block-img {
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: 0;
+  //   height: 60%;
+  //   width: 50%;
+  // }
+ 
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .header__list li a,
   .header-info li {
     font-size: 15px;
-  }
-  .block-item {
-    padding: 50px 0;
   }
   .block-content {
     padding: 0 20px;
@@ -83,14 +71,11 @@ object {
   .block-content h1 {
     line-height: 37px;
   }
-  .order-block{
-    height: 400px;
-  }
+  // .order-block{
+  //   height: 400px;
+  // }
   .order_content {
     top: 18%;
-  }
-  .single-content {
-    margin-left: 40px;
   }
   .r-item {
     flex: 1 100%;
@@ -100,7 +85,7 @@ object {
   }
 }
 @media only screen and (max-width: 768px){
-  body .lock {
+  .lock {
     overflow: hidden;
   }
   .menu-block{
@@ -110,25 +95,23 @@ object {
   .header-info li {
     font-size: 16px;
   }
-  .sofa .feat-img,
-  .mattress .feat-img{
-    position: relative;
+  .scrolled-content {
+    margin: 75px 0 20px;
   }
-  .carpet .feat-img {
-    width: 100%;
-    margin: 0;
-    float: right;
-  }
-  .carpet .feat-img img{
-    float: right;
-  }
+  .sofa .feat-img img,
   .mattress .feat-img img {
-    float: right;
+    position: unset; 
   }
-  .mattress .feat-img,
-  .sofa .feat-img {
-    width: 100%;
-    bottom: 0;
+  .carpet .feat-img img {
+    width: 80%;
+  }
+  .single-block{
+    min-height: 100%;
+    margin: 15px;
+    border-radius: 4px;
+  }
+  .block-img {
+    margin: 60px 0 0;
   }
   .container {
     max-width: 100% !important;
@@ -212,30 +195,14 @@ object {
   .show_phone {
     @include font-size(1.5)
   }
-  
-  .block-item {
-    padding: 30px 0;
-  }
-  
-  .item-service {
-    justify-content: flex-end;
-    position: absolute;
-    bottom: 0;
-  }
+
   .text-block {
     width: 80%;
   }
   .text-block h2 {
     font-size: 25px;
   }
-  .block-img img{
-    width: 100%;
-    float: right;
-  }
-  .sofa .block-img {
-    height: auto;
-    width: 70%;
-  }
+ 
   .f-social{
     width: 100%;
     float: none;
@@ -275,32 +242,10 @@ object {
     border-radius: 5px;
     position: relative;
   }
-  .block-img{
-    max-height: unset !important;
-    width: 100%;
-    height: 70%;
-  }
-  .feat-img {
-    position: relative;
-    bottom: 70px;
-  }
-  .carpet .block-img {
-    height: 80%;
-  }
+
   .s_blocks {
     padding: 40px 0;
   }
-  .single-content {
-    width: 100%;
-    margin: 20px 0 0 0;
-  }
-  a.order-button{
-    position: relative;
-    margin: 40px 0 0;
-    width: 100%;
-    background-color: $color__active-button;
-  }
-  
   .r-item a .svg-inline--fa {
     @include font-size(1.7);
     margin: 20px 0;
@@ -403,15 +348,9 @@ object {
   .featured_block {
     margin: 70px 0 10px;
   }
-  .feat-img {
-    bottom: 40px;
-  }
   .review-block {
     width: 90%;
     margin: 10px auto;
-  }
-  .single-block{
-    height: 485px;
   }
   .owl-prev span, .owl-next span {
     top: 20%;
@@ -507,9 +446,6 @@ object {
   .block-price {
     font-size: 13px;
   }
-  .single-block {
-    height: 400px;
-  }
   .r-item h1 {
     @include font-size(1.3)
   }
@@ -561,26 +497,14 @@ object {
   .block-content h1 {
     line-height: 30px;
   }
-  .feat-img {
-    bottom: 60px;
-  }
-   .block-img {
-     height: 60%;
-   }
   .sofa .feat-img img{
     width: 80%;
-  }
-  .carpet .feat-img {
-    width: 80%;
-    max-height: 280px;
   }
   .order_content {
     right: 15px;
     width: 100%;
   }
-  .single-block {
-    height: 350px;
-  }
+
   .owl-prev span, .owl-next span {
     top: 10%;
   }
@@ -600,13 +524,6 @@ object {
   }
   .prices-title img {
     width: 50px;
-  }
- 
-  .carpet .block-img{
-    height: auto; 
-  }
-  .feat-img{
-    bottom: 0;
   }
   .carpet .feat-img {
     width: 70%;

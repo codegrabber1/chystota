@@ -5,32 +5,35 @@
 get_header();
 ?>
 <div class="scrolled-content clearfix">
-<div class="single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
-    <div class="item-service clearfix">
-        <div class="single-content d-none d-sm-none d-md-block clearfix">
-            <h1><?php echo get_field( 'full_category_name' );?></h1>
-            <?php while( have_posts()): the_post();
-                    the_content();
-                endwhile;?>
-            <a class="order-button" href="#orderPhone"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+    <div class="single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
+    <!-- d-none d-sm-none d-md-block -->
+        <div class="item-service clearfix">
+            <div class="item-serveice-content d-none d-sm-none d-md-block d-lg-block clearfix">    
+                <h1><?php echo get_field( 'full_category_name' );?></h1>
+                <?php while( have_posts()): the_post();
+                        the_content();
+                    endwhile;?>
+                <a class="order-button" href="#orderPhone"><?php echo __( 'Order cleaning', 'chystota' );?></a>
+            </div>
         </div>
+        <div class="block-img clearfix">
+            <img src="<?php echo get_field( 'full_pict' );?>" alt="<?php //the_title();?>">
+        </div>
+         
     </div>
-    <div class="block-img clearfix">
-        <img src="<?php echo get_field( 'full_pict' );?>" alt="<?php the_title();?>">
-    </div>
-</div>
 
-<div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-    <h1><?php echo get_field( 'full_category_name' );?></h1>
-    <?php while( have_posts()): the_post();
-        the_content();
-    endwhile;?>
-</div>
-</div>
-<!-- Floating button -->
+   <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
+        <h1><?php echo get_field( 'full_category_name' );?></h1>
+        <?php while( have_posts()): the_post();
+            the_content();
+        endwhile;?>
+    </div>
+    <!-- Floating button -->
  <div class="float-btn-sticky d-md-none d-lg-none clearfix">
     <a class="sticky-button" href="#order-color"><?php echo __( 'Order cleaning', 'chystota' );?></a>
 </div><!-- #Floating button -->
+</div>
+
 <!-- Prices-->
 <section class="price-block">
     <?php

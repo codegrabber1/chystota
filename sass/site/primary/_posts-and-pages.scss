@@ -24,57 +24,21 @@
 // front page services block.
 .featured_block {
     width: 100%;
-    margin: 50px 0 0;
-    max-height: 676px;
+    margin: 70px 0 0;
     height: 100%;
     
 }
 .blocks {
-  max-height: 676px;
   height: 100%;
-}
-.single-block {
-  max-height: 595px;
-  height: 595px;
   position: relative;
-  @include flexbox();
-  flex-direction: row;
-  justify-content: space-between;
+}
 
-}
-.blocks {
-  position: relative;
-}
 .blocks,
-.item-service,
 .phases-blocks {
     @include flexbox();
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-}
-
-.item-service {
-  width: 30%;
-  height: 300px;
-  float: left;
-  position: absolute;
-  top: 30%;
-  left: 5%;
-  
-}
-.block-img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 70%;
-}
-.sofa .block-img{
-  height: 70%;
-  width: 35%;
-}
-.carpet .block-img {
-  height: 80%;
 }
 .phases-blocks:last-child {
   flex-direction: row-reverse;
@@ -101,17 +65,25 @@
 }
 .block-item {
     flex: 1 ;
-    padding: 20px 0 0;  
+    padding: 40px 0 0;
+    position: relative;
 }
 .block-content {
    padding-left: 24px;
+   overflow: hidden;
 }
 .feat-img{
+  overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
+  
 }
-
+.sofa .feat-img img,
+.mattress .feat-img img {
+  position: absolute;
+  bottom: 0;
+}
 .block-content h1 {
   margin: 0;
   padding: 0;
@@ -161,24 +133,52 @@
   font-weight: 600;
 
 }
-.single-content {
-    position: relative;
+
+
+.carpet a {
+  color: $color__text-footer;
 }
-a.order-button{
-  position: absolute;
-  bottom: 0;
+/*== Single service ==*/
+.single-block {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  overflow: hidden;
+  min-height: 595px;
+  height: 100%;  
+}
+.item-service {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item-serveice-content{
+  width: 70%;
+  height: 60%;
+  position: relative;
+}
+
+a.order-button {
   width: 90%;
-  margin: 0 auto;
   color: #fff;
   display: block;
   text-align: center;
   background: #000;
   padding: 10px;
+  position: absolute;
+  bottom: 0; 
+}
+.block-img {
+  //border: 1px solid red;
+  display: flex;
+  align-items: flex-end;
+  
 }
 
-.carpet a {
-    color: $color__text-footer;
-}
+/*== #Single service ==*/
+
 .reviews,
 .order-form,
 .s_blocks {
@@ -403,7 +403,6 @@ progress::-webkit-progress-bar {
 
 .order-block {
     color: $color__text-footer;
-    height: 545px;
     display: flex;
     align-items: center;
 

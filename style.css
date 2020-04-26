@@ -1149,32 +1149,14 @@ a.policy-link:hover {
 
 .featured_block {
   width: 100%;
-  margin: 50px 0 0;
-  max-height: 676px;
+  margin: 70px 0 0;
   height: 100%; }
 
 .blocks {
-  max-height: 676px;
-  height: 100%; }
-
-.single-block {
-  max-height: 595px;
-  height: 595px;
-  position: relative;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-
-.blocks {
+  height: 100%;
   position: relative; }
 
 .blocks,
-.item-service,
 .phases-blocks {
   display: -webkit-box;
   display: -moz-box;
@@ -1185,27 +1167,6 @@ a.policy-link:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch; }
-
-.item-service {
-  width: 30%;
-  height: 300px;
-  float: left;
-  position: absolute;
-  top: 30%;
-  left: 5%; }
-
-.block-img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 70%; }
-
-.sofa .block-img {
-  height: 70%;
-  width: 35%; }
-
-.carpet .block-img {
-  height: 80%; }
 
 .phases-blocks:last-child {
   flex-direction: row-reverse; }
@@ -1236,15 +1197,23 @@ a.policy-link:hover {
 
 .block-item {
   flex: 1;
-  padding: 20px 0 0; }
+  padding: 40px 0 0;
+  position: relative; }
 
 .block-content {
-  padding-left: 24px; }
+  padding-left: 24px;
+  overflow: hidden; }
 
 .feat-img {
+  overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: end; }
+  justify-content: flex-end; }
+
+.sofa .feat-img img,
+.mattress .feat-img img {
+  position: absolute;
+  bottom: 0; }
 
 .block-content h1 {
   margin: 0;
@@ -1296,23 +1265,45 @@ a.policy-link:hover {
   font-size: 14px;
   font-weight: 600; }
 
-.single-content {
+.carpet a {
+  color: #fff; }
+
+/*== Single service ==*/
+.single-block {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  overflow: hidden;
+  min-height: 595px;
+  height: 100%; }
+
+.item-service {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.item-serveice-content {
+  width: 70%;
+  height: 60%;
   position: relative; }
 
 a.order-button {
-  position: absolute;
-  bottom: 0;
   width: 90%;
-  margin: 0 auto;
   color: #fff;
   display: block;
   text-align: center;
   background: #000;
-  padding: 10px; }
+  padding: 10px;
+  position: absolute;
+  bottom: 0; }
 
-.carpet a {
-  color: #fff; }
+.block-img {
+  display: flex;
+  align-items: flex-end; }
 
+/*== #Single service ==*/
 .reviews,
 .order-form,
 .s_blocks {
@@ -1561,7 +1552,6 @@ progress::-webkit-progress-bar {
 
 .order-block {
   color: #fff;
-  height: 545px;
   display: flex;
   align-items: center; }
 
@@ -1853,68 +1843,47 @@ object {
   .header__list li {
     margin: 0 0 0 10px; }
   .header-info li {
-    margin-left: 8px; }
-  .item-service {
-    width: 35%; }
-  .block-img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 60%;
-    width: 50%; }
-  .carpet .block-img {
-    height: 68%; }
-  .sofa .block-img {
-    height: 70%;
-    width: 50%; } }
+    margin-left: 8px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .header__list li a,
   .header-info li {
     font-size: 15px; }
-  .block-item {
-    padding: 50px 0; }
   .block-content {
     padding: 0 20px; }
   .blog-content {
     flex-direction: column; }
   .block-content h1 {
     line-height: 37px; }
-  .order-block {
-    height: 400px; }
   .order_content {
     top: 18%; }
-  .single-content {
-    margin-left: 40px; }
   .r-item {
     flex: 1 100%; }
   .owl-prev span, .owl-next span {
     top: 30%; } }
 
 @media only screen and (max-width: 768px) {
-  body .lock {
+  .lock {
     overflow: hidden; }
   .menu-block {
     justify-content: center; }
   .header__list li a,
   .header-info li {
     font-size: 16px; }
-  .sofa .feat-img,
-  .mattress .feat-img {
-    position: relative; }
-  .carpet .feat-img {
-    width: 100%;
-    margin: 0;
-    float: right; }
-  .carpet .feat-img img {
-    float: right; }
+  .scrolled-content {
+    margin: 75px 0 20px; }
+  .sofa .feat-img img,
   .mattress .feat-img img {
-    float: right; }
-  .mattress .feat-img,
-  .sofa .feat-img {
-    width: 100%;
-    bottom: 0; }
+    position: unset; }
+  .carpet .feat-img img {
+    width: 80%; }
+  .single-block {
+    min-height: 100%;
+    margin: 15px;
+    border-radius: 4px; }
+  .block-img {
+    margin: 60px 0 0; }
   .container {
     max-width: 100% !important; }
   .featured_block {
@@ -1985,22 +1954,10 @@ object {
   .show_phone {
     font-size: 15px;
     font-size: 1.5rem; }
-  .block-item {
-    padding: 30px 0; }
-  .item-service {
-    justify-content: flex-end;
-    position: absolute;
-    bottom: 0; }
   .text-block {
     width: 80%; }
   .text-block h2 {
     font-size: 25px; }
-  .block-img img {
-    width: 100%;
-    float: right; }
-  .sofa .block-img {
-    height: auto;
-    width: 70%; }
   .f-social {
     width: 100%;
     float: none;
@@ -2029,25 +1986,8 @@ object {
     margin: 5px 0;
     border-radius: 5px;
     position: relative; }
-  .block-img {
-    max-height: unset !important;
-    width: 100%;
-    height: 70%; }
-  .feat-img {
-    position: relative;
-    bottom: 70px; }
-  .carpet .block-img {
-    height: 80%; }
   .s_blocks {
     padding: 40px 0; }
-  .single-content {
-    width: 100%;
-    margin: 20px 0 0 0; }
-  a.order-button {
-    position: relative;
-    margin: 40px 0 0;
-    width: 100%;
-    background-color: #21A068; }
   .r-item a .svg-inline--fa {
     font-size: 17px;
     font-size: 1.7rem;
@@ -2131,13 +2071,9 @@ object {
 @media only screen and (max-width: 648px) {
   .featured_block {
     margin: 70px 0 10px; }
-  .feat-img {
-    bottom: 40px; }
   .review-block {
     width: 90%;
     margin: 10px auto; }
-  .single-block {
-    height: 485px; }
   .owl-prev span, .owl-next span {
     top: 20%; }
   .phases-blocks {
@@ -2201,8 +2137,6 @@ object {
     font-size: 15px; }
   .block-price {
     font-size: 13px; }
-  .single-block {
-    height: 400px; }
   .r-item h1 {
     font-size: 13px;
     font-size: 1.3rem; }
@@ -2239,20 +2173,11 @@ object {
     margin-top: 20px; }
   .block-content h1 {
     line-height: 30px; }
-  .feat-img {
-    bottom: 60px; }
-  .block-img {
-    height: 60%; }
   .sofa .feat-img img {
     width: 80%; }
-  .carpet .feat-img {
-    width: 80%;
-    max-height: 280px; }
   .order_content {
     right: 15px;
     width: 100%; }
-  .single-block {
-    height: 350px; }
   .owl-prev span, .owl-next span {
     top: 10%; }
   .float-btn-sticky {
@@ -2268,10 +2193,6 @@ object {
     align-items: baseline; }
   .prices-title img {
     width: 50px; }
-  .carpet .block-img {
-    height: auto; }
-  .feat-img {
-    bottom: 0; }
   .carpet .feat-img {
     width: 70%;
     max-height: 230px; } }

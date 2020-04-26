@@ -42,7 +42,7 @@ get_header();
                     <p><?php the_content();?></p>
                     <span class='block-price'>
                         <?php the_excerpt()?>
-                    </span>
+                    </span>                   
                 </div>
                 <div class="feat-img"><?php the_post_thumbnail( )?></div>
                 <p class='link-more'> Детальніше</p>
@@ -76,6 +76,7 @@ get_header();
                     <span class='block-price'>
                         <?php the_excerpt()?>
                     </span>
+                    
                 </div>
                 <div class="feat-img"><?php the_post_thumbnail( )?></div>
                 <p class='link-more'> Детальніше</p>
@@ -110,8 +111,9 @@ get_header();
                     <span class='block-price'>
                         <?php the_excerpt()?>
                     </span>
+                    
                 </div>
-                <div class="feat-img"><?php //the_post_thumbnail( )?></div>
+                <div class="feat-img"><?php the_post_thumbnail( )?></div>
                 <p class='link-more'> Детальніше</p>
             </a>
             <?php endforeach; endwhile;wp_reset_query();?>
