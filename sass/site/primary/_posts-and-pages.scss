@@ -152,7 +152,8 @@
   display: flex !important;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
+  margin: 0 0 0 60px;  
 }
 .item-serveice-content{
   width: 70%;

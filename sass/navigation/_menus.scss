@@ -50,30 +50,36 @@
 .main-navigation {
   justify-content: flex-start;
 }
-
+.ui.selection.dropdown .text {
+  width: 60px;
+}
 
 .header-info {
   justify-content: flex-end;
 
 }
-.lang-switcher,
+.lang-switcher
 {
   text-align: center;
-
 }
-#goog-gt-tt {display:none !important;}
-.goog-te-banner-frame {display:none !important;}
-.goog-te-menu-value:hover {text-decoration:none !important;}
-.goog-text-highlight {background-color:transparent !important;box-shadow:none !important;}
-#google_translate_element2 {display:none!important;}
-
-.lang-switcher a{
+.lang-switcher a.languages__item {
   color: #4E4E4E;
   margin: 0 3px;
+  text-transform: uppercase;
 }
-.lang-switcher a.active{
+.lang-switcher a.languages__item::after{
+  content: " \007C ";
+  // margin: 0 3px;
+
+}
+.lang-switcher a.languages__item:last-child::after {
+  content: " ";
+
+}
+.lang-switcher span.languages__item--current {
   color: #000;
   font-weight: 500;
+  text-transform: uppercase;
 }
 .current_page_item > a,
 .current-menu-item > a,

@@ -92,9 +92,9 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v6.0&appId=498188843586746&autoLogAppEvents=1"></script>
 <!-- start webpushr tracking code -->
-<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";
+<!-- <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.src = "https://cdn.webpushr.com/app.min.js";
         fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
-    webpushr('init','BJ1J9WrDgfVQmFoAoqUsywiwP9neYGrEsjAHZRnWp0sStGypo-Aot80uCGdkJDWOqPdyRJnmgBNzValWV2nqm-w');</script>
+    webpushr('init','BJ1J9WrDgfVQmFoAoqUsywiwP9neYGrEsjAHZRnWp0sStGypo-Aot80uCGdkJDWOqPdyRJnmgBNzValWV2nqm-w');</script> -->
 <!-- end webpushr tracking code -->
 </body>
 </html>

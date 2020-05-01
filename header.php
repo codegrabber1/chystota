@@ -49,9 +49,8 @@
                     <div class="cityname d-block d-sm-block d-md-none d-lg-none">
                         <div class="custom-select" >
                             <select id="mobil" class="ui dropdown">
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>">Львів</option>
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>">Київ</option>
-
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo __('Lviv', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo __('Kyiv', 'chystota');?></option>
                             </select>
                         </div>
                     </div>
@@ -85,12 +84,7 @@
                     </div>
 
                     <div class="lang-switcher d-md-none d-lg-none">
-                        <div id="google_translate_element2"></div>
-                        <!-- GTranslate: https://gtranslate.io/ -->
-                        <a href="#" id="ua" onclick="doGTranslate('uk|uk');return false;" title="Ukrainian" class="active glink nturl notranslate">UA</a>
-                        <span> | </span>
-                        <a href="#" id="ru" onclick="doGTranslate('uk|ru');return false;" title="Russian" class="glink nturl notranslate">RU</a>
-
+                        <?php echo mcw_polylang_languages()?>
                     </div>
                 </nav><!-- #site-navigation -->
             </div>
@@ -105,20 +99,15 @@
                     <li class="d-none d-sm-none d-md-none d-lg-block">
                         <div class="custom-select" >
                             <select id="Mobility" class="ui dropdown">
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>">Львів</option>
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>">Київ</option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo __('Lviv', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo __('Kyiv', 'chystota');?></option>
                             </select>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="lang-switcher d-none d-sm-none d-md-none d-lg-block order-md-4" >
-                <div id="google_translate_element2"></div>
-                <!-- GTranslate: https://gtranslate.io/ -->
-                <a href="#" id="ua" onclick="doGTranslate('uk|uk');return false;" title="Ukrainian" class="active glink nturl notranslate">UA</a>
-                <span> | </span>
-                <a href="#" id="ru" onclick="doGTranslate('uk|ru');return false;" title="Russian" class="glink nturl notranslate">RU</a>
-
+                <?php echo mcw_polylang_languages()?>
             </div>
         </div>
 	</header><!-- #masthead -->
@@ -126,7 +115,7 @@
         <div class='cityLink'>
             <p>Your cite is :</p>
             <ul>
-                <li><a href="#" data-option="Львів" class="cityName active">Львів</a></li>
+                <li><a href="#" data-option="Львів" class="ihs-city active">Львів</a></li>
                 <li><a href="#" data-option="Київ" class="cityName">Ні, Київ</a></li>
             </ul>
         </div>

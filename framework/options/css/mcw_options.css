@@ -148,7 +148,7 @@
 }
 
 #mcw_admin .options_form label {
-    text-align: right;
+    /* text-align: right; */
     float: left;
     /* font-weight: bold; */
     margin-right: 10px;

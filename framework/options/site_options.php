@@ -154,7 +154,6 @@ function mcw_theme_options_page(){
                                     <input type="text" id="mcw_options[mcw_inst_url]" name="mcw_options[mcw_inst_url]" value="<?php echo esc_attr( $options['mcw_inst_url'] );?>" />
                                     <span class="description long"><?php _e( "Enter full instagram-URL starting with <strong> https:// </strong>, or leave blank.", 'chystota' );?></span>
                                 </div>
-
                                 <div class="field">
                                     <label for="mcw_options[mcw_youtube_url]"><?php _e( 'Youtube URL', 'chystota' );?></label>
                                     <input id="mcw_options[mcw_youtube_url]" name="mcw_options[mcw_youtube_url]" type="text" value="<?php echo esc_attr($options['mcw_youtube_url']); ?>" />
@@ -302,26 +301,31 @@ function mcw_theme_options_page(){
                             <h2><?php _e( 'Set categories', 'chystota' );?></h2>
                             <div class="fields_wrap">
                                 <div class="field">
-                                    <h3><?php _e( 'Choose a category for the FAQ page', 'chystota' );?></h3>
-                                    <label for="mcw_options[faq_category]"><?php _e( 'Photo Category', 'chystota' )?></label>
+                                    
+                                        <h3><?php _e( 'Choose a category for the FAQ page', 'chystota' );?></h3>
+                                    
+                                        <label for="mcw_options[faq_category]"><?php _e( 'FAQ Category', 'chystota' )?></label>
 
-                                    <select name="mcw_options[faq_category]" id="mcw_options[faq_category]" class="styled">
-                                        <?php
-                                            $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ));
-                                        ?>
-                                        <option <?php selected( 0 == $options['faq_category'] )?> value="0">
-                                            <?php _e( 'All categories', 'chystota' );?>
-                                        </option>
-                                        <?php
-                                            if( $categories ):
-                                             foreach( $categories as $cat ) : ?>
-                                                 <option <?php selected( $cat->term_id == $options['faq_category'] )?>
-                                                         value="<?php echo $cat->term_id;?>"><?php echo $cat->cat_name?>
-                                                 </option>
-                                        <?php endforeach; endif;?>
-                                    </select>
-                                    <span class="desc long"><?php _e( "Choose a category for the FAQ page.", 'chystota' ); ?></span>
-                                </div>
+                                        <select name="mcw_options[faq_category]" id="mcw_options[faq_category]" class="styled">
+                                            <?php
+                                                $categories = get_categories( array ( 'hide_empty' => 1, 'hierarchical' => 0 ));
+                                            ?>
+                                            <option <?php selected( 0 == $options['faq_category'] )?> value="0">
+                                                <?php _e( 'All categories', 'chystota' );?>
+                                            </option>
+                                            <?php
+                                                if( $categories ):
+                                                foreach( $categories as $cat ) : ?>
+                                                    <option <?php selected( $cat->term_id == $options['faq_category'] )?>
+                                                            value="<?php echo $cat->term_id;?>"><?php echo $cat->cat_name?>
+                                                    </option>
+                                            <?php endforeach; endif;?>
+                                        
+                                        
+                                        </select>
+                                    
+                                        <span class="desc long"><?php _e( "Choose a category for the FAQ page.", 'chystota' ); ?></span>
+                                </div>    
                                 <div class="field">
                                     <h3><?php _e( 'Choose a category for the discount page', 'chystota' );?></h3>
                                     <label for="mcw_options[discount_category]"><?php _e( 'Discount Category', 'chystota' )?></label>

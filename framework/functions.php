@@ -449,6 +449,80 @@ $urls = array_diff( $urls, array( $emoji_svg_url ) );
 
 return $urls;
 }
+/**
+ * Show Polylang Languages with Custom Markup
+ * @param  string $class Add custom class to the languages container
+ * @return string        
+ */
+function mcw_polylang_languages( $class = '' ) {
 
+  if ( ! function_exists( 'pll_the_languages' ) ) return;
+
+  // Gets the pll_the_languages() raw code
+  $languages = pll_the_languages( array(
+    'display_names_as'       => 'slug',
+    'hide_if_no_translation' => 1,
+    'raw'                    => true
+  ) ); 
+
+  $output = '';
+
+  // Checks if the $languages is not empty
+  if ( ! empty( $languages ) ) {
+
+    // Creates the $output variable with languages container
+    $output = '<div class="languages' . ( $class ? ' ' . $class : '' ) . '">';
+
+    // Runs the loop through all languages
+    foreach ( $languages as $language ) {
+   
+      // Variables containing language data
+      $id             = $language['id'];
+      $slug           = $language['slug'];
+      $url            = $language['url'];
+      $current        = $language['current_lang'] ? ' languages__item--current' : '';
+      $no_translation = $language['no_translation'];
+
+      // Checks if the page has translation in this language
+      if ( ! $no_translation ) {
+        
+        // Check if it's current language
+        if ( $current ) {
+          // Output the language in a <span> tag so it's not clickable
+          $output .= "<a href='#' class=\"languages__item$current\">$slug</a>";
+          
+        } else {
+          // Output the language in an anchor tag
+          $output .= "<a href=\"$url\" class=\"languages__item$current\">$slug</a>";
+        }
+      }
+
+    }
+
+    $output .= '</div>';
+
+  }
+
+  return $output;
+}
+
+// geo shortcode
+function getCity($atts, $city) {
+
+    $atts = [
+        'city' => 'Київ',
+        'no-city' => 'No city'
+    ];
+    if($city == $atts['city']){
+        return $city;
+    } else {
+        return $atts['city'];
+    }
+
+    return 'Hello';
+
+    
+}
+add_shortcode('getcity', 'getCity' );
 
 
