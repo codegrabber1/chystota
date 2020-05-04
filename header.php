@@ -49,8 +49,8 @@
                     <div class="cityname d-block d-sm-block d-md-none d-lg-none">
                         <div class="custom-select" >
                             <select id="mobil" class="ui dropdown">
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo __('Lviv', 'chystota');?></option>
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo __('Kyiv', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo __('Львов', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo __('Киев', 'chystota');?></option>
                             </select>
                         </div>
                     </div>
@@ -99,8 +99,8 @@
                     <li class="d-none d-sm-none d-md-none d-lg-block">
                         <div class="custom-select" >
                             <select id="Mobility" class="ui dropdown">
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo __('Lviv', 'chystota');?></option>
-                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php echo __('Kyiv', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone' )?>"><?php  _e('Львов', 'chystota');?></option>
+                                <option class="item" value="<?php echo mcw_get_option( 'mcw_phone_kyiv' )?>"><?php  _e('Киев', 'chystota');?></option>
                             </select>
                         </div>
                     </li>

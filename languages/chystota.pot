@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
+"Project-Id-Version: chystota\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2016-12-23 16:00+0100\n"
 "MIME-Version: 1.0\n"
@@ -32,76 +32,567 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: comments.php:34
-#. translators: 1: title.
+#: category.php:16 category.php:33
+msgid "Заказать чистку"
+msgstr "Замовити чистку"
+
+#: comments.php:35
+#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
+msgstr "Один коментар до &ldquo;%1$s&rdquo;"
 
-#: comments.php:67
+#: comments.php:66
 msgid "Comments are closed."
-msgstr ""
+msgstr "Коментарі закриті."
 
-#: footer.php:18
-msgid "https://wordpress.org/"
-msgstr ""
-
-#: footer.php:20
-#. translators: %s: CMS name, i.e. WordPress.
-msgid "Proudly powered by %s"
-msgstr ""
-
-#: footer.php:25
-#. translators: 1: Theme name, 2: Theme author.
-msgid "Theme: %1$s by %2$s."
-msgstr ""
-
-#: functions.php:47
+#: framework/functions.php:66
 msgid "Primary"
-msgstr ""
+msgstr "Головне меню"
 
-#: functions.php:105
+#: framework/functions.php:67
+msgid "Footer"
+msgstr "Колонтитул"
+
+#: framework/functions.php:128
 msgid "Sidebar"
-msgstr ""
+msgstr "Бокова панель"
 
-#: functions.php:107
+#: framework/functions.php:130 framework/functions.php:184
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:24
-msgid "Skip to content"
+#: framework/functions.php:142
+msgid "Feature"
+msgstr "Особливості"
+
+#: framework/functions.php:144
+msgid "Add a widget here to show your features"
 msgstr ""
 
-#: header.php:45
-msgid "Primary Menu"
+#: framework/functions.php:153
+msgid "Block for widgets on the front page"
 msgstr ""
 
-#: inc/template-tags.php:52
-#. translators: used between list items, there is a space after the comma
+#: framework/functions.php:155 framework/functions.php:166
+#: framework/functions.php:177
+msgid "Add a widgets here"
+msgstr ""
+
+#: framework/functions.php:164
+msgid "Block for widgets in the middle of the category page"
+msgstr ""
+
+#: framework/functions.php:175
+msgid "Block for widgets above the footer for categories."
+msgstr ""
+
+#: framework/functions.php:182
+msgid "Block for widgets on the discount page."
+msgstr ""
+
+#: framework/functions.php:192
+msgid "Footer Left"
+msgstr ""
+
+#: framework/functions.php:194
+msgid "Add widgets here to place them on the left side of the footer"
+msgstr ""
+
+#: framework/functions.php:199
+msgid "Footer Middle"
+msgstr ""
+
+#: framework/functions.php:201
+msgid "Add widgets here to place them in the middle of the footer"
+msgstr ""
+
+#: framework/options/site_options.php:50
+msgid "Theme options"
+msgstr "Опції теми"
+
+#: framework/options/site_options.php:91
+msgid "Theme settings"
+msgstr "Налаштування теми"
+
+#: framework/options/site_options.php:97
+msgid "General"
+msgstr ""
+
+#: framework/options/site_options.php:98
+msgid "Promo"
+msgstr ""
+
+#: framework/options/site_options.php:99
+msgid "Categories"
+msgstr ""
+
+#: framework/options/site_options.php:100
+msgid "SEO"
+msgstr ""
+
+#: framework/options/site_options.php:101
+#: framework/options/site_options.php:398
+msgid "Reset"
+msgstr ""
+
+#: framework/options/site_options.php:108
+msgid "Theme setup has been updated successfully"
+msgstr ""
+
+#: framework/options/site_options.php:117
+msgid "Main Settings"
+msgstr ""
+
+#: framework/options/site_options.php:121
+msgid "How to upload an image?"
+msgstr ""
+
+#: framework/options/site_options.php:123
+msgid ""
+"You can manually specify the URL for the logo and other images or download "
+"the image from your computer."
+msgstr ""
+
+#: framework/options/site_options.php:125
+msgid "Header settings"
+msgstr ""
+
+#: framework/options/site_options.php:127
+msgid "Download the logo"
+msgstr ""
+
+#: framework/options/site_options.php:131
+msgid "Upload a logo image or specify a path. Max width: 300px."
+msgstr ""
+
+#: framework/options/site_options.php:135
+msgid "Upload Favicon"
+msgstr ""
+
+#: framework/options/site_options.php:138
+msgid "Upload your 16x16 px favicon."
+msgstr ""
+
+#: framework/options/site_options.php:141
+msgid "Apple Touch Icon"
+msgstr ""
+
+#: framework/options/site_options.php:144
+msgid "Upload your 114px by 114px icon."
+msgstr ""
+
+#: framework/options/site_options.php:146
+msgid "Set social links"
+msgstr ""
+
+#: framework/options/site_options.php:148
+msgid "Facebook URL"
+msgstr ""
+
+#: framework/options/site_options.php:150
+msgid ""
+"Enter full facebook-URL starting with <strong> https:// </strong>, or leave "
+"blank."
+msgstr ""
+
+#: framework/options/site_options.php:153
+msgid "Instagram URL"
+msgstr ""
+
+#: framework/options/site_options.php:155
+msgid ""
+"Enter full instagram-URL starting with <strong> https:// </strong>, or leave "
+"blank."
+msgstr ""
+
+#: framework/options/site_options.php:158
+msgid "Youtube URL"
+msgstr ""
+
+#: framework/options/site_options.php:160
+msgid ""
+"Enter full youtube-URL starting with <strong> https:// </strong>, or leave "
+"blank."
+msgstr ""
+
+#: framework/options/site_options.php:163
+msgid "Viber"
+msgstr ""
+
+#: framework/options/site_options.php:165
+msgid "Enter your viber number, or leave blank."
+msgstr ""
+
+#: framework/options/site_options.php:168
+msgid "Telegram"
+msgstr ""
+
+#: framework/options/site_options.php:170
+msgid "Enter your Telegram number, or leave blank."
+msgstr ""
+
+#: framework/options/site_options.php:173
+msgid "Phone"
+msgstr ""
+
+#: framework/options/site_options.php:175
+#: framework/options/site_options.php:180
+msgid "Enter your phone number, or leave blank."
+msgstr ""
+
+#: framework/options/site_options.php:178
+msgid "Phone Kyiv"
+msgstr ""
+
+#: framework/options/site_options.php:182
+msgid "Contact Card"
+msgstr ""
+
+#: framework/options/site_options.php:184
+msgid "Contact Email"
+msgstr ""
+
+#: framework/options/site_options.php:186
+msgid "Enter your contact email for customers."
+msgstr ""
+
+#: framework/options/site_options.php:191
+msgid "Promote your services"
+msgstr ""
+
+#: framework/options/site_options.php:194
+msgid "Show blocks on the front page."
+msgstr ""
+
+#: framework/options/site_options.php:195
+msgid "Choose three categories to promote your services."
+msgstr ""
+
+#: framework/options/site_options.php:198
+msgid "Choose a category to promote your first service"
+msgstr ""
+
+#: framework/options/site_options.php:200
+msgid "First service"
+msgstr ""
+
+#: framework/options/site_options.php:204
+#: framework/options/site_options.php:237
+#: framework/options/site_options.php:270
+#: framework/options/site_options.php:314
+#: framework/options/site_options.php:338
+#: framework/options/site_options.php:359
+msgid "All categories"
+msgstr ""
+
+#: framework/options/site_options.php:218
+#: framework/options/site_options.php:251
+#: framework/options/site_options.php:285
+msgid "Choose the color of background"
+msgstr ""
+
+#: framework/options/site_options.php:224
+#: framework/options/site_options.php:257
+#: framework/options/site_options.php:291
+msgid "Choose the color of text"
+msgstr ""
+
+#: framework/options/site_options.php:232
+msgid "Choose a category to promote your second service"
+msgstr ""
+
+#: framework/options/site_options.php:233
+msgid "Second service"
+msgstr ""
+
+#: framework/options/site_options.php:265
+msgid "Choose a category to promote your third service"
+msgstr ""
+
+#: framework/options/site_options.php:266
+msgid "Third service"
+msgstr ""
+
+#: framework/options/site_options.php:301
+msgid "Set categories"
+msgstr ""
+
+#: framework/options/site_options.php:305
+msgid "Choose a category for the FAQ page"
+msgstr ""
+
+#: framework/options/site_options.php:307
+msgid "FAQ Category"
+msgstr ""
+
+#: framework/options/site_options.php:327
+msgid "Choose a category for the FAQ page."
+msgstr ""
+
+#: framework/options/site_options.php:330
+msgid "Choose a category for the discount page"
+msgstr ""
+
+#: framework/options/site_options.php:331
+msgid "Discount Category"
+msgstr ""
+
+#: framework/options/site_options.php:348
+msgid "Choose a category for the discount page."
+msgstr ""
+
+#: framework/options/site_options.php:352
+msgid "Choose a category for your blog"
+msgstr ""
+
+#: framework/options/site_options.php:353
+msgid "Blog"
+msgstr ""
+
+#: framework/options/site_options.php:369
+msgid "Choose a category for your blog."
+msgstr ""
+
+#: framework/options/site_options.php:376
+msgid "Analytics for the site"
+msgstr ""
+
+#: framework/options/site_options.php:377
+msgid "For increasing a searching rating is used Google."
+msgstr ""
+
+#: framework/options/site_options.php:379
+msgid "Meta info"
+msgstr ""
+
+#: framework/options/site_options.php:381
+msgid "SEO name of the site"
+msgstr ""
+
+#: framework/options/site_options.php:383
+msgid "Enter the name of the home page."
+msgstr ""
+
+#: framework/options/site_options.php:386
+msgid "SEO Description"
+msgstr ""
+
+#: framework/options/site_options.php:388
+msgid "Add a description."
+msgstr ""
+
+#: framework/options/site_options.php:392
+msgid "Keywords"
+msgstr ""
+
+#: framework/options/site_options.php:394
+msgid "Add keywords. You can add more keywords separated by commas."
+msgstr ""
+
+#: framework/options/site_options.php:401
+msgid "Atention!"
+msgstr ""
+
+#: framework/options/site_options.php:402
+msgid ""
+"You will lose all your theme settings and your own side panels. The theme "
+"will reset the original settings."
+msgstr ""
+
+#: framework/options/site_options.php:405
+msgid "If you want to restore the initial settings, click on the button."
+msgstr ""
+
+#: framework/options/site_options.php:406
+msgid "Reset the initial settings"
+msgstr ""
+
+#: framework/options/site_options.php:415
+msgid "Save Settings"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:36
+msgid "Displays the form for callback."
+msgstr ""
+
+#: framework/widgets/callback_widget.php:38
+msgid "chystota: The form for callback "
+msgstr ""
+
+#: framework/widgets/callback_widget.php:65
+msgid "Your phone"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:66
+msgid "Make order"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:97
+#: framework/widgets/widget_facebook.php:111
+#: framework/widgets/widget_responses_count.php:174
+msgid "Title:"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:108
+msgid " Description:"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:118
+msgid "Set the text color"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:126
+msgid "Choose a color for the text on the block where the form is."
+msgstr ""
+
+#: framework/widgets/callback_widget.php:131
+msgid "Set the background color"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:139
+msgid "Choose a color for the block where the form is."
+msgstr ""
+
+#: framework/widgets/callback_widget.php:144
+msgid "Image URL:"
+msgstr ""
+
+#: framework/widgets/callback_widget.php:154
+msgid "Select an Image"
+msgstr ""
+
+#: framework/widgets/feature_widget.php:36
+msgid "Displays the information about your features."
+msgstr ""
+
+#: framework/widgets/feature_widget.php:38
+msgid "chystota: Features"
+msgstr "чистота: Послуги"
+
+#: framework/widgets/feature_widget.php:97 page-front.php:48 page-front.php:82
+#: page-front.php:117
+msgid "Детали"
+msgstr ""
+
+#: framework/widgets/feature_widget.php:133
+msgid "How many features to display?"
+msgstr ""
+
+#: framework/widgets/feature_widget.php:141
+#: framework/widgets/widget_services.php:126
+msgid "Filter by Category:"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:28
+msgid "Displays Facebook like box in the sidebar of the theme."
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:30
+msgid "chystota: Facebook Likebox"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:116
+msgid "Facebook Page URL:"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:121
+msgid "Width:"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:127
+msgid "News line:"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:138
+msgid "Show faces"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:143
+msgid "Hide cover"
+msgstr ""
+
+#: framework/widgets/widget_facebook.php:148
+msgid "Show small facebook header"
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:23
+msgid "Displays how many people liked your page and work."
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:25
+msgid "chystota: Responce count"
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:143
+msgid "Based on "
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:179
+msgid "Google API Key:"
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:184
+msgid "Google Place ID:"
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:261
+msgid "Facebook Page ID:"
+msgstr ""
+
+#: framework/widgets/widget_responses_count.php:266
+msgid "Facebook Access Token:"
+msgstr ""
+
+#: framework/widgets/widget_services.php:31
+msgid "Displays the information about your services."
+msgstr ""
+
+#: framework/widgets/widget_services.php:33
+msgid "chystota: About our Services"
+msgstr ""
+
+#: framework/widgets/widget_services.php:111
+msgid "Ttile"
+msgstr ""
+
+#: framework/widgets/widget_services.php:119
+msgid "How many categories to display?"
+msgstr ""
+
+#: header.php:52 header.php:102
+msgid "Львов"
+msgstr "Львів"
+
+#: header.php:53 header.php:103
+msgid "Киев"
+msgstr "Київ"
+
+#: inc/template-tags.php:62
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:55
-#. translators: 1: list of categories.
+#: inc/template-tags.php:65
+#, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:62
-#. translators: 1: list of tags.
+#: inc/template-tags.php:72
+#, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
-#. translators: %s: post title
+#: inc/template-tags.php:82
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:89 template-parts/content-page.php:35
-#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:99 template-parts/content-page.php:38
+#, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: search.php:21
-#. translators: %s: search query.
+#: search.php:22
+#, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
@@ -109,12 +600,13 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:25
-#. translators: 1: link to WP admin new post page.
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:38
+#: template-parts/content-none.php:37
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -126,61 +618,23 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22 template-parts/content.php:45
+#: template-parts/content-page.php:25
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content.php:34
-#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-subfooter.php:14
+msgid "Не нашли, что искали ?"
+msgstr ""
+
+#: template-parts/content-subfooter.php:15
+msgid "Позвоните нам"
+msgstr ""
+
+#: template-parts/content-subfooter.php:17
+msgid "или найдите нас в социальных сетях"
+msgstr ""
+
+#: template-parts/content.php:21
+#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#. Theme Name of the plugin/theme
-msgid "_s"
-msgstr ""
-
-#. Theme URI of the plugin/theme
-msgid "https://underscores.me/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if "
-"you like. I'm a theme meant for hacking so don't use me as a <em>Parent "
-"Theme</em>. Instead try turning me into the next, most awesome, WordPress "
-"theme out there. That's what I'm here for."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Automattic"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://automattic.com/"
-msgstr ""
-
-#: comments.php:40
-#. translators: 1: comment count number, 2: title.
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/template-tags.php:29
-#. translators: %s: post date.
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
-#: inc/template-tags.php:35
-#. translators: %s: post author.
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#: inc/template-tags.php:59
-#. translators: used between list items, there is a space after the comma
-msgctxt "list item separator"
-msgid ", "
 msgstr ""

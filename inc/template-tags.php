@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Chystota
+ * @package chystota
  */
 
 if ( ! function_exists( 'chystota_posted_on' ) ) :

@@ -1,10 +1,10 @@
 <?php
 /**
- * Chystota functions and definitions
+ * chystota functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Chystota
+ * @package chystota
  */
 
 if ( ! function_exists( 'chystota_setup' ) ) :
@@ -30,7 +30,6 @@ if ( ! function_exists( 'chystota_setup' ) ) :
          */
          require( get_template_directory() . "/framework/widgets/feature_widget.php" );
          require( get_template_directory() . "/framework/widgets/callback_widget.php" );
-         //require( get_template_directory() . "/framework/widgets/widget_responses_count.php" );
          require( get_template_directory() . "/framework/widgets/widget_facebook.php" );
          require( get_template_directory() . "/framework/widgets/widget_services.php" );
 
@@ -38,10 +37,16 @@ if ( ! function_exists( 'chystota_setup' ) ) :
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on Chystota, use a find and replace
+         * If you're building a theme based on chystota, use a find and replace
          * to change 'chystota' to the name of your theme in all the template files.
          */
-        load_theme_textdomain( 'chystota', get_template_directory() . '/languages' );
+        //load_theme_textdomain( 'chystota', get_template_directory() . '/languages' );
+
+	    add_action('init', 'dev_load_theme_textdomain');
+	    function dev_load_theme_textdomain() {
+		    load_theme_textdomain('chystota', get_template_directory() . '/languages');
+	    }
+        
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -213,7 +218,7 @@ function chystota_scripts() {
 
    wp_enqueue_style( 'chystota-semanticcss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' );
 
-   wp_enqueue_style( 'chystota-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' );
+   //wp_enqueue_style( 'chystota-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' );
 
     wp_enqueue_style( 'chystota-fontawesomecss', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css' );
 
@@ -234,7 +239,7 @@ function chystota_scripts() {
 
 	wp_enqueue_script( 'chystota-lang-js', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2', array(), '', true );
 
-	wp_enqueue_script( 'chystota-langjs', get_template_directory_uri() . '/js/lang.js', array(), '', true );
+	//wp_enqueue_script( 'chystota-langjs', get_template_directory_uri() . '/js/lang.js', array(), '', true );
 
     wp_enqueue_script( 'chystota-myjs', get_template_directory_uri() . '/js/custom.js', array(), '', true );
 
@@ -244,9 +249,7 @@ function chystota_scripts() {
    function mihdan_add_defer_attribute( $tag, $handle ) {
     
         $handles = array(
-            // 'chystota-semanticjs',
             'chystota-fawjs',
-            // 'chystota-owljs',
             'chystota-myjs',
         );
             
@@ -280,12 +283,7 @@ add_action( 'wp_enqueue_scripts', 'chystota_scripts' );
 
 function admin_scripts() {
 	if( is_admin() ) {
-
-		//wp_enqueue_style( 'mcw-colorcss', get_template_directory_uri() . '/framework/options/css/color-picker.css' );
 		wp_enqueue_script('mcw_upload', get_template_directory_uri() .'/framework/options/js/upload.js', array('jquery'));
-//		wp_enqueue_script('mcw_colorpicker', get_template_directory_uri() . '/framework/options/js/colorpicker.js', array( 'jquery' ), '', true);
-//		wp_enqueue_script('mcw_select_js', get_template_directory_uri() . '/framework/options/js/jquery.customSelect.min.js', array( 'jquery' ), '', true);
-		
 	}
 }
 add_action( 'admin_init', 'admin_scripts' );
@@ -379,7 +377,7 @@ function true_custom_fields() {
 add_action('init', 'true_custom_fields');
 
 // For Mailchimp  subscription.
-function makecodework_mailchimp_subscriber_status( $email, $status, $list_id, $api_key ){
+function chystota_mailchimp_subscriber_status( $email, $status, $list_id, $api_key ){
 	$data = array(
 		'apikey'        => $api_key,
 		'email_address' => $email,
@@ -525,4 +523,22 @@ function getCity($atts, $city) {
 }
 add_shortcode('getcity', 'getCity' );
 
+if( function_exists('acf_add_options_page') ) {
+
+	// Language Specific Options
+	// Translatable options specific languages. e.g., social profiles links
+	//
+
+	$languages = array( 'uk', 'ru' );
+
+	foreach ( $languages as $lang ) {
+		acf_add_options_page( array(
+			'page_title' => 'Site Options (' . strtoupper( $lang ) . ')',
+			'menu_title' => __('Site Options (' . strtoupper( $lang ) . ')', 'text-domain'),
+			'menu_slug'  => "site-options-${lang}",
+			'post_id'    => $lang
+		) );
+	}
+
+}
 

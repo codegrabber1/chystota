@@ -7,9 +7,9 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @file    front-page.php
- * @author  codegrabber <[makecodework@gmail.com]>
+ * @author  codegrabber <[chystota@gmail.com]>
  *
- * @package Chystota
+ * @package chystota
  */
 get_header();
 ?>
@@ -45,7 +45,7 @@ get_header();
                     </span>                   
                 </div>
                 <div class="feat-img"><?php the_post_thumbnail( )?></div>
-                <p class='link-more'> Детальніше</p>
+                <p class='link-more'> <?php _e( 'Детали', 'chystota')?></p>
             </a>
             <?php endforeach; endwhile;wp_reset_query();?>
         </div> <!-- #First service.-->
@@ -79,7 +79,7 @@ get_header();
                     
                 </div>
                 <div class="feat-img"><?php the_post_thumbnail( )?></div>
-                <p class='link-more'> Детальніше</p>
+                <p class='link-more'> <?php _e( 'Детали', 'chystota')?></p>
             </a>
             <?php endforeach; endwhile;wp_reset_query();?>
             </a>
@@ -114,7 +114,7 @@ get_header();
                     
                 </div>
                 <div class="feat-img"><?php the_post_thumbnail( )?></div>
-                <p class='link-more'> Детальніше</p>
+                <p class='link-more'> <?php _e( 'Детали', 'chystota')?></p>
             </a>
             <?php endforeach; endwhile;wp_reset_query();?>
             </a>

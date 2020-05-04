@@ -5,7 +5,7 @@
  * Description: This widget displays the Facebook likebox with the stream in the sidebar.
  * Version: 1.0
  * Author: chystota
- * Author URI: makecodework@gmail.com
+ * Author URI: chystota@gmail.com
  *
  */
 
@@ -27,7 +27,7 @@ class chystota_facebook_widget extends WP_Widget {
 			'classname'     => 'f_widget',
 			'description'   => __( 'Displays Facebook like box in the sidebar of the theme.', 'chystota' )
 		];
-		parent ::__construct( 'chystota_facebook_widget',__( 'Chystota: Facebook Likebox', 'chystota' ), $widget_ops);
+		parent ::__construct( 'chystota_facebook_widget',__( 'chystota: Facebook Likebox', 'chystota' ), $widget_ops);
 	}
 
 	/**

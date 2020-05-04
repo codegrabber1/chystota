@@ -1,8 +1,8 @@
 <?php
 /**
- * Chystota Theme Customizer
+ * chystota Theme Customizer
  *
- * @package Chystota
+ * @package chystota
  */
 
 /**

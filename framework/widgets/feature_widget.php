@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Chystota: Feature
+ * Plugin Name: chystota: Feature
  * Plugin URI:
  * Description: This widget displays the information about your features.
  * Version: 1.0
  * Author: O.Poruchenko
- * Author URI: makecodework@gmail.com
+ * Author URI: chystota@gmail.com
  *
  */
 
@@ -35,7 +35,7 @@ function chystota_feature_widgets() {
             'classname'     => 'f_widget',
             'description'   => __( 'Displays the information about your features.', 'chystota' )
         ];
-        parent::__construct( 'chystota_feature_widget', __( 'Chystota: Features', 'chystota' ) ,$widget_ops );
+        parent::__construct( 'chystota_feature_widget', __( 'chystota: Features', 'chystota' ) ,$widget_ops );
 
     }
     /**
@@ -94,7 +94,7 @@ function chystota_feature_widgets() {
                         <?php the_post_thumbnail( )?>
                     </div>
 	            
-                <p class='link-more'> Детальніше</p>
+                <p class='link-more'> <?php _e( 'Детали', 'chystota')?></p>
                 </a>
                 <?php endforeach;?>
             </div>

@@ -7,7 +7,7 @@
 * @package  codegraber
 * @file     option_functions.php
 * @author   codegramcwer [Oleg Poruchenko]
-* @link    [makecodework@gmail.com]
+* @link    [chystota@gmail.com]
 */
 
 $options = get_option( 'mcw_options' );

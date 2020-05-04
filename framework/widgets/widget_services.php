@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Chystota: Services.
+ * Plugin Name: chystota: Services.
  * Plugin URI:
  * Description: This widget displays the list of your serveces.
  * Version: 1.0
  * Author: O.Poruchenko
- * Author URI: makecodework@gmail.com
+ * Author URI: chystota@gmail.com
  *
  */
 
@@ -30,7 +30,7 @@ class chystota_services_widget extends WP_Widget {
 			'classname'     => 'f_widget',
 			'description'   => __( 'Displays the information about your services.', 'chystota' )
 		];
-		parent::__construct( 'chystota_services_widget', __( 'Chystota: About our Services' ), $widget_options );
+		parent::__construct( 'chystota_services_widget', __( 'chystota: About our Services' ), $widget_options );
 	}
 	/**
 	 * Display the widget on the screen.
@@ -39,14 +39,11 @@ class chystota_services_widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
-		$title = apply_filters( 'widget-title', $instance['title'] );
+		$title = esc_html__(apply_filters( 'widget-title', $instance['title'] ));
 		$cats = $instance['category'];
 		$cats_display = explode(", ", $cats);
 		$entries_display    = $instance['entries_display'];
-//		echo "<pre>";
-//		var_dump( $cats_display );
-//		echo "</pre>";
-//		exit();
+
 
 		if( empty( $entries_display ) ) {
 			$entries_display = '3';
@@ -54,22 +51,11 @@ class chystota_services_widget extends WP_Widget {
 
 		$args = array(
 			'include'         => $cats,
-//			'ignore_sticky_posts' => 1,
-//			'order'               => 'DESC',
-//			'post_type'           => 'post',
-//			'taxonomy'            => 'category',
-//			'post__not_in'        => [1],
-//			'posts_per_page'      => $entries_display,
-            
 		);
 		$query = get_terms( $args );
-//		echo "<pre>";
-//		var_dump( $query );
-//		echo "</pre>";
-//		exit();
 		?>
 		<?php if( $title ):?>
-		<div class="f-title"><?php echo $title; ?></div>
+		<div class="f-title"><?php echo $title ?></div>
 		<?php endif;?>
 			<div class="f-content">
 				<ul>

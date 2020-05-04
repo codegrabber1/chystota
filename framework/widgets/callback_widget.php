@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Chystota: The form for callback.
+ * Plugin Name: chystota: The form for callback.
  * Plugin URI:
  * Description: This widget displays the form for callback.
  * Version: 1.0
  * Author: chystota
- * Author URI: makecodework@gmail.com
+ * Author URI: chystota@gmail.com
  *
  */
 
@@ -35,7 +35,7 @@
             'classname'     => 'f_widget',
             'description'   => __( 'Displays the form for callback.', 'chystota' )
         ];
-        parent::__construct( 'chystota_callback_widget', __( 'Chystota: The form for callback ', 'chystota' ) ,$widget_ops );
+        parent::__construct( 'chystota_callback_widget', __( 'chystota: The form for callback ', 'chystota' ) ,$widget_ops );
 
 
     }
@@ -47,7 +47,7 @@
     function widget( $args, $instance ){
         extract( $args );
         $title                  = apply_filters('widget_title', $instance['title']);
-        $description            = $instance['description'];
+        $description            = apply_filters('widget_text', $instance['description']);
         $image                  = $instance['image'];
         $chystota_order_color   = wp_filter_nohtml_kses( $instance['chystota_order_color'] );
         $chystota_tex_color     = wp_filter_nohtml_kses( $instance['chystota_text_color'] );
@@ -58,12 +58,12 @@
                 <div class="order_content clearfix">
                     <h2><?php echo $title?></h2>
                     <p>
-                        <?php echo $description;?>
+                        <?php esc_html_e( $description, 'chystota' );?>
                     </p>
                     <?php //echo do_shortcode( '[amoforms id="1"]', true )?>
                     <form action="" method="post" >
-                        <input type="tel" value="" placeholder="<?php _e( 'Your phone', 'chystota' )?>">
-                        <input type="submit" value="<?php _e( 'Make order', 'chystota' );?>">
+                        <input type="tel" value="" placeholder="<?php _e( 'Телефон', 'chystota' )?>">
+                        <input type="submit" value="<?php _e( 'Заказать чистку', 'chystota' );?>">
                     </form>
                 </div>
             </div>

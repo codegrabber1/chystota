@@ -7,9 +7,9 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @file    page-faq.php
- * @author  codegrabber <[makecodework@gmail.com]>
+ * @author  codegrabber <[chystota@gmail.com]>
  *
- * @package Chystota
+ * @package chystota
  */
 get_header();
 ?>

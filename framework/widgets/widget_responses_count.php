@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Chystota: Count Responces
+ * Plugin Name: chystota: Count Responces
  * Plugin URI:
  * Description: This widget displays how many people liked your page and work.
  * Version: 1.0
  * Author: chystota
- * Author URI: makecodework@gmail.com
+ * Author URI: chystota@gmail.com
  *
  */
 
@@ -22,7 +22,7 @@ class chystota_response_count_widget extends WP_Widget {
 			'classname'     => 'f_widget',
 			'description'   => __( 'Displays how many people liked your page and work.', 'chystota' )
 		];
-		parent ::__construct( 'chystota_response_count_widget',__( 'Chystota: Responce count', 'chystota' ), $widget_ops);
+		parent ::__construct( 'chystota_response_count_widget',__( 'chystota: Responce count', 'chystota' ), $widget_ops);
 	}
 
 	public function widget( $args, $instance ) {

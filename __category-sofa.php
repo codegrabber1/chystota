@@ -1,21 +1,12 @@
 <?php
-/**
- *
- */
-get_header();
+    get_header();
 ?>
 <div class="scrolled-content clearfix">
     <div class="single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
-    <!-- d-none d-sm-none d-md-block -->
-        <div class="item-service clearfix">
+    <div class="item-service clearfix">
             <div class="item-serveice-content d-none d-sm-none d-md-block d-lg-block clearfix">    
-                <?php 
-                    $ukrTitle = get_field( 'ukr_title', $post->ID) ;
-                    $ruTitle = get_field( 'ru_title', $post->ID) ;
-                    $local = get_locale();
-                ?>
-                <h1><?php if($local == "uk"){ echo $ukrTitle; }else{echo $ruTitle ;} ?></h1>
-                <?php while( have_posts()): the_post();
+                <h1><?php _e('Выездная химчистка диванов в Львове', 'chystota');?> </h1>
+                <?php while(have_posts()): the_post();
                         the_content();
                     endwhile;?>
                 <a class="order-button" href="#orderPhone"><?php echo __( 'Заказать чистку', 'chystota' );?></a>
@@ -24,35 +15,20 @@ get_header();
         <div class="block-img clearfix">
             <img src="<?php echo get_field( 'full_pict' );?>" alt="<?php //the_title();?>">
         </div>
-         
-    </div>
-
-   <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-        <h1><?php echo get_field( 'full_category_name' );?></h1>
-        <?php while( have_posts()): the_post();
-            the_content();
-        endwhile;?>
-    </div>
-    <!-- Floating button -->
- <div class="float-btn-sticky d-md-none d-lg-none clearfix">
-    <a class="sticky-button" href="#order-color"><?php echo __( 'Заказать чистку', 'chystota' );?></a>
-</div><!-- #Floating button -->
+            <!-- Floating button -->
+        <div class="float-btn-sticky d-md-none d-lg-none clearfix">
+            <a class="sticky-button" href="#order-color"><?php echo __( 'Заказать чистку', 'chystota' );?></a>
+        </div><!-- #Floating button -->
 </div>
+
 
 <!-- Prices-->
 <section class="price-block">
-    <?php
-        $ukrtitle = get_field( 'ukr', $post->ID) ;
-        $rutitle = get_field( 'ru', $post->ID) ;
-        $local = get_locale();
-        $icon = get_field( 'icon' );
-
-    ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col price-block-title ">
-                <h2><?php  if($local == "uk"){ echo $ukrtitle; }else{echo $rutitle ;} ?></h2>
-                <img src="<?php echo $icon?>" alt="<?php echo $title?>">
+                <h2><?php _e( 'Стоимость чистки диванов', 'chystota' );?></h2>
+                <img src="<?php echo get_field( 'icon' );?>" alt="<?php echo bloginfo( 'name' );?>">
             </div>
         </div>
     </div>
@@ -95,6 +71,7 @@ get_header();
         </div>
     </div>
 </section><!-- !Prices of cleaning-->
+
 <!--The phases of cleaning -->
  <section class="phases">
      <?php
@@ -132,6 +109,8 @@ get_header();
         </div>
         <?php endwhile; endif; wp_reset_query();?>
  </section>    <!-- !The phases of cleaning -->
+
+
 <?php
     if( is_category() ):
         if( dynamic_sidebar( 'middlepage' )) : ?>
@@ -142,16 +121,7 @@ get_header();
 <!-- Slider with responses. -->
 <section class="s-response">
 
-    <?php
-    //== Section title. ===//
-
-    $ukrHead = get_field( 'ukr_head', $post->ID) ;
-    $ruHead = get_field( 'ru_head', $post->ID) ;
-    $local = get_locale();
-    
-    ?>
-
-    <h2> <?php if($local == "uk"){ echo $ukrHead; }else{echo $ruHead ;}?> </h2>
+    <h2> <?php _e( 'Результаты нашей работы', 'chystota' );?> </h2>
     <!-- Section slider. -->
     <div id="resp-slider" class="owl-carousel">
         <?php
@@ -206,11 +176,10 @@ if( is_category() ):
 	endif;
 endif;
 ?>
-
-    <!-- Order From and Contact block with phone number and socials -->
+<!-- Order From and Contact block with phone number and socials -->
 <?php
     get_template_part( 'template-parts/content', 'subfooter' );
 ?>
 <?php
-    get_footer();
+  get_footer(  );
 ?>

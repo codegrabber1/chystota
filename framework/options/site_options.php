@@ -8,7 +8,7 @@
  * @package  codegramcwer
  * @file     site_options.php
  * @author   codegramcwer [Oleg Poruchenko]
- * @link    [makecodework@gmail.com]
+ * @link    [chystota@gmail.com]
  */
 /**
  * Properly enqueue styles and scripts for our theme options page.
@@ -88,7 +88,7 @@ function mcw_theme_options_page(){
 				<div class="left">
 					<h2><?php bloginfo( 'name' );?></h2>
 				</div>
-				<div class="theme_info"><?php echo _e('Theme settings', 'chystota'); ?></div>
+				<div class="theme_info"><?php echo __('Theme settings', 'chystota'); ?></div>
 			</div>
 		</header> <!-- /header -->
         <div class="options-wrap">

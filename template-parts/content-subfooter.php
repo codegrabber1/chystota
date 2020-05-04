@@ -4,17 +4,17 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Chystota
+ * @package chystota
  */
 
 ?>
 <!-- Contact block with phone number and socials -->
 <section class="s_blocks">
 	<div class="block clearfix">
-		<h2><?php echo __( "Не знайшли, що шукали ?" )?></h2>
-		<span>Зателефонуйте нам <?php if( mcw_get_option( 'mcw_phone' ) ): ?>
+		<h2><?php _e( 'Не нашли, что искали ?', 'chystota' )?></h2>
+		<span><?php _e( 'Позвоните нам', 'chystota');?> <?php if( mcw_get_option( 'mcw_phone' ) ): ?>
 				<a class="subfooter_phone" href="tel:<?php echo mcw_get_option( 'mcw_phone' )?>"><?php echo mcw_get_option( 'mcw_phone' )?></a>
-			<?php endif; ?>або знайдіть нас у соціальних мережах</span>
+			<?php endif; ?> <?php _e( 'или найдите нас в социальных сетях', 'chystota' );?></span>
 	</div>
 	<div class="block clearfix">
 		<div class="socials-block">
