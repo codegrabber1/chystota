@@ -1,10 +1,10 @@
 <?php
 /**
- * chystota functions and definitions
+ * Chystota functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package chystota
+ * @package Chystota
  */
 
 /**

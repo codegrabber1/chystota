@@ -11,18 +11,99 @@ jQuery(document).ready(function($){
     $('#citynames')
         .dropdown()
         ;
+
     // Phone dropdown.
-    $('.ui.dropdown')
-        .dropdown();
+    $('.ui.dropdown').dropdown();
+
+    // function handleSelectedValue(){
+    //     let selectedClass = $("#Mobility :selected").val();
+    //     Cookies.set('selected', selectedClass, { expires: 7 });
+    //
+    //     let myCookie = Cookies.get('selected');
+    //
+    //     if(myCookie === selectedClass){
+    //         $('.show_phone').html(myCookie);
+    //         //alert(myCookie );
+    //     }
+    //
+    //     // $('.f-phone').html(getPhone);
+    //     // $('.subfooter_phone').html(getPhone);
+    //     // $('.show_phone').html(getPhone);
+    // }
+
+
     //Changing phone number on the top.
     $('#Mobility').on('change', function () {
-        let val = $("#Mobility :selected").val();
-        localStorage.setItem('getPhone', val);
-        let getPhone = localStorage.getItem('getPhone');
-        //alert(getPhone);
-        $('.f-phone').html(getPhone);
-        $('.subfooter_phone').html(getPhone);
-        $('.show_phone').html(getPhone);
+
+        if(Cookies.get('selected')){
+            Cookies.remove('selected');
+            
+            let selOpt = $("#Mobility :selected");
+            let val = selOpt.val();
+
+            localStorage.setItem('getPhone', val);
+            let getPhone = localStorage.getItem('getPhone');
+            $('.show_phone').html(getPhone);
+            $('.ui.dropdown').dropdown('set selected', val);
+
+        } else{
+            
+            let selOpt = $("#Mobility :selected");
+            let val = selOpt.val();
+
+            Cookies.set('selected', val);
+            $v = Cookies.get('selected');
+            
+            $('.show_phone').html($v);
+        }
+
+        // if (val != a) {
+        //     alert("Вибереш номер " + a);
+        //     Cookies.set('selected', a);
+        //     //$a = Cookies.get('selected');
+        //     $('.show_phone').html($a);
+        // } else {
+        //     alert("Вибереш номер " + val);
+        //     Cookies.set('selected', val);
+        //     // $v=Cookies.get();
+        //     //     alert("Вибрав номер"+ $v);
+        //     $('.show_phone').html($v);
+        //     //location.reload();
+        // }
+        // document.cookie = 'getPhone';
+        // alert(document.cookie);
+
+
+
+       // $cookie = Cookies.get('selected');
+        //console.log( $cookie);
+        //alert(a +" -> " +  $cookie);
+        //alert(a +" -> " +  $cookie);
+
+        // if(a != val){
+        //
+        //     a.html($cookie);
+        //     location.reload();
+        // } else {
+        //
+        //     Cookies.set('selected', val, { expires: 7 });
+        //
+        //     $cookie= Cookies.get('selected');
+        //
+        //     a.html($cookie);
+        //     location.reload();
+        // }
+
+
+        //let getPhone = localStorage.getItem('getPhone');
+        // let ph = selOpt.val();
+        // alert('hel');
+
+        
+        // //alert(getPhone);
+        // $('.f-phone').html(getPhone).attr('selected','selected');
+        // $('.subfooter_phone').html(getPhone).attr('selected','selected');
+
         
         // $('.show_phone').slideDown('slow', function () {
         //     if ($(this).hasClass('active')) {
@@ -48,6 +129,7 @@ jQuery(document).ready(function($){
         //      }
         //  });
     }); // #Change phone number in header.
+
     // Switch city.
     let cityLink = $('#geocity');
     let showCity = localStorage.getItem('nameTown');
@@ -121,9 +203,10 @@ jQuery(document).ready(function($){
     });
 
     // Top menu.
-    $('.mobile-mnu').click(function(){
-        $('.toggle-mnu, .main-navigation').toggleClass('on');
-        $('body').toggleClass('.lock');
+    $('.mobile-mnu').on('click',function(e){
+        e.preventDefault();
+        $('.toggle-mnu, .mobile-menu').toggleClass('on');
+        $('body').toggleClass('lock');
     }); // end top menu.
 
     // Change phone number in header.
@@ -204,78 +287,7 @@ jQuery(document).ready(function($){
             }
         }
     });
-
-    // Responsive slider.
-    $('#resp-slider').owlCarousel({
-        loop: true,
-        items: 1,
-        margin: 0,
-        singleItem: true,
-        nav: true,
-        responsive : {
-            0: {
-                items: 1,
-                nav: false,
-                center: true,
-                stagePadding: 20,
-            },
-            648: {
-                items: 1.50,
-                nav: false,
-                center: false,
-                stagePadding: 20
-            },
-            768: {
-                items: 1,
-                nav: false,
-                center: false,
-                stagePadding: 20,
-            },
-            900: {
-                items: 1,
-                nav: false,
-                stagePadding: 20,
-                loop: false
-            },
-            1000: {
-                items: 1,
-                nav: true,
-                //stagePadding: 20,
-                loop: false
-            }
-        }
-    });
-
     
-    
-    $(function () {
-
-        $(window).scroll(function () {
-        const elem = $('#resp-slider');
-
-        const elemContent = $('.block-content');
-        //const elemCont = $('.block-content');
-        //let topHeight = elemCont.position();
-        // alert(topHeight.top);
-        let scroll = $(window).scrollTop() + $(window).height();
-        let offset = elem.offset().top + elem.height();
-
-        if ($(window).scrollTop() >= elemContent.outerHeight(true)) {
-            //$('.float-btn-sticky').css('bottom', + topHeight.top + "px");
-            if (scroll > offset) {
-                $('.float-btn-sticky').fadeOut();
-            } else {
-                $('.float-btn-sticky').fadeIn();
-            }
-        }else {
-            $('.float-btn-sticky').fadeOut();
-        }
-
-
-
-        });
-
-    });
 });// end ready
 
 

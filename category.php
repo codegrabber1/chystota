@@ -5,7 +5,7 @@
 get_header();
 ?>
 <div class="scrolled-content clearfix">
-    <div class="single-block <?php echo get_post_meta($post->ID, 'css-style', true)?> clearfix">
+    <div class="single-block <?php echo get_field('name_of_style', $post->ID)?> clearfix">
     <!-- d-none d-sm-none d-md-block -->
         <div class="item-service clearfix">
             <div class="item-serveice-content d-none d-sm-none d-md-block d-lg-block clearfix">    
@@ -28,7 +28,7 @@ get_header();
     </div>
 
    <div class="block-content d-block d-sm-block d-md-none single-content clearfix">
-        <h1><?php echo get_field( 'full_category_name' );?></h1>
+        <h1><?php echo the_title();?></h1>
         <?php while( have_posts()): the_post();
             the_content();
         endwhile;?>
@@ -60,7 +60,7 @@ get_header();
     <div class="container-fluid">
         <div class="prices">
             <div class="prices-title ">
-                <h3><?php echo $title?></h3>
+                <h3><?php if($local == "uk"){ echo $ukrtitle; }else{echo $rutitle ;}?></h3>
                 <img src="<?php echo $icon?>" alt="<?php echo $title?>">
             </div>
             <?php
@@ -180,7 +180,8 @@ get_header();
                     <div class="response-items">
                         <div class="r-item">
                             <div class="author-pic">
-                                <img src="<?php echo get_field( 'avatar',$post->ID );?>" alt="<?php echo get_field( 'avatar',$post->ID );?>">
+                                <img src="<?php echo get_field( 'avatar',$post->ID );?>"
+                                     alt="<?php echo the_title()?>">
                                 <p><?php echo the_title();?></p>
                             </div>
                             <?php the_content();?>

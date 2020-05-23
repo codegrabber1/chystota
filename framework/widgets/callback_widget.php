@@ -60,11 +60,7 @@
                     <p>
                         <?php esc_html_e( $description, 'chystota' );?>
                     </p>
-                    <?php //echo do_shortcode( '[amoforms id="1"]', true )?>
-                    <form action="" method="post" >
-                        <input type="tel" value="" placeholder="<?php _e( 'Телефон', 'chystota' )?>">
-                        <input type="submit" value="<?php _e( 'Заказать чистку', 'chystota' );?>">
-                    </form>
+                    <?php echo do_shortcode( '[amoforms id="1"]', true )?>
                 </div>
             </div>
             <div class="adver-pict">

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package chystota
+ * @package Chystota
  */
 
 get_header();
@@ -14,7 +14,7 @@ get_header();
 <?php
 	$id = mcw_get_option( 'blog_category' );
 	$slug = get_the_category_by_ID( $id );
-		if( has_category( $slug ) ) : ?>
+		if( has_category( $slug ) || has_category('blog-ru')) : ?>
 	<main id="main" class="site-main ">
         <div class="container">
             <div class="post-date">

@@ -214,11 +214,12 @@ remove_filter( 'the_excerpt', 'wpautop' );
  * Enqueue scripts and styles.
  */
 function chystota_scripts() {
+
     wp_enqueue_style( 'chystota-bootstrapcss', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css' );
 
-   wp_enqueue_style( 'chystota-semanticcss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css' );
+    wp_enqueue_style( 'chystota-semanticcss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css' );
 
-   //wp_enqueue_style( 'chystota-animatecss', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' );
+    wp_enqueue_style( 'chystota-semantictranscss', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css' );
 
     wp_enqueue_style( 'chystota-fontawesomecss', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css' );
 
@@ -228,42 +229,39 @@ function chystota_scripts() {
 
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-    //wp_enqueue_script( 'chystota-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '20151215', true );
+    wp_enqueue_script( 'chystota-coockiejs', 'https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js', array(), '20151215', true );
 
     
-    wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '20151215', true );
-
-    wp_enqueue_script( 'chystota-fawjs', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js', array(), '20151215', true );
+    wp_enqueue_script( 'chystota-semanticjs', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js', array(), '', true );
 
     wp_enqueue_script( 'chystota-owljs', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'chystota-lang-js', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2', array(), '', true );
-
-	//wp_enqueue_script( 'chystota-langjs', get_template_directory_uri() . '/js/lang.js', array(), '', true );
 
     wp_enqueue_script( 'chystota-myjs', get_template_directory_uri() . '/js/custom.js', array(), '', true );
 
-
-    wp_enqueue_script("cookieconsentjs", "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js",array(),false,true);
+    if(is_category()){
+	    wp_enqueue_script( 'chystota-floatbtnjs', get_template_directory_uri() . '/js/float-btn.js', array(), '', true );
+    }
+    
 
    function mihdan_add_defer_attribute( $tag, $handle ) {
-    
+
         $handles = array(
             'chystota-fawjs',
             'chystota-myjs',
         );
-            
+
         foreach( $handles as $defer_script) {
             if ( $defer_script === $handle ) {
                 return str_replace( ' src', ' async="async" src', $tag );
             }
         }
-        
+
         return $tag;
         }
         add_filter( 'script_loader_tag', 'mihdan_add_defer_attribute', 10, 2 );
-   
-   
+
+
     function add_data_attribute( $tag, $handle, $src ) {
 		if ( 'cookieconsentjs' !== $handle )
 			return $tag;
@@ -274,7 +272,7 @@ function chystota_scripts() {
 
 	add_filter( 'script_loader_tag', 'add_data_attribute', 10, 3 );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
+        //wp_enqueue_script( 'comment-reply' );
     }
 
 }
@@ -334,40 +332,6 @@ function doctype_opengraph($output) {
 }
 add_filter('language_attributes', 'doctype_opengraph');
 
-/**
- * Facebook Open Graph
- */
-
-function fb_opengraph() {
-
-    if(is_single()) {
-        global $post;
-        if( get_the_post_thumbnail( $post->ID, 'thumbnail' ) ){
-            $thumbnail_id = get_post_thumbnail_id($post->ID);
-            $thumbnail_object = get_post($thumbnail_id);
-            $image = $thumbnail_object->guid;
-
-        } else{
-            $image = "//localhost/chystota.wp/wp-content/uploads/2020/02/logo.png";
-        }
-
-        ?>
-
-    <meta property="og:url" content="<?php the_permalink() ?>"/>
-    <meta property="og:title" content="<?php the_title(); ?>"/>
-        <meta property="og:description" content="<?php echo $excerpt; ?>"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:url" content="<?php the_permalink(); ?>"/>
-        <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>"/>
-        <meta property="og:image" content="<?php echo $image; ?>"/>
-    <meta property="fb:app_id" content="179481638828016" />
-
-        <?php
-    } else {
-        return;
-    }
-}
-add_action('wp_head', 'fb_opengraph', 5);
 
 // подключаем функцию активации мета блока (my_extra_fields)
 function true_custom_fields() {

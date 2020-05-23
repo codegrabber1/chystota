@@ -156,7 +156,7 @@
   margin: 0 0 0 60px;  
 }
 .item-serveice-content{
-  width: 70%;
+  width: 90%;
   height: 60%;
   position: relative;
 }
@@ -471,16 +471,10 @@ progress::-webkit-progress-bar {
     display: flex;
     text-align: left;
     align-items: center;
-    text-align: left;
-    
-    
 }
-.socials .svg-inline--fa {
-  margin: 5px 8px;
+.socials .fab{
   @include font-size(1.4);
-  float: left;
-  width: 25px;
-  height: 25px;
+  margin: 5px 8px;
 }
 .socials span {
   display: block;

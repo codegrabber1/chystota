@@ -11,18 +11,27 @@
 		
 	}
 }
+
+
+
 .not-found {
 	background: url('images/404_bg.png') ;
-	
-	background-color: #ffffff;
-	
-	/* You must set a specified height */
-	background-position: top;
-	/* Center the image */
-	background-repeat: no-repeat;
-	/* Do not repeat the image */
-	background-size: cover;
-	/* Resize the background image to cover the entire container */
+}
+.thx-bg {
+	background: url('images/thanx_bg.png') ;
+  
+}
+.thx-bg,
+.not-found {
+  background-color: #ffffff;
+
+  /* You must set a specified height */
+  background-position: top;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */
 }
 .page-content {
 	display: flex;
@@ -39,6 +48,40 @@
 .page-content h2 {
 	font-size: 48px;
 	font-weight: bold;line-height: 57px;
+}
+.big_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+}
+.big_buttons a {
+  width: 48%;
+  background-color: #000000;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 50px 0 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  
+
+
+}
+.big_buttons a.fbBt{
+  background-color: #4267B2;
+}
+.big_buttons a.fbBt .svg-inline--fa,
+.big_buttons a.instBt .svg-inline--fa{
+  margin: 0 20px;
+  font-size: 14px;
+  width: 25px;
+  height: 25px
+
+}
+.big_buttons a.instBt{
+  background-color: #E1306C;
 }
 .not-found-btn,
 .not-found-btn:hover,
